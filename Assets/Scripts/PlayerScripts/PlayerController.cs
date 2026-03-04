@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference sprintAction;
     [SerializeField] private InputActionReference crouchAction;
     [SerializeField] private InputActionReference jumpAction;
+    [SerializeField] private InputActionReference throwFlareAction;
 
     private void OnEnable()
     {
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         MoveUpdate();
+        ActionUpdate();
     }
 
     private void MoveUpdate()
@@ -120,6 +122,14 @@ public class PlayerController : MonoBehaviour
         // Make MoveUpdate() work
         Vector3 finalMove = move * moveSpeed + velocity.y * Vector3.up;
         controller.Move(finalMove * Time.deltaTime);
+    }
+
+    private void ActionUpdate()
+    {
+        if(throwFlareAction.action.IsPressed())
+        {
+            Debug.Log("Throw Flare");
+        }
     }
 
 }
