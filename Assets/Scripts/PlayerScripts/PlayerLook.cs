@@ -10,7 +10,7 @@ public class PlayerLook : MonoBehaviour
 
     [Header("Looking Parameters")]
     [SerializeField] private Transform orientation;
-    private float mouseSens = 20f;
+    private float mouseSens = 7f;
     private float xRotation;
     private float yRotation;
 
@@ -43,7 +43,7 @@ public class PlayerLook : MonoBehaviour
         handInterAction.action.Disable();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         LookUpdate();
         PickUpdate();
@@ -51,7 +51,7 @@ public class PlayerLook : MonoBehaviour
 
     private void LookUpdate()
     {
-        Vector2 mouse = mouseSens * Time.deltaTime * lookAction.action.ReadValue<Vector2>();
+        Vector2 mouse = mouseSens * Time.fixedDeltaTime * lookAction.action.ReadValue<Vector2>();
 
         yRotation += mouse.x;
         xRotation -= mouse.y;
@@ -71,7 +71,6 @@ public class PlayerLook : MonoBehaviour
             txtPickUp.style.display = DisplayStyle.Flex;
             if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
             {
-                hit.transform.GetComponentInChildren<UIDocument>().enabled = false;
                 originalHandItemAnchor = hit.transform.parent;
                 OnItemPickedUp(hit, handAnchor);
                 itemInHand = hit.transform;
@@ -100,6 +99,7 @@ public class PlayerLook : MonoBehaviour
         hit.rigidbody.isKinematic = true;
         hit.collider.enabled = false;
         hit.transform.position = handAnchor.position;
+        hit.transform.rotation = handAnchor.rotation;
     }
 
     private void OnItemDropped(bool hasItemInHand, Transform itemInHand, Transform originalAnchor)
@@ -107,6 +107,5 @@ public class PlayerLook : MonoBehaviour
         itemInHand.GetComponent<Rigidbody>().isKinematic = false;
         itemInHand.GetComponent<Collider>().enabled = true;
         itemInHand.SetParent(originalAnchor);
-        itemInHand.GetComponentInChildren<UIDocument>().enabled = true;
     }
 }

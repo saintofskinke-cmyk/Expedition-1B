@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private float eyesPosY;
     private float eyesPosCrouch, eyesPosStand;
     [SerializeField] private PlayerLook PlayerLook;
+    [SerializeField] private GameObject GM;
+
 
     [Header("Movement Parameters")]
     private float moveSpeed;
@@ -79,7 +81,6 @@ public class PlayerController : MonoBehaviour
         Vector3 eyesForward = eyes.forward;
         Vector3 eyesRight = eyes.right;
         eyesForward.y = 0f;
-        eyesRight.x = 0f;
 
         // Movement
         Vector2 input = moveAction.action.ReadValue<Vector2>();
@@ -126,9 +127,17 @@ public class PlayerController : MonoBehaviour
 
     private void ActionUpdate()
     {
-        if(throwFlareAction.action.IsPressed())
+        if(throwFlareAction.action.WasPerformedThisFrame())
         {
-            Debug.Log("Throw Flare");
+            // Setting random rotation for the flare
+            int rndX = Random.Range(-180, 180);
+            int rndY = Random.Range(-180, 180);
+            int rndZ = Random.Range(-180, 180);
+
+            // Instantiate flare and add forward force
+            GameObject flare = Instantiate(GM.GetComponent<GameManager>().flarePrefab, eyes.position + eyes.forward, Quaternion.Euler(rndX, rndY, rndZ));
+            flare.GetComponent<Rigidbody>().AddForce(eyes.forward * 10f, ForceMode.VelocityChange);
+
         }
     }
 
