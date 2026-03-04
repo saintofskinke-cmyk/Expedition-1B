@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,6 +24,11 @@ public class PlayerController : MonoBehaviour
     private bool isPlayerCrouching;
     private Vector3 velocity;
 
+    [Header("PhotoCamera Parameters")]
+    public GameObject mainCamera;
+    public GameObject photoCamera;
+    public bool inPhotoMode;
+
     #region Input Actions
     [Header("Input Actions")]
     [SerializeField] private InputActionReference moveAction;
@@ -31,12 +37,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference jumpAction;
     [SerializeField] private InputActionReference cameraAction;
 
+    private void Awake()
+    {
+        controller = GetComponent<CharacterController>();
+        eyesPosY = eyes.position.y;
+        eyesPosCrouch = eyesPosY - 0.3f;
+        eyesPosStand = eyesPosCrouch + 0.3f;
+
+    }
+
     private void OnEnable()
     {
         moveAction.action.Enable();
         sprintAction.action.Enable();
         crouchAction.action.Enable();
         jumpAction.action.Enable();
+
+        cameraAction.action.started += OnCameraActionStarted;
+        cameraAction.action.canceled += OnCameraActionCancelled;
         cameraAction.action.Enable();
     }
     private void OnDisable()
@@ -45,16 +63,17 @@ public class PlayerController : MonoBehaviour
         sprintAction.action.Disable();
         crouchAction.action.Disable();
         jumpAction.action.Disable();
+
+        cameraAction.action.started -= OnCameraActionStarted;
+        cameraAction.action.canceled -= OnCameraActionCancelled;
         cameraAction.action.Disable();
     }
     #endregion
 
-    private void Awake()
+    private void Start()
     {
-        controller = GetComponent<CharacterController>();
-        eyesPosY = eyes.position.y;
-        eyesPosCrouch = eyesPosY - 0.3f;
-        eyesPosStand = eyesPosCrouch + 0.3f;
+        mainCamera.SetActive(true);
+        photoCamera.SetActive(false);
     }
 
     private void Update()
@@ -124,11 +143,29 @@ public class PlayerController : MonoBehaviour
         controller.Move(finalMove * Time.deltaTime);
     }
 
-    public void ActionUpdate()
+    void OnCameraActionStarted(InputAction.CallbackContext context)
     {
-        if (cameraAction.action.IsPressed())
+        if (PlayerLook.hasItemInHand && PlayerLook.itemInHand.CompareTag("Camera"))
         {
             //hold camera up to eyes - switch to "camera"-mode
+            Debug.Log("Switched to camera-mode");
+            mainCamera.SetActive(false);
+            photoCamera.SetActive(true);
+
+            inPhotoMode = true;
+        }
+    }
+
+    void OnCameraActionCancelled(InputAction.CallbackContext context)
+    {
+        if (PlayerLook.hasItemInHand && PlayerLook.itemInHand.CompareTag("Camera"))
+        {
+            //hold camera up to eyes - switch to "camera"-mode
+            Debug.Log("Switched to camera-mode");
+            mainCamera.SetActive(true);
+            photoCamera.SetActive(false);
+
+            inPhotoMode = false;
         }
     }
 

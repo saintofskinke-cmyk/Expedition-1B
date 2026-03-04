@@ -4,6 +4,8 @@ using UnityEngine.UIElements;
 
 public class PlayerLook : MonoBehaviour
 {
+    [SerializeField] private PlayerController playerController;
+
     [Header("Actions")]
     [SerializeField] private InputActionReference lookAction;
     [SerializeField] private InputActionReference handInterAction;
@@ -19,7 +21,7 @@ public class PlayerLook : MonoBehaviour
     public bool hasItemInHand;
     [SerializeField] private Transform handAnchor;
     private Transform originalHandItemAnchor;
-    private Transform itemInHand;
+    public Transform itemInHand;
     private VisualElement root;
     private Label txtPickUp;
 
@@ -64,24 +66,26 @@ public class PlayerLook : MonoBehaviour
 
     private void PickUpdate()
     {
-
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange)
-            && hit.collider.gameObject.CompareTag("Item"))
+        if (!playerController.inPhotoMode)
         {
-            txtPickUp.style.display = DisplayStyle.Flex;
-            if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange) 
+                && (hit.collider.gameObject.CompareTag("Item") || hit.collider.gameObject.CompareTag("Camera")))
             {
-                originalHandItemAnchor = hit.transform.parent;
-                OnItemPickedUp(hit, handAnchor);
-                itemInHand = hit.transform;
-                hasItemInHand = true;
+                txtPickUp.style.display = DisplayStyle.Flex;
+                if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
+                {
+                    originalHandItemAnchor = hit.transform.parent;
+                    OnItemPickedUp(hit, handAnchor);
+                    itemInHand = hit.transform;
+                    hasItemInHand = true;
+                }
+                else TryItemDrop();
             }
-            else TryItemDrop();
-        }
-        else 
-        {
-            TryItemDrop();
-            txtPickUp.style.display = DisplayStyle.None;
+            else
+            {
+                TryItemDrop();
+                txtPickUp.style.display = DisplayStyle.None;
+            }
         }
     }
     
