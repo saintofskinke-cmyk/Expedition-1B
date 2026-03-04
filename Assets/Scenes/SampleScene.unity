@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5994108340518225187, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -194,7 +198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &208787145
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -743,6 +747,18 @@ PrefabInstance:
     - target: {fileID: 5860162835614752441, guid: 4018ee69cb3acef4c8d2afc12fca46be, type: 3}
       propertyPath: m_Name
       value: HandFlare
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860162835614752441, guid: 4018ee69cb3acef4c8d2afc12fca46be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057827890487546147, guid: 4018ee69cb3acef4c8d2afc12fca46be, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7072805518311929171, guid: 4018ee69cb3acef4c8d2afc12fca46be, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
