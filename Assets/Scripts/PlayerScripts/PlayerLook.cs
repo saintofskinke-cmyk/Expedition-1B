@@ -16,7 +16,7 @@ public class PlayerLook : MonoBehaviour
 
     [Header("Pick Up Parameters")]
     private int pickUpRange = 4;
-    private bool hasItemInHand;
+    public bool hasItemInHand;
     [SerializeField] private Transform handAnchor;
     private Transform originalHandItemAnchor;
     private Transform itemInHand;
@@ -71,7 +71,6 @@ public class PlayerLook : MonoBehaviour
             txtPickUp.style.display = DisplayStyle.Flex;
             if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
             {
-                hit.transform.GetComponentInChildren<UIDocument>().enabled = false;
                 originalHandItemAnchor = hit.transform.parent;
                 OnItemPickedUp(hit, handAnchor);
                 itemInHand = hit.transform;
@@ -100,6 +99,7 @@ public class PlayerLook : MonoBehaviour
         hit.rigidbody.isKinematic = true;
         hit.collider.enabled = false;
         hit.transform.position = handAnchor.position;
+        hit.transform.rotation = handAnchor.rotation;
     }
 
     private void OnItemDropped(bool hasItemInHand, Transform itemInHand, Transform originalAnchor)
@@ -107,6 +107,5 @@ public class PlayerLook : MonoBehaviour
         itemInHand.GetComponent<Rigidbody>().isKinematic = false;
         itemInHand.GetComponent<Collider>().enabled = true;
         itemInHand.SetParent(originalAnchor);
-        itemInHand.GetComponentInChildren<UIDocument>().enabled = true;
     }
 }

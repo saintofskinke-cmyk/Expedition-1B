@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference sprintAction;
     [SerializeField] private InputActionReference crouchAction;
     [SerializeField] private InputActionReference jumpAction;
+    [SerializeField] private InputActionReference cameraAction;
 
     private void OnEnable()
     {
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
         sprintAction.action.Enable();
         crouchAction.action.Enable();
         jumpAction.action.Enable();
+        cameraAction.action.Enable();
     }
     private void OnDisable()
     {
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
         sprintAction.action.Disable();
         crouchAction.action.Disable();
         jumpAction.action.Disable();
+        cameraAction.action.Disable();
     }
     #endregion
 
@@ -77,7 +80,6 @@ public class PlayerController : MonoBehaviour
         Vector3 eyesForward = eyes.forward;
         Vector3 eyesRight = eyes.right;
         eyesForward.y = 0f;
-        eyesRight.x = 0f;
 
         // Movement
         Vector2 input = moveAction.action.ReadValue<Vector2>();
@@ -120,6 +122,14 @@ public class PlayerController : MonoBehaviour
         // Make MoveUpdate() work
         Vector3 finalMove = move * moveSpeed + velocity.y * Vector3.up;
         controller.Move(finalMove * Time.deltaTime);
+    }
+
+    public void ActionUpdate()
+    {
+        if (cameraAction.action.IsPressed())
+        {
+            //hold camera up to eyes - switch to "camera"-mode
+        }
     }
 
 }
