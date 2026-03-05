@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private float eyesPosCrouch, eyesPosStand;
     [SerializeField] private PlayerLook PlayerLook;
     [SerializeField] private GameObject GM;
+    private Inventory inventory;
 
 
     [Header("Movement Parameters")]
@@ -24,6 +26,9 @@ public class PlayerController : MonoBehaviour
     private bool isPlayerGrounded;
     private bool isPlayerCrouching;
     private Vector3 velocity;
+
+    [Header("Other Parameters")]
+    private bool isFlareThrown;
 
     #region Input Actions
     [Header("Input Actions")]
@@ -55,6 +60,8 @@ public class PlayerController : MonoBehaviour
         eyesPosY = eyes.position.y;
         eyesPosCrouch = eyesPosY - 0.3f;
         eyesPosStand = eyesPosCrouch + 0.3f;
+        inventory = GetComponent<Inventory>();
+        StartCoroutine(FlareCountdown());
     }
 
     private void Update()
@@ -127,8 +134,9 @@ public class PlayerController : MonoBehaviour
 
     private void ActionUpdate()
     {
-        if(throwFlareAction.action.WasPerformedThisFrame())
+        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown)
         {
+            StartCoroutine(FlareCountdown());
             // Setting random rotation for the flare
             int rndX = Random.Range(-180, 180);
             int rndY = Random.Range(-180, 180);
@@ -138,7 +146,26 @@ public class PlayerController : MonoBehaviour
             GameObject flare = Instantiate(GM.GetComponent<GameManager>().flarePrefab, eyes.position + eyes.forward, Quaternion.Euler(rndX, rndY, rndZ));
             flare.GetComponent<Rigidbody>().AddForce(eyes.forward * 10f, ForceMode.VelocityChange);
 
+            // Remove flare from inventory
+            inventory.RemoveItem("Flare");
+
         }
     }
 
+    IEnumerator FlareCountdown()
+    {
+        isFlareThrown = true;
+        float seconds = 2f;
+        float barSize = seconds;
+        inventory.flareCooldown.style.scale = new Vector3(seconds, 0.15f, 1f); // flare cooldown UI bar
+
+        for (int i = 0; i < seconds * 2; i++)
+        {
+            yield return new WaitForSeconds(0.5f);
+            barSize -= 0.5f;
+            inventory.flareCooldown.style.scale = new Vector3(barSize, 0.15f, 1f); // flare cooldown UI bar is shrinking
+        }
+
+        isFlareThrown = false;
+    }
 }

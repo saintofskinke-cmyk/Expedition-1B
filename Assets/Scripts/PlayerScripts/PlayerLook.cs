@@ -10,7 +10,7 @@ public class PlayerLook : MonoBehaviour
 
     [Header("Looking Parameters")]
     [SerializeField] private Transform orientation;
-    private float mouseSens = 7f;
+    private float mouseSens = 20f;
     private float xRotation;
     private float yRotation;
 
@@ -27,7 +27,7 @@ public class PlayerLook : MonoBehaviour
     {
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
-        root = GetComponent<UIDocument>().rootVisualElement;
+        root = GetComponentInParent<UIDocument>().rootVisualElement;
         txtPickUp = root.Q<Label>("txtPickUp");
     }
 
@@ -43,10 +43,14 @@ public class PlayerLook : MonoBehaviour
         handInterAction.action.Disable();
     }
 
+    private void Update()
+    {
+        PickUpdate();
+    }
+
     private void FixedUpdate()
     {
         LookUpdate();
-        PickUpdate();
     }
 
     private void LookUpdate()
@@ -89,7 +93,8 @@ public class PlayerLook : MonoBehaviour
     {
         if (handInterAction.action.WasPressedThisFrame() && hasItemInHand)
         {
-            OnItemDropped(hasItemInHand, itemInHand, originalHandItemAnchor);
+            
+            OnItemDropped(hasItemInHand, itemInHand, originalHandItemAnchor, 10f);
             hasItemInHand = false;
         }
     }
@@ -102,10 +107,19 @@ public class PlayerLook : MonoBehaviour
         hit.transform.rotation = handAnchor.rotation;
     }
 
-    private void OnItemDropped(bool hasItemInHand, Transform itemInHand, Transform originalAnchor)
+    private void OnItemDropped(bool hasItemInHand, Transform itemInHand, Transform originalAnchor, float force)
     {
         itemInHand.GetComponent<Rigidbody>().isKinematic = false;
         itemInHand.GetComponent<Collider>().enabled = true;
         itemInHand.SetParent(originalAnchor);
+
+        // Random rotation
+        int rndX = Random.Range(-90, 90);
+        int rndY = Random.Range(-90, 90);
+        int rndZ = Random.Range(-90, 90);
+        itemInHand.Rotate(rndX, rndY, rndZ);
+        
+        // Throw the item
+        itemInHand.GetComponent<Rigidbody>().AddForce(transform.forward * force, ForceMode.VelocityChange);
     }
 }
