@@ -1,3 +1,4 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement name="PhotoFlash" style="flex-grow: 1; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgb(255, 255, 255); transition-property: opacity; transition-duration: 0.08s; width: 100%; height: 100%; background-repeat: space space;"/>
+    <ui:VisualElement name="Picture" style="flex-grow: 1; position: absolute; top: 0; right: 0; bottom: 0; left: 0; -unity-background-scale-mode: scale-to-fit;"/>
 </ui:UXML>

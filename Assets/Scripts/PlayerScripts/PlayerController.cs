@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public Animator cameraAnim;
     bool isTransitioning = false;
     [SerializeField] private CameraFlash cameraFlash;
+    [SerializeField] private AudioSource cameraShutterSound;
 
     #region Input Actions
     [Header("Input Actions")]
@@ -210,6 +211,8 @@ public class PlayerController : MonoBehaviour
         if (inPhotoMode && !isTransitioning)
         {
             cameraFlash.Flash();
+            cameraShutterSound.Play();
+
         }
     }
 
