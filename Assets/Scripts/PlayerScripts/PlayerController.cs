@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour
     public GameObject mainCamera;
     public GameObject photoCamera;
     public bool inPhotoMode;
+    public Animator cameraAnim;
+    bool isTransitioning = false;
 
     #region Input Actions
     [Header("Input Actions")]
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference crouchAction;
     [SerializeField] private InputActionReference jumpAction;
     [SerializeField] private InputActionReference cameraAction;
+    [SerializeField] private InputActionReference photoAction;
 
     private void Awake()
     {
@@ -53,9 +57,7 @@ public class PlayerController : MonoBehaviour
         crouchAction.action.Enable();
         jumpAction.action.Enable();
 
-        cameraAction.action.started += OnCameraActionStarted;
-        cameraAction.action.canceled += OnCameraActionCancelled;
-        cameraAction.action.Enable();
+        photoAction.action.performed += OnPhotoTaken;
     }
     private void OnDisable()
     {
@@ -64,9 +66,7 @@ public class PlayerController : MonoBehaviour
         crouchAction.action.Disable();
         jumpAction.action.Disable();
 
-        cameraAction.action.started -= OnCameraActionStarted;
-        cameraAction.action.canceled -= OnCameraActionCancelled;
-        cameraAction.action.Disable();
+        photoAction.action.performed -= OnPhotoTaken;
     }
     #endregion
 
@@ -82,6 +82,8 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         MoveUpdate();
+
+        CameraActionUpdate();
     }
 
     private void MoveUpdate()
@@ -143,29 +145,71 @@ public class PlayerController : MonoBehaviour
         controller.Move(finalMove * Time.deltaTime);
     }
 
-    void OnCameraActionStarted(InputAction.CallbackContext context)
+    void CameraActionUpdate()
     {
         if (PlayerLook.hasItemInHand && PlayerLook.itemInHand.CompareTag("Camera"))
         {
-            //hold camera up to eyes - switch to "camera"-mode
-            Debug.Log("Switched to camera-mode");
-            mainCamera.SetActive(false);
-            photoCamera.SetActive(true);
+            if(cameraAction.action.IsPressed() && !inPhotoMode && !isTransitioning)
+            {
+                StartCoroutine(EnterPhotoMode());
+            }
 
-            inPhotoMode = true;
+            if(!cameraAction.action.IsPressed() && inPhotoMode && !isTransitioning)
+            {
+                StartCoroutine(ExitPhotoMode());
+            }
         }
     }
 
-    void OnCameraActionCancelled(InputAction.CallbackContext context)
+    IEnumerator EnterPhotoMode()
     {
-        if (PlayerLook.hasItemInHand && PlayerLook.itemInHand.CompareTag("Camera"))
-        {
-            //hold camera up to eyes - switch to "camera"-mode
-            Debug.Log("Switched to camera-mode");
-            mainCamera.SetActive(true);
-            photoCamera.SetActive(false);
+        isTransitioning = true;
+        cameraAnim.SetBool("isAiming", true);
 
-            inPhotoMode = false;
+        yield return new WaitForSeconds(0.25f); //wait for animation to finish
+
+
+        if (PlayerLook.cameraInHand != null)
+        {
+            PlayerLook.cameraInHand.GetComponent<MeshRenderer>().enabled = false;
+        }
+
+        //hold camera up to eyes - switch to "camera"-mode
+        Debug.Log("Switched to photoCamera-mode");
+        mainCamera.SetActive(false);
+        photoCamera.SetActive(true);
+
+        inPhotoMode = true;
+        isTransitioning = false;
+    }
+
+    IEnumerator ExitPhotoMode()
+    {
+        isTransitioning = true;
+
+        yield return new WaitForSeconds(0.25f); //wait
+
+        //hold camera up to eyes - switch to "camera"-mode
+        Debug.Log("Switched to camera-mode");
+        mainCamera.SetActive(true);
+        photoCamera.SetActive(false);
+
+        if (PlayerLook.cameraInHand != null)
+        {
+            PlayerLook.cameraInHand.GetComponent<MeshRenderer>().enabled = true;
+        }
+
+        cameraAnim.SetBool("isAiming", false);
+
+        inPhotoMode = false;
+        isTransitioning = false;
+    }
+
+    void OnPhotoTaken(InputAction.CallbackContext context)
+    {
+        if (inPhotoMode)
+        {
+            Debug.Log("Photo Taken");
         }
     }
 

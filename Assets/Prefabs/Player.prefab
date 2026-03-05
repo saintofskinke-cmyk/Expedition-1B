@@ -100,7 +100,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 40
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -250,7 +250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2819868371731192600
 Transform:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 1780661506224095667}
   m_Layer: 0
   m_Name: PhotoCamera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -336,7 +336,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 40
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57741a133afe45846b06af24baab0edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLook
+  playerController: {fileID: 3213170024270272837}
   lookAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   handInterAction: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   orientation: {fileID: 3307974483764264900}
@@ -692,11 +693,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   eyes: {fileID: 3957548827792995353}
   PlayerLook: {fileID: 4623443493189301731}
+  mainCamera: {fileID: 1044379961969129615}
+  photoCamera: {fileID: 3308425355016115998}
+  inPhotoMode: 0
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   sprintAction: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   crouchAction: {fileID: 7040659881675835329, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   cameraAction: {fileID: 1404132316532506186, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  photoAction: {fileID: 8529713006969421979, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1 &6903465211498327187
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,7 +791,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 40
+    FieldOfView: 30
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000

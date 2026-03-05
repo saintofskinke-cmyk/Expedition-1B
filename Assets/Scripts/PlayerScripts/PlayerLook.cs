@@ -22,6 +22,7 @@ public class PlayerLook : MonoBehaviour
     [SerializeField] private Transform handAnchor;
     private Transform originalHandItemAnchor;
     public Transform itemInHand;
+    public GameObject cameraInHand;
     private VisualElement root;
     private Label txtPickUp;
 
@@ -77,6 +78,10 @@ public class PlayerLook : MonoBehaviour
                     originalHandItemAnchor = hit.transform.parent;
                     OnItemPickedUp(hit, handAnchor);
                     itemInHand = hit.transform;
+                    if (hit.collider.gameObject.CompareTag("Camera"))
+                    {
+                        cameraInHand = hit.collider.gameObject;
+                    }
                     hasItemInHand = true;
                 }
                 else TryItemDrop();
