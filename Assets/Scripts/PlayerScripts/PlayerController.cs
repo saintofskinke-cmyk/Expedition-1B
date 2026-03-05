@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement Parameters")]
     private float moveSpeed;
-    private float walkSpeed = 7f;
-    private float sprintSpeed = 12f;
-    private float crouchSpeed = 3.5f;
+    private float walkSpeed = 3f;
+    private float sprintSpeed = 7f;
+    private float crouchSpeed = 1.5f;
     private float jumpForce = 1.5f;
     private float gravity = -9.81f;
     private int standingHeight = 2;
@@ -156,14 +156,14 @@ public class PlayerController : MonoBehaviour
     {
         isFlareThrown = true;
         float seconds = 2f;
-        float barSize = seconds;
-        inventory.flareCooldown.style.scale = new Vector3(seconds, 0.15f, 1f); // flare cooldown UI bar
+        float barSize = 0.4f;
+        inventory.flareCooldown.style.scale = new Vector3(0.5f, barSize, 1f); // flare cooldown UI bar
 
         for (int i = 0; i < seconds * 2; i++)
         {
             yield return new WaitForSeconds(0.5f);
-            barSize -= 0.5f;
-            inventory.flareCooldown.style.scale = new Vector3(barSize, 0.15f, 1f); // flare cooldown UI bar is shrinking
+            barSize -= 0.1f;
+            inventory.flareCooldown.style.scale = new Vector3(0.5f, barSize, 1f); // flare cooldown UI bar is shrinking
         }
 
         isFlareThrown = false;
