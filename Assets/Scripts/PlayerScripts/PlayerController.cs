@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,6 +26,9 @@ public class PlayerController : MonoBehaviour
     private bool isPlayerGrounded;
     private bool isPlayerCrouching;
     private Vector3 velocity;
+
+    [Header("Other Parameters")]
+    private bool isFlareThrown;
 
     #region Input Actions
     [Header("Input Actions")]
@@ -129,8 +133,9 @@ public class PlayerController : MonoBehaviour
 
     private void ActionUpdate()
     {
-        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0)
+        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown)
         {
+            FlareCountdown();
             // Setting random rotation for the flare
             int rndX = Random.Range(-180, 180);
             int rndY = Random.Range(-180, 180);
@@ -146,4 +151,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    IEnumerator FlareCountdown()
+    {
+        isFlareThrown = true;
+        yield return new WaitForSeconds(2f);
+        isFlareThrown = false;
+    }
 }
