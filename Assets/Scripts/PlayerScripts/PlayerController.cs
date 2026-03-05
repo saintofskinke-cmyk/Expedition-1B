@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public bool inPhotoMode;
     public Animator cameraAnim;
     bool isTransitioning = false;
+    [SerializeField] private CameraFlash cameraFlash;
 
     #region Input Actions
     [Header("Input Actions")]
@@ -130,8 +131,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log(Physics.Raycast(eyes.position, Vector3.up, 0.5f));
         }
 
-
-
         // Apply moveSpeed
         if (isPlayerGrounded)
         {
@@ -144,6 +143,7 @@ public class PlayerController : MonoBehaviour
         Vector3 finalMove = move * moveSpeed + velocity.y * Vector3.up;
         controller.Move(finalMove * Time.deltaTime);
     }
+
 
     void CameraActionUpdate()
     {
@@ -175,9 +175,10 @@ public class PlayerController : MonoBehaviour
         }
 
         //hold camera up to eyes - switch to "camera"-mode
-        Debug.Log("Switched to photoCamera-mode");
         mainCamera.SetActive(false);
         photoCamera.SetActive(true);
+
+        cameraFlash.ReadyFlash();
 
         inPhotoMode = true;
         isTransitioning = false;
@@ -190,7 +191,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.25f); //wait
 
         //hold camera up to eyes - switch to "camera"-mode
-        Debug.Log("Switched to camera-mode");
         mainCamera.SetActive(true);
         photoCamera.SetActive(false);
 
@@ -207,9 +207,9 @@ public class PlayerController : MonoBehaviour
 
     void OnPhotoTaken(InputAction.CallbackContext context)
     {
-        if (inPhotoMode)
+        if (inPhotoMode && !isTransitioning)
         {
-            Debug.Log("Photo Taken");
+            cameraFlash.Flash();
         }
     }
 

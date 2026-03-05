@@ -23,6 +23,7 @@ public class PlayerLook : MonoBehaviour
     private Transform originalHandItemAnchor;
     public Transform itemInHand;
     public GameObject cameraInHand;
+    public GameObject crossHairDocument;
     private VisualElement root;
     private Label txtPickUp;
 
@@ -30,7 +31,7 @@ public class PlayerLook : MonoBehaviour
     {
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
-        root = GetComponent<UIDocument>().rootVisualElement;
+        root = crossHairDocument.GetComponent<UIDocument>().rootVisualElement;
         txtPickUp = root.Q<Label>("txtPickUp");
     }
 
