@@ -103,7 +103,7 @@ MonoBehaviour:
     x: -425
     y: -1349
     width: 2669
-    height: 2203
+    height: 2278
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2933,7 +2933,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.0,"y":1.0,"z":0.0}}'
+      m_SerializableObject: '{"vector":{"x":0.0,"y":1.25,"z":0.0}}'
     m_Space: 1
   m_Property:
     name: Force
@@ -4772,7 +4772,7 @@ MonoBehaviour:
   colorMapping: 0
   uvMode: 0
   flipbookLayout: 0
-  flipbookBlendFrames: 0
+  flipbookBlendFrames: 1
   flipbookMotionVectors: 0
   useSoftParticle: 1
   vfxSystemSortPriority: 0
