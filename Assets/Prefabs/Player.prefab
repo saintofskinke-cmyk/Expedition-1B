@@ -220,6 +220,8 @@ GameObject:
   - component: {fileID: 74740890314986862}
   - component: {fileID: 3468694089003712351}
   - component: {fileID: 3213170024270272837}
+  - component: {fileID: 272914656361734623}
+  - component: {fileID: 3442802065119588940}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -289,6 +291,42 @@ MonoBehaviour:
   crouchAction: {fileID: 7040659881675835329, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   throwFlareAction: {fileID: 360033489608137642, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+--- !u!114 &272914656361734623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994108340518225187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 06cb7c41602b8d94d979bd537933502b, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 4451b1765afdaf74ab1ad1aa0f668d30, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &3442802065119588940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994108340518225187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75157045300bc9048b827558904b1054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  flareCount: 10
 --- !u!1 &6903465211498327187
 GameObject:
   m_ObjectHideFlags: 0

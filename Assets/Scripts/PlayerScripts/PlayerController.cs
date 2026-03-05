@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private float eyesPosCrouch, eyesPosStand;
     [SerializeField] private PlayerLook PlayerLook;
     [SerializeField] private GameObject GM;
+    private Inventory inventory;
 
 
     [Header("Movement Parameters")]
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
         eyesPosY = eyes.position.y;
         eyesPosCrouch = eyesPosY - 0.3f;
         eyesPosStand = eyesPosCrouch + 0.3f;
+        inventory = GetComponent<Inventory>();
     }
 
     private void Update()
@@ -127,7 +129,7 @@ public class PlayerController : MonoBehaviour
 
     private void ActionUpdate()
     {
-        if(throwFlareAction.action.WasPerformedThisFrame())
+        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0)
         {
             // Setting random rotation for the flare
             int rndX = Random.Range(-180, 180);
@@ -137,6 +139,9 @@ public class PlayerController : MonoBehaviour
             // Instantiate flare and add forward force
             GameObject flare = Instantiate(GM.GetComponent<GameManager>().flarePrefab, eyes.position + eyes.forward, Quaternion.Euler(rndX, rndY, rndZ));
             flare.GetComponent<Rigidbody>().AddForce(eyes.forward * 10f, ForceMode.VelocityChange);
+
+            // Remove flare from inventory
+            inventory.RemoveItem("Flare");
 
         }
     }

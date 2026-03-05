@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; align-items: flex-start; justify-content: center; align-self: stretch; flex-direction: column-reverse;">
+        <ui:VisualElement style="flex-grow: 1; align-self: flex-start; justify-content: center; align-items: auto; flex-direction: column-reverse; position: absolute; background-image: url(&quot;project://database/Assets/Materials/Items/HandFlare_instructions.png?fileID=2800000&amp;guid=d0f38c609de860f4e9e8326f1ed235a3&amp;type=3#HandFlare_instructions&quot;); width: 2%; height: 23%; top: 4%; left: 2%;">
+            <ui:Label text="-" name="txtFlareCount" style="width: 3px; left: 20px; -unity-font-style: bold; font-size: 28px;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
