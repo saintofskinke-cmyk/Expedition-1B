@@ -1,7 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; align-items: flex-start; justify-content: center; align-self: stretch; flex-direction: column-reverse;">
-        <ui:VisualElement style="flex-grow: 1; align-self: flex-start; justify-content: center; align-items: auto; flex-direction: column-reverse; position: absolute; background-image: url(&quot;project://database/Assets/Materials/Items/HandFlare_instructions.png?fileID=2800000&amp;guid=d0f38c609de860f4e9e8326f1ed235a3&amp;type=3#HandFlare_instructions&quot;); width: 2%; height: 23%; top: 4%; left: 2%;">
-            <ui:Label text="-" name="txtFlareCount" style="width: 3px; left: 20px; -unity-font-style: bold; font-size: 28px;"/>
+        <ui:VisualElement style="flex-grow: 1; align-self: flex-start; justify-content: center; align-items: auto; flex-direction: column-reverse; position: absolute; background-image: url(&quot;project://database/Assets/Materials/Items/HandFlare_instructions.png?fileID=2800000&amp;guid=d0f38c609de860f4e9e8326f1ed235a3&amp;type=3#HandFlare_instructions&quot;); width: 2%; height: 26%; top: 4%; left: 2%;">
+            <ui:Label text="-" name="txtFlareCount" style="width: 7px; -unity-font-style: bold; font-size: 28%; left: 20px; bottom: 15px;"/>
+            <ui:VisualElement name="flareCooldown" style="flex-grow: 1; background-color: rgba(113, 52, 52, 0.65); width: 18px; top: 39px; left: 26px; height: 0; flex-direction: column-reverse; align-self: auto; justify-content: space-around; align-items: center; scale: 1.5 0.15; flex-shrink: 2;"/>
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="CrossHair" style="flex-grow: 1; background-color: rgb(238, 238, 238); position: absolute; width: 5px; height: 5px; border-top-left-radius: 25px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; border-bottom-left-radius: 25px; justify-content: center; align-items: center; top: 50%; left: 50%; align-self: center;">

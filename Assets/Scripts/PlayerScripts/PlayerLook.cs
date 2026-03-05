@@ -112,6 +112,14 @@ public class PlayerLook : MonoBehaviour
         itemInHand.GetComponent<Rigidbody>().isKinematic = false;
         itemInHand.GetComponent<Collider>().enabled = true;
         itemInHand.SetParent(originalAnchor);
+
+        // Random rotation
+        int rndX = Random.Range(-90, 90);
+        int rndY = Random.Range(-90, 90);
+        int rndZ = Random.Range(-90, 90);
+        itemInHand.Rotate(rndX, rndY, rndZ);
+        
+        // Throw the item
         itemInHand.GetComponent<Rigidbody>().AddForce(transform.forward * force, ForceMode.VelocityChange);
     }
 }

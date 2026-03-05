@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
         eyesPosCrouch = eyesPosY - 0.3f;
         eyesPosStand = eyesPosCrouch + 0.3f;
         inventory = GetComponent<Inventory>();
+        StartCoroutine(FlareCountdown());
     }
 
     private void Update()
@@ -135,7 +136,7 @@ public class PlayerController : MonoBehaviour
     {
         if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown)
         {
-            FlareCountdown();
+            StartCoroutine(FlareCountdown());
             // Setting random rotation for the flare
             int rndX = Random.Range(-180, 180);
             int rndY = Random.Range(-180, 180);
@@ -154,7 +155,17 @@ public class PlayerController : MonoBehaviour
     IEnumerator FlareCountdown()
     {
         isFlareThrown = true;
-        yield return new WaitForSeconds(2f);
+        float seconds = 2f;
+        float barSize = seconds;
+        inventory.flareCooldown.style.scale = new Vector3(seconds, 0.15f, 1f); // flare cooldown UI bar
+
+        for (int i = 0; i < seconds * 2; i++)
+        {
+            yield return new WaitForSeconds(0.5f);
+            barSize -= 0.5f;
+            inventory.flareCooldown.style.scale = new Vector3(barSize, 0.15f, 1f); // flare cooldown UI bar is shrinking
+        }
+
         isFlareThrown = false;
     }
 }

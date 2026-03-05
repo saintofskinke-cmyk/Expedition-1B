@@ -5,6 +5,7 @@ public class Inventory : MonoBehaviour
 {
     [Header("UI Elements")]
     private VisualElement root;
+    public VisualElement flareCooldown;
     private Label flareCountLabel;
 
     [Header("Inventory Data")]
@@ -15,6 +16,7 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
+        flareCooldown = root.Q("flareCooldown");
         flareCountLabel = root.Q<Label>("txtFlareCount");
         flareCountLabel.text = flareCount.ToString();
     }
