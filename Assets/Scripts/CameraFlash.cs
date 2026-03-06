@@ -8,6 +8,7 @@ public class CameraFlash : MonoBehaviour
 
     VisualElement flash;
     VisualElement freezeFrame;
+    Image cameraImageUI;
     public Background pictureCapturedTexture;
 
     public void ReadyFlash()
@@ -18,6 +19,8 @@ public class CameraFlash : MonoBehaviour
 
         freezeFrame = cameraUI.rootVisualElement.Q<VisualElement>("Picture");
         freezeFrame.style.opacity = 0f;
+
+        cameraImageUI = cameraUI.rootVisualElement.Q<Image>("cameraUI");
     }
 
     public void Flash()
@@ -35,6 +38,8 @@ public class CameraFlash : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
 
         flash.style.opacity = 0f;
+
+        cameraImageUI.style.opacity = 0f;
 
         ShowPicture();
     }
@@ -57,6 +62,8 @@ public class CameraFlash : MonoBehaviour
         Time.timeScale = 1f;
 
         freezeFrame.style.opacity = 0f;
+
+        cameraImageUI.style.opacity = 100f;
     }
 
 }
