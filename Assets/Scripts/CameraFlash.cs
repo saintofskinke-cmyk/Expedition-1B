@@ -11,6 +11,8 @@ public class CameraFlash : MonoBehaviour
     Image cameraImageUI;
     public Background pictureCapturedTexture;
 
+    [SerializeField] private PlayerLook PlayerLook;
+
     public void ReadyFlash()
     {
         cameraUI = GetComponent<UIDocument>();
@@ -35,6 +37,8 @@ public class CameraFlash : MonoBehaviour
 
         flash.style.opacity = 100f;
 
+        PlayerLook.cameraInHand.GetComponent<Light>().intensity = 10f;
+
         yield return new WaitForSeconds(0.05f);
 
         flash.style.opacity = 0f;
@@ -58,6 +62,8 @@ public class CameraFlash : MonoBehaviour
         Time.timeScale = 0f;
 
         yield return new WaitForSecondsRealtime(2f);
+
+        PlayerLook.cameraInHand.GetComponent<Light>().intensity = 0f;
 
         Time.timeScale = 1f;
 
