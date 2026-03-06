@@ -68,37 +68,33 @@ public class PlayerLook : MonoBehaviour
 
     private void PickUpdate()
     {
-
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange) 
-            && hit.collider.gameObject.tag != "Untagged")
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange))
         {
-            txtPickUp.style.display = DisplayStyle.Flex;
-            if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
+            if (hit.collider.gameObject.CompareTag("Interactable") || hit.collider.gameObject.CompareTag("Item"))
             {
-                switch (hit.collider.gameObject.tag)
+                txtPickUp.style.display = DisplayStyle.Flex;
+                if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
                 {
-                    case "Item":
-                        originalHandItemAnchor = hit.transform.parent;
-                        OnItemPickedUp(hit, handAnchor);
-                        itemInHand = hit.transform;
-                        hasItemInHand = true;
-                        break;
+                    switch (hit.collider.gameObject.tag)
+                    {
+                        case "Item":
+                            originalHandItemAnchor = hit.transform.parent;
+                            OnItemPickedUp(hit, handAnchor);
+                            itemInHand = hit.transform;
+                            hasItemInHand = true;
+                            break;
 
-                    case "Interactable":
-                        hit.collider.gameObject.GetComponent<InteractionHandler>().StartInteractionLogic();
-                        break;
+                        case "Interactable":
+                            hit.collider.gameObject.GetComponent<InteractionHandler>().StartInteractionLogic();
+                            break;
+                    }
+                    return;
                 }
-            }
-            else              
-            {
-                TryItemDrop();
+                return;
             }
         }
-        else 
-        {
-            TryItemDrop();
-            txtPickUp.style.display = DisplayStyle.None;
-        }
+        TryItemDrop();
+        txtPickUp.style.display = DisplayStyle.None;
     }
     
     private void TryItemDrop()
