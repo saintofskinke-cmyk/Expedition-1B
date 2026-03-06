@@ -70,7 +70,7 @@ public class PlayerLook : MonoBehaviour
     {
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange) 
-            && hit.collider.gameObject.tag != "Untagged")
+            && hit.collider.gameObject.CompareTag("Item") || hit.collider.gameObject.CompareTag("Interactable"))
         {
             txtPickUp.style.display = DisplayStyle.Flex;
             if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
