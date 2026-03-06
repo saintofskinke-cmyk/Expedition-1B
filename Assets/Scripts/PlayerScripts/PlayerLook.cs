@@ -69,18 +69,30 @@ public class PlayerLook : MonoBehaviour
     private void PickUpdate()
     {
 
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange)
-            && hit.collider.gameObject.CompareTag("Item"))
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange) 
+            && hit.collider.gameObject.tag != "Untagged")
         {
             txtPickUp.style.display = DisplayStyle.Flex;
             if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
             {
-                originalHandItemAnchor = hit.transform.parent;
-                OnItemPickedUp(hit, handAnchor);
-                itemInHand = hit.transform;
-                hasItemInHand = true;
+                switch (hit.collider.gameObject.tag)
+                {
+                    case "Item":
+                        originalHandItemAnchor = hit.transform.parent;
+                        OnItemPickedUp(hit, handAnchor);
+                        itemInHand = hit.transform;
+                        hasItemInHand = true;
+                        break;
+
+                    case "Interactable":
+                        hit.collider.gameObject.GetComponent<InteractionHandler>().StartInteractionLogic();
+                        break;
+                }
             }
-            else TryItemDrop();
+            else              
+            {
+                TryItemDrop();
+            }
         }
         else 
         {
