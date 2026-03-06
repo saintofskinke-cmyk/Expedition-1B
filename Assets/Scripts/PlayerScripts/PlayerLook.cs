@@ -90,6 +90,7 @@ public class PlayerLook : MonoBehaviour
                     }
                     return;
                 }
+                TryItemDrop();
                 return;
             }
         }
