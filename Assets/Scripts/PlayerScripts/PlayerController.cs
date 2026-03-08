@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject GM;
     private Inventory inventory;
 
+    [Header("UI Parameters")]
+    private VisualElement root;
+    private VisualElement staminaBar;
 
     [Header("Movement Parameters")]
     private float moveSpeed;
@@ -26,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private bool isPlayerGrounded;
     private bool isPlayerCrouching;
     private Vector3 velocity;
+    private float staminaTimer = 25f;
 
     [Header("Other Parameters")]
     private bool isFlareThrown;
@@ -62,6 +67,9 @@ public class PlayerController : MonoBehaviour
         eyesPosStand = eyesPosCrouch + 0.3f;
         inventory = GetComponent<Inventory>();
         StartCoroutine(FlareCountdown());
+        
+        root = GetComponent<UIDocument>().rootVisualElement;
+        staminaBar = root.Q("StaminaBar");
     }
 
     private void Update()
@@ -101,6 +109,7 @@ public class PlayerController : MonoBehaviour
         {
             isPlayerCrouching = true;
             controller.height = crouchingHeight;
+            moveSpeed = crouchSpeed;
         }
         else if (isPlayerCrouching && !crouchAction.action.IsPressed())
         {
@@ -117,15 +126,31 @@ public class PlayerController : MonoBehaviour
             Debug.Log(Physics.Raycast(eyes.position, Vector3.up, 0.5f));
         }
 
-
-
         // Apply moveSpeed
-        if (isPlayerGrounded)
+        if (isPlayerGrounded && !isPlayerCrouching)
         {
-            if (sprintAction.action.IsPressed()) { moveSpeed = sprintSpeed; }
-            else if (isPlayerCrouching) { moveSpeed = crouchSpeed; }
-            else { moveSpeed = walkSpeed; }
+            // Sprint
+            if (sprintAction.action.IsPressed()) { 
+                staminaTimer -= 10 * Time.deltaTime; // Make stamina decrease when running
+                if (staminaTimer <= 0) { staminaTimer = 0; moveSpeed = walkSpeed; } // If stamina is EMPTY stop removing stamina and stop running
+                else moveSpeed = sprintSpeed; // Only sprint if player has stamina
+            }
+            else { 
+                moveSpeed = walkSpeed;
+                staminaTimer += 7 * Time.deltaTime; // Make stamina increase when not running
+                if (staminaTimer >= 25f) { staminaTimer = 25f; } // If stamina is FULL stop adding more stamina
+            }
+
+            // Stamina UI
+            if (staminaTimer < 25f)
+            {
+                staminaBar.style.display = DisplayStyle.Flex; // Make stamina bar visible
+                staminaBar.style.scale = new Vector3(staminaTimer, 0.01f, 0); // Update the stamina bar
+            }
+            else { staminaBar.style.display = DisplayStyle.None; } // Make stamina bar invisible if stamina is FULL
         }
+        
+        
 
         // Make MoveUpdate() work
         Vector3 finalMove = move * moveSpeed + velocity.y * Vector3.up;
@@ -137,6 +162,7 @@ public class PlayerController : MonoBehaviour
         if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown)
         {
             StartCoroutine(FlareCountdown());
+
             // Setting random rotation for the flare
             int rndX = Random.Range(-180, 180);
             int rndY = Random.Range(-180, 180);
@@ -146,9 +172,7 @@ public class PlayerController : MonoBehaviour
             GameObject flare = Instantiate(GM.GetComponent<GameManager>().flarePrefab, eyes.position + eyes.forward, Quaternion.Euler(rndX, rndY, rndZ));
             flare.GetComponent<Rigidbody>().AddForce(eyes.forward * 10f, ForceMode.VelocityChange);
 
-            // Remove flare from inventory
-            inventory.RemoveItem("Flare");
-
+            inventory.RemoveItem("Flare"); // Remove flare from inventory
         }
     }
 
