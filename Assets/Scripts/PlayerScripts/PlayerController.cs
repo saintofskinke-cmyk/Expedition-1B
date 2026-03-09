@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float eyesPosCrouch, eyesPosStand;
     [SerializeField] private PlayerLook PlayerLook;
     [SerializeField] private GameObject GM;
-    private Inventory inventory;
+    [SerializeField] private Inventory inventory;
 
     [Header("UI Parameters")]
     private VisualElement root;
@@ -83,10 +83,10 @@ public class PlayerController : MonoBehaviour
         eyesPosY = eyes.position.y;
         eyesPosCrouch = eyesPosY - 0.3f;
         eyesPosStand = eyesPosCrouch + 0.3f;
-        inventory = GetComponent<Inventory>();
+        inventory = gameObject.GetComponent<Inventory>();
         StartCoroutine(FlareCountdown());
         
-        root = GetComponent<UIDocument>().rootVisualElement;
+        root = mainCamera.GetComponent<UIDocument>().rootVisualElement;
         staminaBar = root.Q("StaminaBar");
     }
 
@@ -187,14 +187,14 @@ public class PlayerController : MonoBehaviour
 
     private void ActionUpdate()
     {
-        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown)
+        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown && !isTransitioning)
         {
             StartCoroutine(FlareCountdown());
 
             // Setting random rotation for the flare
-            int rndX = Random.Range(-180, 180);
-            int rndY = Random.Range(-180, 180);
-            int rndZ = Random.Range(-180, 180);
+            int rndX = UnityEngine.Random.Range(-180, 180);
+            int rndY = UnityEngine.Random.Range(-180, 180);
+            int rndZ = UnityEngine.Random.Range(-180, 180);
 
             // Instantiate flare and add forward force
             GameObject flare = Instantiate(GM.GetComponent<GameManager>().flarePrefab, eyes.position + eyes.forward, Quaternion.Euler(rndX, rndY, rndZ));
@@ -277,6 +277,8 @@ public class PlayerController : MonoBehaviour
         mainCamera.SetActive(true);
         photoCamera.SetActive(false);
 
+        inventory.UpdatePlayerHud();
+
         if (PlayerLook.cameraInHand != null)
         {
             PlayerLook.cameraInHand.GetComponent<MeshRenderer>().enabled = true;
@@ -290,7 +292,7 @@ public class PlayerController : MonoBehaviour
 
     void OnPhotoTaken(InputAction.CallbackContext context)
     {
-        if (inPhotoMode && !isTransitioning)
+        if (inPhotoMode && !isTransitioning && !cameraFlash.takingPicture)
         {
             cameraFlash.Flash();
             cameraShutterSound.Play();

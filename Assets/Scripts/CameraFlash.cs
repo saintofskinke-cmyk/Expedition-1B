@@ -12,6 +12,7 @@ public class CameraFlash : MonoBehaviour
     public Background pictureCapturedTexture;
 
     [SerializeField] private PlayerLook PlayerLook;
+    public bool takingPicture = false;
 
     public void ReadyFlash()
     {
@@ -32,6 +33,7 @@ public class CameraFlash : MonoBehaviour
     
     IEnumerator StartFlash()
     {
+        takingPicture = true;
         flash.style.opacity = 0f;
         yield return null;
 
@@ -70,6 +72,8 @@ public class CameraFlash : MonoBehaviour
         freezeFrame.style.opacity = 0f;
 
         cameraImageUI.style.opacity = 100f;
+
+        takingPicture = false;
     }
 
 }
