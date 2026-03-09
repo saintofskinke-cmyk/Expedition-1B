@@ -30,7 +30,9 @@ public class PlayerController : MonoBehaviour
     private bool isPlayerGrounded;
     private bool isPlayerCrouching;
     private Vector3 velocity;
+    private Vector3 finalMove;
     private float staminaTimer = 25f;
+    private int staminaMultiplier = 5;
 
     [Header("Other Parameters")]
     private bool isFlareThrown;
@@ -88,22 +90,21 @@ public class PlayerController : MonoBehaviour
         if (isPlayerGrounded && velocity.y < 0f)
             { velocity.y = -2f; }
 
-        if (jumpAction.action.triggered && isPlayerGrounded)
-            { velocity.y = Mathf.Sqrt(jumpForce * -gravity); }
-
+        if (jumpAction.action.WasPressedThisFrame() && isPlayerGrounded) 
+        { velocity.y = Mathf.Sqrt(jumpForce * -gravity); }
 
         // Move direction
         Vector3 eyesForward = eyes.forward;
         Vector3 eyesRight = eyes.right;
         eyesForward.y = 0f;
-
+        
         // Movement
         Vector2 input = moveAction.action.ReadValue<Vector2>();
         Vector3 move = eyesRight * input.x + eyesForward * input.y;
-        move.Normalize();
+        move.Normalize(); // Sørger for at spilleren bevæger sig med samme hastighed uanset hvor spilleren kigger hen
         if (move != Vector3.zero) { transform.position = move; }
-
-
+        
+        
         // Crouch
         if (crouchAction.action.IsPressed() && isPlayerGrounded)
         {
@@ -125,22 +126,24 @@ public class PlayerController : MonoBehaviour
             }
             Debug.Log(Physics.Raycast(eyes.position, Vector3.up, 0.5f));
         }
-
+        
         // Apply moveSpeed
         if (isPlayerGrounded && !isPlayerCrouching)
         {
             // Sprint
-            if (sprintAction.action.IsPressed()) { 
-                staminaTimer -= 10 * Time.deltaTime; // Make stamina decrease when running
+            if (sprintAction.action.IsPressed() && move != Vector3.zero)
+            {
+                staminaTimer -= staminaMultiplier * Time.deltaTime; // Make stamina decrease when running
                 if (staminaTimer <= 0) { staminaTimer = 0; moveSpeed = walkSpeed; } // If stamina is EMPTY stop removing stamina and stop running
                 else moveSpeed = sprintSpeed; // Only sprint if player has stamina
             }
-            else { 
+            else
+            {
                 moveSpeed = walkSpeed;
-                staminaTimer += 7 * Time.deltaTime; // Make stamina increase when not running
+                staminaTimer += staminaMultiplier * 0.7f * Time.deltaTime; // Make stamina increase when not running
                 if (staminaTimer >= 25f) { staminaTimer = 25f; } // If stamina is FULL stop adding more stamina
             }
-
+        
             // Stamina UI
             if (staminaTimer < 25f)
             {
@@ -149,11 +152,12 @@ public class PlayerController : MonoBehaviour
             }
             else { staminaBar.style.display = DisplayStyle.None; } // Make stamina bar invisible if stamina is FULL
         }
-        
-        
+        else {  }
+
+
 
         // Make MoveUpdate() work
-        Vector3 finalMove = move * moveSpeed + velocity.y * Vector3.up;
+        finalMove = move * moveSpeed + velocity.y * Vector3.up;
         controller.Move(finalMove * Time.deltaTime);
     }
 
@@ -191,5 +195,12 @@ public class PlayerController : MonoBehaviour
         }
 
         isFlareThrown = false;
+    }
+
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.rigidbody != null)
+        { hit.rigidbody.AddRelativeForce(finalMove, ForceMode.Force); }
     }
 }

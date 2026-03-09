@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 765964218470589597}
   - component: {fileID: -3255185924966706522}
   - component: {fileID: -1568946881780933741}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Camera
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7989247321897437091}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.8
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
