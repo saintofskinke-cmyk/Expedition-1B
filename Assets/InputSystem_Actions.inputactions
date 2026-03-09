@@ -91,6 +91,18 @@
                     "name": "FlareThrow",
                     "type": "Button",
                     "id": "1a827571-322d-4f2d-a7ef-12b3e1d52602",
+                    "name": "CameraInteraction",
+                    "type": "Button",
+                    "id": "52a9fddd-cbf7-4259-95b5-50fbddebb78c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=0.24)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TakePhoto",
+                    "type": "Button",
+                    "id": "1703e74e-5b40-4002-a038-0a51faf4321f",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -491,6 +503,23 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "FlareThrow",
+                    "id": "a937d10b-f0a8-4fd7-b716-da40e5e97c86",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraInteraction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60a6bf48-59c7-437f-8d2a-2206e80a97f2",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TakePhoto",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

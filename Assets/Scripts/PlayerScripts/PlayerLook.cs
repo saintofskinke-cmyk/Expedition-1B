@@ -4,6 +4,8 @@ using UnityEngine.UIElements;
 
 public class PlayerLook : MonoBehaviour
 {
+    [SerializeField] private PlayerController playerController;
+
     [Header("Actions")]
     [SerializeField] private InputActionReference lookAction;
     [SerializeField] private InputActionReference handInterAction;
@@ -16,10 +18,12 @@ public class PlayerLook : MonoBehaviour
 
     [Header("Pick Up Parameters")]
     private int pickUpRange = 4;
-    private bool hasItemInHand;
+    public bool hasItemInHand;
     [SerializeField] private Transform handAnchor;
     private Transform originalHandItemAnchor;
-    private Transform itemInHand;
+    public Transform itemInHand;
+    public GameObject cameraInHand;
+    public GameObject crossHairDocument;
     private VisualElement root;
     private Label txtPickUp;
 
@@ -68,9 +72,10 @@ public class PlayerLook : MonoBehaviour
 
     private void PickUpdate()
     {
+        //husk inphotomode
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange))
         {
-            if (hit.collider.gameObject.CompareTag("Interactable") || hit.collider.gameObject.CompareTag("Item"))
+            if (hit.collider.gameObject.CompareTag("Interactable") || hit.collider.gameObject.CompareTag("Item") || hit.collider.gameObject.CompareTag("Camera"))
             {
                 txtPickUp.style.display = DisplayStyle.Flex;
                 if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
@@ -86,6 +91,10 @@ public class PlayerLook : MonoBehaviour
 
                         case "Interactable":
                             hit.collider.gameObject.GetComponent<InteractionHandler>().StartInteractionLogic();
+                            break;
+                        
+                        case "Camera":
+                            cameraInHand = hit.collider.gameObject;
                             break;
                     }
                     return;
