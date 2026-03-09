@@ -547,15 +547,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8429900532666337372, guid: ed9676154960f7240aad350ed333bf66, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.92
+      value: 1.562
       objectReference: {fileID: 0}
     - target: {fileID: 8429900532666337372, guid: ed9676154960f7240aad350ed333bf66, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.06
+      value: 1.189
       objectReference: {fileID: 0}
     - target: {fileID: 8429900532666337372, guid: ed9676154960f7240aad350ed333bf66, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.109
+      value: -0.163
       objectReference: {fileID: 0}
     - target: {fileID: 8429900532666337372, guid: ed9676154960f7240aad350ed333bf66, type: 3}
       propertyPath: m_LocalRotation.w
@@ -608,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414891561064049461, guid: 16d861852fb0f1048ad2fc6a418f32b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000009965929
+      value: 0.092
       objectReference: {fileID: 0}
     - target: {fileID: 414891561064049461, guid: 16d861852fb0f1048ad2fc6a418f32b3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -649,10 +649,6 @@ PrefabInstance:
     - target: {fileID: 4731023639599703467, guid: 16d861852fb0f1048ad2fc6a418f32b3, type: 3}
       propertyPath: m_CollisionDetection
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9136626503338402867, guid: 16d861852fb0f1048ad2fc6a418f32b3, type: 3}
-      propertyPath: m_ProvidesContacts
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
