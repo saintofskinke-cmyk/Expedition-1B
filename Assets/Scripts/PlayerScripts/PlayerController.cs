@@ -43,10 +43,11 @@ public class PlayerController : MonoBehaviour
     public GameObject photoCamera;
     public bool inPhotoMode;
     public Animator cameraAnim;
-    bool isTransitioning = false;
+    private bool isCameraInHand = false;
     [SerializeField] private CameraFlash cameraFlash;
     [SerializeField] private AudioSource cameraShutterSound;
     [SerializeField] private GameObject flashObject;
+    [SerializeField] private GameObject cameraObject;
 
     #region Input Actions
     [Header("Input Actions")]
@@ -94,14 +95,14 @@ public class PlayerController : MonoBehaviour
         
         root = mainCamera.GetComponent<UIDocument>().rootVisualElement;
         staminaBar = root.Q("StaminaBar");
-
-        flashObject.SetActive(false);
     }
 
     private void Start()
     {
         mainCamera.SetActive(true);
         photoCamera.SetActive(false);
+        flashObject.SetActive(false);
+        cameraObject.SetActive(false);
     }
 
     private void Update()
@@ -195,7 +196,7 @@ public class PlayerController : MonoBehaviour
 
     private void ActionUpdate()
     {
-        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown && !isTransitioning)
+        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown && !isCameraInHand)
         {
             StartCoroutine(FlareCountdown());
 
@@ -213,15 +214,19 @@ public class PlayerController : MonoBehaviour
 
         if(getCameraAction.action.WasPressedThisFrame())
         {
-            PlayerLook.hasItemInHand = !PlayerLook.hasItemInHand; // Toggle camera in hand state
             if(!PlayerLook.hasItemInHand)
             {
+                isCameraInHand = true;
+                cameraObject.SetActive(true);
                 flashObject.SetActive(true);
             }
             else
             {
+                isCameraInHand = false;
+                cameraObject.SetActive(false);
                 flashObject.SetActive(false);
             }
+            PlayerLook.hasItemInHand = !PlayerLook.hasItemInHand; // Toggle camera in hand state
         }
     }
 
@@ -251,33 +256,29 @@ public class PlayerController : MonoBehaviour
 
     void CameraActionUpdate()
     {
-        if (PlayerLook.hasItemInHand && PlayerLook.itemInHand.CompareTag("Camera"))
-        {
-            if(cameraAction.action.IsPressed() && !inPhotoMode && !isTransitioning)
+        if (isCameraInHand)
+        { 
+            if (cameraAction.action.IsPressed() && !inPhotoMode)
             {
                 StartCoroutine(EnterPhotoMode());
             }
 
-            if(!cameraAction.action.IsPressed() && inPhotoMode && !isTransitioning)
+            if(!cameraAction.action.IsPressed() && inPhotoMode && !cameraFlash.takingPicture)
             {
                 StartCoroutine(ExitPhotoMode());
             }
         }
+       
     }
 
     IEnumerator EnterPhotoMode()
     {
-        isTransitioning = true;
         cameraAnim.SetBool("isAiming", true);
 
-        yield return new WaitForSeconds(0.25f); //wait for animation to finish
+        yield return new WaitForSeconds(0.3f); //wait for animation to finish
 
-
-        if (PlayerLook.cameraInHand != null)
-        {
-            PlayerLook.cameraInHand.GetComponent<MeshRenderer>().enabled = false;
-            
-        }
+        cameraObject.GetComponent<MeshRenderer>().enabled = false;
+        
 
         //hold camera up to eyes - switch to "camera"-mode
         mainCamera.SetActive(false);
@@ -286,35 +287,27 @@ public class PlayerController : MonoBehaviour
         cameraFlash.ReadyFlash();
 
         inPhotoMode = true;
-        isTransitioning = false;
     }
 
     IEnumerator ExitPhotoMode()
     {
-        isTransitioning = true;
-
-        yield return new WaitForSeconds(0.25f); //wait
-
         //hold camera up to eyes - switch to "camera"-mode
         mainCamera.SetActive(true);
         photoCamera.SetActive(false);
-
+       
+        cameraObject.GetComponent<MeshRenderer>().enabled = true;
         inventory.UpdatePlayerHud();
 
-        if (PlayerLook.cameraInHand != null)
-        {
-            PlayerLook.cameraInHand.GetComponent<MeshRenderer>().enabled = true;
-        }
-
-        cameraAnim.SetBool("isAiming", false);
+        
 
         inPhotoMode = false;
-        isTransitioning = false;
+        yield return new WaitForSeconds(0.1f); //wait
+        cameraAnim.SetBool("isAiming", false);
     }
 
     void OnPhotoTaken(InputAction.CallbackContext context)
     {
-        if (inPhotoMode && !isTransitioning && !cameraFlash.takingPicture)
+        if (inPhotoMode && !cameraFlash.takingPicture)
         {
             cameraFlash.Flash();
             cameraShutterSound.Play();
