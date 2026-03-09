@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float eyesPosCrouch, eyesPosStand;
     [SerializeField] private PlayerLook PlayerLook;
     [SerializeField] private GameObject GM;
-    private Inventory inventory;
+    [SerializeField] private Inventory inventory;
 
     [Header("UI Parameters")]
     private VisualElement root;
@@ -37,6 +38,15 @@ public class PlayerController : MonoBehaviour
     [Header("Other Parameters")]
     private bool isFlareThrown;
 
+    [Header("PhotoCamera Parameters")]
+    public GameObject mainCamera;
+    public GameObject photoCamera;
+    public bool inPhotoMode;
+    public Animator cameraAnim;
+    bool isTransitioning = false;
+    [SerializeField] private CameraFlash cameraFlash;
+    [SerializeField] private AudioSource cameraShutterSound;
+
     #region Input Actions
     [Header("Input Actions")]
     [SerializeField] private InputActionReference moveAction;
@@ -44,6 +54,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference crouchAction;
     [SerializeField] private InputActionReference jumpAction;
     [SerializeField] private InputActionReference throwFlareAction;
+    [SerializeField] private InputActionReference cameraAction;
+    [SerializeField] private InputActionReference photoAction;
 
     private void OnEnable()
     {
@@ -51,6 +63,8 @@ public class PlayerController : MonoBehaviour
         sprintAction.action.Enable();
         crouchAction.action.Enable();
         jumpAction.action.Enable();
+
+        photoAction.action.performed += OnPhotoTaken;
     }
     private void OnDisable()
     {
@@ -58,6 +72,8 @@ public class PlayerController : MonoBehaviour
         sprintAction.action.Disable();
         crouchAction.action.Disable();
         jumpAction.action.Disable();
+
+        photoAction.action.performed -= OnPhotoTaken;
     }
     #endregion
 
@@ -67,11 +83,17 @@ public class PlayerController : MonoBehaviour
         eyesPosY = eyes.position.y;
         eyesPosCrouch = eyesPosY - 0.3f;
         eyesPosStand = eyesPosCrouch + 0.3f;
-        inventory = GetComponent<Inventory>();
+        inventory = gameObject.GetComponent<Inventory>();
         StartCoroutine(FlareCountdown());
         
-        root = GetComponent<UIDocument>().rootVisualElement;
+        root = mainCamera.GetComponent<UIDocument>().rootVisualElement;
         staminaBar = root.Q("StaminaBar");
+    }
+
+    private void Start()
+    {
+        mainCamera.SetActive(true);
+        photoCamera.SetActive(false);
     }
 
     private void Update()
@@ -81,6 +103,8 @@ public class PlayerController : MonoBehaviour
 
         MoveUpdate();
         ActionUpdate();
+
+        CameraActionUpdate();
     }
 
     private void MoveUpdate()
@@ -101,7 +125,7 @@ public class PlayerController : MonoBehaviour
         // Movement
         Vector2 input = moveAction.action.ReadValue<Vector2>();
         Vector3 move = eyesRight * input.x + eyesForward * input.y;
-        move.Normalize(); // Sørger for at spilleren bevæger sig med samme hastighed uanset hvor spilleren kigger hen
+        move.Normalize(); // Sï¿½rger for at spilleren bevï¿½ger sig med samme hastighed uanset hvor spilleren kigger hen
         if (move != Vector3.zero) { transform.position = move; }
         
         
@@ -163,14 +187,14 @@ public class PlayerController : MonoBehaviour
 
     private void ActionUpdate()
     {
-        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown)
+        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown && !isTransitioning)
         {
             StartCoroutine(FlareCountdown());
 
             // Setting random rotation for the flare
-            int rndX = Random.Range(-180, 180);
-            int rndY = Random.Range(-180, 180);
-            int rndZ = Random.Range(-180, 180);
+            int rndX = UnityEngine.Random.Range(-180, 180);
+            int rndY = UnityEngine.Random.Range(-180, 180);
+            int rndZ = UnityEngine.Random.Range(-180, 180);
 
             // Instantiate flare and add forward force
             GameObject flare = Instantiate(GM.GetComponent<GameManager>().flarePrefab, eyes.position + eyes.forward, Quaternion.Euler(rndX, rndY, rndZ));
@@ -203,4 +227,77 @@ public class PlayerController : MonoBehaviour
         if (hit.rigidbody != null)
         { hit.rigidbody.AddRelativeForce(finalMove, ForceMode.Force); }
     }
+
+    void CameraActionUpdate()
+    {
+        if (PlayerLook.hasItemInHand && PlayerLook.itemInHand.CompareTag("Camera"))
+        {
+            if(cameraAction.action.IsPressed() && !inPhotoMode && !isTransitioning)
+            {
+                StartCoroutine(EnterPhotoMode());
+            }
+
+            if(!cameraAction.action.IsPressed() && inPhotoMode && !isTransitioning)
+            {
+                StartCoroutine(ExitPhotoMode());
+            }
+        }
+    }
+
+    IEnumerator EnterPhotoMode()
+    {
+        isTransitioning = true;
+        cameraAnim.SetBool("isAiming", true);
+
+        yield return new WaitForSeconds(0.25f); //wait for animation to finish
+
+
+        if (PlayerLook.cameraInHand != null)
+        {
+            PlayerLook.cameraInHand.GetComponent<MeshRenderer>().enabled = false;
+        }
+
+        //hold camera up to eyes - switch to "camera"-mode
+        mainCamera.SetActive(false);
+        photoCamera.SetActive(true);
+
+        cameraFlash.ReadyFlash();
+
+        inPhotoMode = true;
+        isTransitioning = false;
+    }
+
+    IEnumerator ExitPhotoMode()
+    {
+        isTransitioning = true;
+
+        yield return new WaitForSeconds(0.25f); //wait
+
+        //hold camera up to eyes - switch to "camera"-mode
+        mainCamera.SetActive(true);
+        photoCamera.SetActive(false);
+
+        inventory.UpdatePlayerHud();
+
+        if (PlayerLook.cameraInHand != null)
+        {
+            PlayerLook.cameraInHand.GetComponent<MeshRenderer>().enabled = true;
+        }
+
+        cameraAnim.SetBool("isAiming", false);
+
+        inPhotoMode = false;
+        isTransitioning = false;
+    }
+
+    void OnPhotoTaken(InputAction.CallbackContext context)
+    {
+        if (inPhotoMode && !isTransitioning && !cameraFlash.takingPicture)
+        {
+            cameraFlash.Flash();
+            cameraShutterSound.Play();
+
+        }
+    }
+
 }

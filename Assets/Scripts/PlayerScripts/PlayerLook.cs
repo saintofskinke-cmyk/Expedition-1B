@@ -4,6 +4,8 @@ using UnityEngine.UIElements;
 
 public class PlayerLook : MonoBehaviour
 {
+    [SerializeField] private PlayerController playerController;
+
     [Header("Actions")]
     [SerializeField] private InputActionReference lookAction;
     [SerializeField] private InputActionReference handInterAction;
@@ -16,10 +18,12 @@ public class PlayerLook : MonoBehaviour
 
     [Header("Pick Up Parameters")]
     private int pickUpRange = 4;
-    private bool hasItemInHand;
+    public bool hasItemInHand;
     [SerializeField] private Transform handAnchor;
     private Transform originalHandItemAnchor;
-    private Transform itemInHand;
+    public Transform itemInHand;
+    public GameObject cameraInHand;
+    public GameObject playerHudDocument;
     private VisualElement root;
     private Label txtPickUp;
 
@@ -27,7 +31,7 @@ public class PlayerLook : MonoBehaviour
     {
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
-        root = GetComponentInParent<UIDocument>().rootVisualElement;
+        root = playerHudDocument.GetComponent<UIDocument>().rootVisualElement;
         txtPickUp = root.Q<Label>("txtPickUp");
     }
 
@@ -68,44 +72,59 @@ public class PlayerLook : MonoBehaviour
 
     private void PickUpdate()
     {
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange))
+        if (!playerController.inPhotoMode)
         {
-            if (hit.collider.gameObject.CompareTag("Interactable") || hit.collider.gameObject.CompareTag("Item"))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange))
             {
-                txtPickUp.style.display = DisplayStyle.Flex;
-                if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
+                if (hit.collider.gameObject.CompareTag("Interactable") || hit.collider.gameObject.CompareTag("Item") || hit.collider.gameObject.CompareTag("Camera"))
                 {
-                    switch (hit.collider.gameObject.tag)
+                    txtPickUp.style.display = DisplayStyle.Flex;
+                    if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
                     {
-                        case "Item":
-                            originalHandItemAnchor = hit.transform.parent;
-                            OnItemPickedUp(hit, handAnchor);
-                            itemInHand = hit.transform;
-                            hasItemInHand = true;
-                            break;
+                        switch (hit.collider.gameObject.tag)
+                        {
+                            case "Item":
+                                originalHandItemAnchor = hit.transform.parent;
+                                OnItemPickedUp(hit, handAnchor);
+                                itemInHand = hit.transform;
+                                hasItemInHand = true;
+                                break;
 
-                        case "Interactable":
-                            hit.collider.gameObject.GetComponent<InteractionHandler>().StartInteractionLogic();
-                            break;
+                            case "Interactable":
+                                hit.collider.gameObject.GetComponent<InteractionHandler>().StartInteractionLogic();
+                                break;
+
+                            case "Camera":
+                                cameraInHand = hit.collider.gameObject;
+                                originalHandItemAnchor = hit.transform.parent;
+                                OnItemPickedUp(hit, handAnchor);
+                                itemInHand = hit.transform;
+                                hasItemInHand = true;
+                                break;
+                        }
+                        return;
                     }
+                    TryItemDrop();
                     return;
                 }
-                TryItemDrop();
-                return;
             }
         }
+
         TryItemDrop();
         txtPickUp.style.display = DisplayStyle.None;
     }
     
     private void TryItemDrop()
     {
-        if (handInterAction.action.WasPressedThisFrame() && hasItemInHand)
+        if (!playerController.inPhotoMode)
         {
-            
-            OnItemDropped(hasItemInHand, itemInHand, originalHandItemAnchor, 10f);
-            hasItemInHand = false;
+            if (handInterAction.action.WasPressedThisFrame() && hasItemInHand)
+            {
+                OnItemDropped(hasItemInHand, itemInHand, originalHandItemAnchor, 10f);
+                hasItemInHand = false;
+            }
         }
+            
     }
     private void OnItemPickedUp(RaycastHit hit, Transform handAnchor)
     {
