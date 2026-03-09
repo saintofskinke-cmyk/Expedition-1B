@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     bool isTransitioning = false;
     [SerializeField] private CameraFlash cameraFlash;
     [SerializeField] private AudioSource cameraShutterSound;
+    [SerializeField] private GameObject flashObject;
 
     #region Input Actions
     [Header("Input Actions")]
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference throwFlareAction;
     [SerializeField] private InputActionReference cameraAction;
     [SerializeField] private InputActionReference photoAction;
+    [SerializeField] private InputActionReference getCameraAction;
 
     private void OnEnable()
     {
@@ -63,6 +65,8 @@ public class PlayerController : MonoBehaviour
         sprintAction.action.Enable();
         crouchAction.action.Enable();
         jumpAction.action.Enable();
+        throwFlareAction.action.Enable();
+        getCameraAction.action.Enable();
 
         photoAction.action.performed += OnPhotoTaken;
     }
@@ -72,6 +76,8 @@ public class PlayerController : MonoBehaviour
         sprintAction.action.Disable();
         crouchAction.action.Disable();
         jumpAction.action.Disable();
+        throwFlareAction.action.Disable();
+        getCameraAction.action.Disable();
 
         photoAction.action.performed -= OnPhotoTaken;
     }
@@ -88,6 +94,8 @@ public class PlayerController : MonoBehaviour
         
         root = mainCamera.GetComponent<UIDocument>().rootVisualElement;
         staminaBar = root.Q("StaminaBar");
+
+        flashObject.SetActive(false);
     }
 
     private void Start()
@@ -202,6 +210,19 @@ public class PlayerController : MonoBehaviour
 
             inventory.RemoveItem("Flare"); // Remove flare from inventory
         }
+
+        if(getCameraAction.action.WasPressedThisFrame())
+        {
+            PlayerLook.hasItemInHand = !PlayerLook.hasItemInHand; // Toggle camera in hand state
+            if(!PlayerLook.hasItemInHand)
+            {
+                flashObject.SetActive(true);
+            }
+            else
+            {
+                flashObject.SetActive(false);
+            }
+        }
     }
 
     IEnumerator FlareCountdown()
@@ -255,6 +276,7 @@ public class PlayerController : MonoBehaviour
         if (PlayerLook.cameraInHand != null)
         {
             PlayerLook.cameraInHand.GetComponent<MeshRenderer>().enabled = false;
+            
         }
 
         //hold camera up to eyes - switch to "camera"-mode
