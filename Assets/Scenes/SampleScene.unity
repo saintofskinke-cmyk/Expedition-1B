@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &58450191 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3442802065119588940, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-  m_PrefabInstance: {fileID: 553110342}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75157045300bc9048b827558904b1054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Inventory
 --- !u!1 &208787144
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,18 +336,6 @@ PrefabInstance:
     - target: {fileID: 74740890314986862, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3213170024270272837, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: inventory
-      value: 
-      objectReference: {fileID: 58450191}
-    - target: {fileID: 4118439677488814054, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5187260791479900343, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 8215
       objectReference: {fileID: 0}
     - target: {fileID: 5994108340518225187, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: m_Name
@@ -906,6 +883,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1276538155764275128, guid: 228f5276e90d6784bb006179c63c099f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750214493479001437, guid: 228f5276e90d6784bb006179c63c099f, type: 3}
+      propertyPath: m_TagString
+      value: Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811460064281346619, guid: 228f5276e90d6784bb006179c63c099f, type: 3}
+      propertyPath: m_SpotAngle
+      value: 75.202034
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811460064281346619, guid: 228f5276e90d6784bb006179c63c099f, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 28.929293
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811460064281346619, guid: 228f5276e90d6784bb006179c63c099f, type: 3}
+      propertyPath: m_BounceIntensity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7989247321897437091, guid: 228f5276e90d6784bb006179c63c099f, type: 3}
