@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using DevData;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,10 +15,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerLook PlayerLook;
     [SerializeField] private GameObject GM;
     [SerializeField] private Inventory inventory;
-
-    [Header("UI Parameters")]
-    private VisualElement root;
-    private VisualElement staminaBar;
 
     [Header("Movement Parameters")]
     private float moveSpeed;
@@ -32,11 +29,13 @@ public class PlayerController : MonoBehaviour
     private bool isPlayerCrouching;
     private Vector3 velocity;
     private Vector3 finalMove;
-    private float staminaTimer = 25f;
+    private float stamina = 25f;
     private int staminaMultiplier = 5;
+    private bool isStaminaRecovering;
 
     [Header("Other Parameters")]
     private bool isFlareThrown;
+    private Color staminaBarColor;
 
     [Header("PhotoCamera Parameters")]
     public GameObject mainCamera;
@@ -92,9 +91,6 @@ public class PlayerController : MonoBehaviour
         eyesPosStand = eyesPosCrouch + 0.3f;
         inventory = gameObject.GetComponent<Inventory>();
         StartCoroutine(FlareCountdown());
-        
-        root = mainCamera.GetComponent<UIDocument>().rootVisualElement;
-        staminaBar = root.Q("StaminaBar");
     }
 
     private void Start()
@@ -164,40 +160,55 @@ public class PlayerController : MonoBehaviour
         if (isPlayerGrounded && !isPlayerCrouching)
         {
             // Sprint
-            if (sprintAction.action.IsPressed() && move != Vector3.zero)
+            if (sprintAction.action.IsPressed() && move != Vector3.zero && !isStaminaRecovering)
             {
-                staminaTimer -= staminaMultiplier * Time.deltaTime; // Make stamina decrease when running
-                if (staminaTimer <= 0) { staminaTimer = 0; moveSpeed = walkSpeed; } // If stamina is EMPTY stop removing stamina and stop running
+                stamina -= staminaMultiplier * Time.deltaTime; // Make stamina decrease when running
+                if (stamina <= 0) { 
+                    stamina = 0;
+                    moveSpeed = walkSpeed;
+                    staminaBarColor = Colors.staminaRed; // Stamina bar is red
+                    isStaminaRecovering = true; } // If stamina is EMPTY stop removing stamina and stop running
                 else moveSpeed = sprintSpeed; // Only sprint if player has stamina
             }
             else
             {
                 moveSpeed = walkSpeed;
-                staminaTimer += staminaMultiplier * 0.7f * Time.deltaTime; // Make stamina increase when not running
-                if (staminaTimer >= 25f) { staminaTimer = 25f; } // If stamina is FULL stop adding more stamina
+                stamina += staminaMultiplier * 0.7f * Time.deltaTime; // Make stamina increase when not running
+                if (stamina >= 25f) { 
+                    stamina = 25f;
+                    staminaBarColor = Colors.staminaWhite; // Stamina bar is white
+                    isStaminaRecovering = false; } // If stamina is FULL stop adding more stamina
             }
         
             // Stamina UI
-            if (staminaTimer < 25f)
+            if (stamina < 25f)
             {
-                staminaBar.style.display = DisplayStyle.Flex; // Make stamina bar visible
-                staminaBar.style.scale = new Vector3(staminaTimer, 0.01f, 0); // Update the stamina bar
+                inventory.staminaBar.style.display = DisplayStyle.Flex; // Make stamina bar visible
+                inventory.staminaBar.style.scale = new Vector3(stamina, 0.01f, 0); // Update the stamina bar
+                inventory.staminaBar.style.backgroundColor = staminaBarColor;
             }
-            else { staminaBar.style.display = DisplayStyle.None; } // Make stamina bar invisible if stamina is FULL
+            else { inventory.staminaBar.style.display = DisplayStyle.None; } // Make stamina bar invisible if stamina is FULL
         }
-        else {  }
+        
 
 
 
-        // Make MoveUpdate() work
-        finalMove = move * moveSpeed + velocity.y * Vector3.up;
+            // Make MoveUpdate() work
+            finalMove = move * moveSpeed + velocity.y * Vector3.up;
         controller.Move(finalMove * Time.deltaTime);
     }
 
-    #region ActionUpdate() - Flare and Camera
+    // Add force to rigidbodies when colliding with them
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.rigidbody != null)
+        { hit.rigidbody.AddRelativeForce(finalMove, ForceMode.Force); }
+    }
+
+    #region ActionUpdate + Flare
     private void ActionUpdate()
     {
-        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown && !isCameraInHand)
+        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown && !isCameraInHand && !PlayerLook.hasItemInHand)
         {
             StartCoroutine(FlareCountdown());
 
@@ -213,9 +224,9 @@ public class PlayerController : MonoBehaviour
             inventory.RemoveItem("Flare"); // Remove flare from inventory
         }
 
-        if(getCameraAction.action.WasPressedThisFrame())
+        if(getCameraAction.action.WasPressedThisFrame() && !PlayerLook.hasItemInHand)
         {
-            if(!PlayerLook.hasItemInHand)
+            if(!isCameraInHand)
             {
                 isCameraInHand = true;
                 cameraObject.SetActive(true);
@@ -227,11 +238,10 @@ public class PlayerController : MonoBehaviour
                 cameraObject.SetActive(false);
                 flashObject.SetActive(false);
             }
-            PlayerLook.hasItemInHand = !PlayerLook.hasItemInHand; // Toggle camera in hand state
         }
     }
 
-    IEnumerator FlareCountdown()
+    public IEnumerator FlareCountdown()
     {
         isFlareThrown = true;
         float seconds = 2f;
@@ -247,14 +257,9 @@ public class PlayerController : MonoBehaviour
 
         isFlareThrown = false;
     }
+    #endregion
 
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.rigidbody != null)
-        { hit.rigidbody.AddRelativeForce(finalMove, ForceMode.Force); }
-    }
-
+    #region PhotoCamera
     void CameraActionUpdate()
     {
         if (isCameraInHand)

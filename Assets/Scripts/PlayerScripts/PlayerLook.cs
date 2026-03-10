@@ -145,5 +145,6 @@ public class PlayerLook : MonoBehaviour
         
         // Throw the item
         itemInHand.GetComponent<Rigidbody>().AddForce(transform.forward * force, ForceMode.VelocityChange);
+        StartCoroutine(playerController.FlareCountdown());
     }
 }
