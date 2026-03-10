@@ -300,6 +300,17 @@ public class PlayerController : MonoBehaviour
             cameraFlash.Flash();
             cameraShutterSound.Play();
 
+            //what is the player taking a picture of? is it important or not?
+            Ray ray = photoCamera.GetComponentInChildren<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+            RaycastHit hit;
+
+            if(Physics.SphereCast(ray, 0.5f, out hit, 50f) && hit.collider.GetComponent<PhotoTargetOfInterest>() != null)
+            {
+                PhotoTargetOfInterest target = hit.collider.GetComponent<PhotoTargetOfInterest>();
+
+                target.Captured();
+            }
+
         }
     }
 

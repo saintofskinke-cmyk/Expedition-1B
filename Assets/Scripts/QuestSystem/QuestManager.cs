@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,6 +11,7 @@ public class QuestManager : MonoBehaviour
 
     private Label objectiveDisplay;
     [SerializeField] private UIDocument playerUIDocument;
+    [SerializeField] private PlayerController playerController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,7 +44,10 @@ public class QuestManager : MonoBehaviour
             NextObjective();
         }
 
-        UpdateUI();
+        if (!playerController.inPhotoMode)
+        {
+            UpdateUI();
+        }
     }
 
     private void NextObjective()
@@ -56,6 +61,9 @@ public class QuestManager : MonoBehaviour
             return;
         }
 
-        UpdateUI();
+        if (!playerController.inPhotoMode)
+        {
+            UpdateUI();
+        }
     }
 }

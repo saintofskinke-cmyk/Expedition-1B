@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 266378425}
   - component: {fileID: 266378427}
   m_Layer: 0
-  m_Name: rearchZone
+  m_Name: searchZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -489,6 +489,46 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+--- !u!1 &595043369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6866199412269577610, guid: fe7c0bc496f6001439120389ff3f10f0, type: 3}
+  m_PrefabInstance: {fileID: 1186324038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &595043371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595043369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
+  questManager: {fileID: 0}
+  objectiveEventID: 2
+--- !u!65 &595043372
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595043369}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.23671263, y: 0.17558497, z: 0.20906237}
+  m_Center: {x: -0.044987172, y: 0.0065576136, z: 0.057727084}
 --- !u!114 &806259916 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4118439677488814054, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
@@ -548,6 +588,25 @@ MonoBehaviour:
   requiredProgress: 1
   currentProgress: 0
   isComplete: 0
+--- !u!1 &973426870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4491157392855515575, guid: 16d861852fb0f1048ad2fc6a418f32b3, type: 3}
+  m_PrefabInstance: {fileID: 1230162746775056528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &973426876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973426870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
+  questManager: {fileID: 0}
+  objectiveEventID: 2
 --- !u!1001 &1186324038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -604,10 +663,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8575569116544269109, guid: fe7c0bc496f6001439120389ff3f10f0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6866199412269577610, guid: fe7c0bc496f6001439120389ff3f10f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 595043371}
+    - targetCorrespondingSourceObject: {fileID: 6866199412269577610, guid: fe7c0bc496f6001439120389ff3f10f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 595043372}
   m_SourcePrefab: {fileID: 100100000, guid: fe7c0bc496f6001439120389ff3f10f0, type: 3}
 --- !u!1 &1190723097
 GameObject:
@@ -701,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7ecbac0bfcc9c42ae6bd5fc79f37e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveClass
-  description: Take Pictures of Evidence
+  description: Take Pictures of Potential Evidence
   requiredProgress: 5
   currentProgress: 0
   isComplete: 0
@@ -741,6 +807,7 @@ MonoBehaviour:
   - {fileID: 1190723099}
   currentObjectiveIndex: 0
   playerUIDocument: {fileID: 806259916}
+  playerController: {fileID: 1535497116}
 --- !u!4 &1350339431
 Transform:
   m_ObjectHideFlags: 0
@@ -761,6 +828,17 @@ Transform:
   - {fileID: 1669439871}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1535497116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3213170024270272837, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+  m_PrefabInstance: {fileID: 553110342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96de92966c0e9a24c874ab46e3d29f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
 --- !u!1001 &1616965412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -870,6 +948,25 @@ MonoBehaviour:
   requiredProgress: 1
   currentProgress: 0
   isComplete: 0
+--- !u!1 &1840601063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8755428891000506010, guid: f2a901b5c02b28f498734aa16eca7923, type: 3}
+  m_PrefabInstance: {fileID: 2069730014162916795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1840601068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840601063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
+  questManager: {fileID: 0}
+  objectiveEventID: 2
 --- !u!1001 &1914392911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -943,6 +1040,44 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+--- !u!1 &1996740372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8674712785128426091, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
+  m_PrefabInstance: {fileID: 6759153388435381662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1996740377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996740372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
+  questManager: {fileID: 0}
+  objectiveEventID: 2
+--- !u!1 &2031519290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4049703489630567418, guid: 36b39a1fb65dfe542b271e1dc2444e8f, type: 3}
+  m_PrefabInstance: {fileID: 7300896434948824262}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2031519295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031519290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
+  questManager: {fileID: 0}
+  objectiveEventID: 2
 --- !u!1001 &266165718873320326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1067,7 +1202,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4491157392855515575, guid: 16d861852fb0f1048ad2fc6a418f32b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 973426876}
   m_SourcePrefab: {fileID: 100100000, guid: 16d861852fb0f1048ad2fc6a418f32b3, type: 3}
 --- !u!1001 &1795963260254477533
 PrefabInstance:
@@ -1181,7 +1319,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8755428891000506010, guid: f2a901b5c02b28f498734aa16eca7923, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1840601068}
   m_SourcePrefab: {fileID: 100100000, guid: f2a901b5c02b28f498734aa16eca7923, type: 3}
 --- !u!1001 &3109943135789723128
 PrefabInstance:
@@ -1369,6 +1510,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2950324651716712006, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
+      propertyPath: m_Size.x
+      value: 0.23246531
+      objectReference: {fileID: 0}
+    - target: {fileID: -2950324651716712006, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
+      propertyPath: m_Size.y
+      value: 0.45411217
+      objectReference: {fileID: 0}
+    - target: {fileID: -2950324651716712006, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
+      propertyPath: m_Size.z
+      value: 0.289627
+      objectReference: {fileID: 0}
+    - target: {fileID: -2950324651716712006, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
+      propertyPath: m_Center.x
+      value: -0.0062326565
+      objectReference: {fileID: 0}
+    - target: {fileID: -2950324651716712006, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
+      propertyPath: m_Center.y
+      value: 0.00040099025
+      objectReference: {fileID: 0}
+    - target: {fileID: -2950324651716712006, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
+      propertyPath: m_Center.z
+      value: 0.1448135
+      objectReference: {fileID: 0}
     - target: {fileID: 8166468988652011166, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.946
@@ -1416,7 +1581,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8674712785128426091, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1996740377}
   m_SourcePrefab: {fileID: 100100000, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
 --- !u!1001 &7300896434948824262
 PrefabInstance:
@@ -1473,7 +1641,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4049703489630567418, guid: 36b39a1fb65dfe542b271e1dc2444e8f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2031519295}
   m_SourcePrefab: {fileID: 100100000, guid: 36b39a1fb65dfe542b271e1dc2444e8f, type: 3}
 --- !u!1001 &7693437860964495423
 PrefabInstance:
