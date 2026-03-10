@@ -72,7 +72,7 @@ public class PlayerLook : MonoBehaviour
 
     private void PickUpdate()
     {
-        if (!playerController.inPhotoMode)
+        if (!playerController.isCameraInHand)
         {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange))
             {
@@ -94,13 +94,13 @@ public class PlayerLook : MonoBehaviour
                                 hit.collider.gameObject.GetComponent<InteractionHandler>().StartInteractionLogic();
                                 break;
 
-                            case "Camera":
-                                cameraInHand = hit.collider.gameObject;
-                                originalHandItemAnchor = hit.transform.parent;
-                                OnItemPickedUp(hit, handAnchor);
-                                itemInHand = hit.transform;
-                                hasItemInHand = true;
-                                break;
+                            //case "Camera":
+                            //    cameraInHand = hit.collider.gameObject;
+                            //    originalHandItemAnchor = hit.transform.parent;
+                            //    OnItemPickedUp(hit, handAnchor);
+                            //    itemInHand = hit.transform;
+                            //    hasItemInHand = true;
+                            //    break;
                         }
                         return;
                     }
@@ -108,23 +108,19 @@ public class PlayerLook : MonoBehaviour
                     return;
                 }
             }
+            TryItemDrop();
+            
         }
-
-        TryItemDrop();
         txtPickUp.style.display = DisplayStyle.None;
     }
     
     private void TryItemDrop()
     {
-        if (!playerController.inPhotoMode)
+        if (handInterAction.action.WasPressedThisFrame() && hasItemInHand)
         {
-            if (handInterAction.action.WasPressedThisFrame() && hasItemInHand)
-            {
-                OnItemDropped(hasItemInHand, itemInHand, originalHandItemAnchor, 10f);
-                hasItemInHand = false;
-            }
+            OnItemDropped(hasItemInHand, itemInHand, originalHandItemAnchor, 10f);
+            hasItemInHand = false;
         }
-            
     }
     private void OnItemPickedUp(RaycastHit hit, Transform handAnchor)
     {

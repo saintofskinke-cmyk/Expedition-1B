@@ -14,6 +14,8 @@ public class CameraFlash : MonoBehaviour
     [SerializeField] private PlayerLook PlayerLook;
     public bool takingPicture = false;
 
+    [SerializeField] private GameObject flashObject;
+
     public void ReadyFlash()
     {
         cameraUI = GetComponent<UIDocument>();
@@ -39,7 +41,7 @@ public class CameraFlash : MonoBehaviour
 
         flash.style.opacity = 100f;
 
-        PlayerLook.cameraInHand.GetComponent<Light>().intensity = 10f;
+        flashObject.GetComponent<Light>().intensity = 10f;
 
         yield return new WaitForSeconds(0.05f);
 
@@ -65,7 +67,7 @@ public class CameraFlash : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(2f);
 
-        PlayerLook.cameraInHand.GetComponent<Light>().intensity = 0f;
+        flashObject.GetComponent<Light>().intensity = 0f;
 
         Time.timeScale = 1f;
 
