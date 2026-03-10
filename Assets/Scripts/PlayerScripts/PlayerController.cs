@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     public GameObject photoCamera;
     public bool inPhotoMode;
     public Animator cameraAnim;
-    private bool isCameraInHand = false;
+    public bool isCameraInHand = false;
     [SerializeField] private CameraFlash cameraFlash;
     [SerializeField] private AudioSource cameraShutterSound;
     [SerializeField] private GameObject flashObject;
@@ -194,6 +194,7 @@ public class PlayerController : MonoBehaviour
         controller.Move(finalMove * Time.deltaTime);
     }
 
+    #region ActionUpdate() - Flare and Camera
     private void ActionUpdate()
     {
         if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown && !isCameraInHand)
@@ -314,5 +315,5 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
+    #endregion
 }
