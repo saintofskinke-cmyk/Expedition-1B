@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class QuestManager : MonoBehaviour
 {
     public List<ObjectiveClass> objectiveOrder = new List<ObjectiveClass>();
-    private int currentObjectiveIndex = 0;
+    public int currentObjectiveIndex = 0;
 
     private Label objectiveDisplay;
     [SerializeField] private UIDocument playerUIDocument;
@@ -17,12 +17,13 @@ public class QuestManager : MonoBehaviour
         UpdateUI();
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
+        objectiveDisplay = playerUIDocument.rootVisualElement.Q<Label>("ObjectiveDisplayText");
         objectiveDisplay.text = objectiveOrder[currentObjectiveIndex].GetDescription();
     }
 
-    private void Progress()
+    public void Progress(int progressAmount)
     {
         if(currentObjectiveIndex > objectiveOrder.Count)
         {
@@ -33,12 +34,12 @@ public class QuestManager : MonoBehaviour
         ObjectiveClass objective = objectiveOrder[currentObjectiveIndex];
 
         //tilfører en exstra værdi til currentProgress-variabel
-        objective.currentProgress++;
+        objective.currentProgress += progressAmount;
 
         //kalder IsObjectiveComplete(), som forholder sig til foreskellen mellem current og required progress (og altså derved om spilleren har færdiggjort den)
         if (objective.IsObjectiveComplete())
         {
-            //NextObjective()
+            NextObjective();
         }
 
         UpdateUI();

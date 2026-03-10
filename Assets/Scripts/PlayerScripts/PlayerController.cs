@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerLook PlayerLook;
     [SerializeField] private GameObject GM;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private QuestManager questManager;
 
     [Header("UI Parameters")]
     private VisualElement root;
@@ -278,6 +279,8 @@ public class PlayerController : MonoBehaviour
         photoCamera.SetActive(false);
 
         inventory.UpdatePlayerHud();
+        questManager.UpdateUI();
+        PlayerLook.UpdateTextUI();
 
         if (PlayerLook.cameraInHand != null)
         {
