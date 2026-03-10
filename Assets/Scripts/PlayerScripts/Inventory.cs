@@ -4,9 +4,10 @@ using UnityEngine.UIElements;
 public class Inventory : MonoBehaviour
 {
     [Header("UI Elements")]
-    private VisualElement root;
     public GameObject playerHudDocument;
+    private VisualElement root;
     public VisualElement flareCooldown;
+    public VisualElement staminaBar;
     private Label flareCountLabel;
 
     [Header("Inventory Data")]
@@ -25,7 +26,7 @@ public class Inventory : MonoBehaviour
         flareCooldown = root.Q("flareCooldown");
         flareCountLabel = root.Q<Label>("txtFlareCount");
         flareCountLabel.text = flareCount.ToString();
-        
+        staminaBar = root.Q("StaminaBar");
     }
 
     public void AddItem(string item)
