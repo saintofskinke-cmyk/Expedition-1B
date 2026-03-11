@@ -20,8 +20,8 @@ public class PhotoTargetOfInterest : MonoBehaviour
 
         if(objectiveEventID == questManager.currentObjectiveIndex)
         {
-            hasBeenCaptured = true;
             questManager.Progress(progressAmount);
+            hasBeenCaptured = true;
         }
     }
 }

@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     bool isTransitioning = false;
     [SerializeField] private CameraFlash cameraFlash;
     [SerializeField] private AudioSource cameraShutterSound;
+    [SerializeField] LayerMask photoLayers;
 
     #region Input Actions
     [Header("Input Actions")]
@@ -300,18 +301,38 @@ public class PlayerController : MonoBehaviour
             cameraFlash.Flash();
             cameraShutterSound.Play();
 
-            //what is the player taking a picture of? is it important or not?
-            Ray ray = photoCamera.GetComponentInChildren<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-            RaycastHit hit;
+            CheckObjectInPicture();
+        }
+    }
 
-            if(Physics.SphereCast(ray, 0.5f, out hit, 50f) && hit.collider.GetComponent<PhotoTargetOfInterest>() != null)
+    void CheckObjectInPicture()
+    {
+        //checks what the player is taking a picture of, using a raycast, by drawing a vector from the center of the viewport (0.5, 0.5)
+        Ray ray = photoCamera.GetComponentInChildren<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        RaycastHit hit;
+
+        //draws the raycast from start to finish - for debugging
+        Debug.DrawRay(ray.origin, ray.direction * 25f, Color.red, 5f);
+
+        //using previous ray and hit (output) with a distance of 10f, layermask ~0 (everything), ignore trigger colliders
+        if (Physics.SphereCast(ray, 0.15f, out hit, 25f, photoLayers, QueryTriggerInteraction.Ignore))
+        {
+            //name of the hit object
+            Debug.Log("Hit: " + hit.collider.name);
+            //actual ray displayed as a green line
+            Debug.DrawLine(ray.origin, hit.point, Color.green, 5f);
+
+            PhotoTargetOfInterest target = hit.collider.GetComponentInParent<PhotoTargetOfInterest>();
+            if (target != null)
             {
-                PhotoTargetOfInterest target = hit.collider.GetComponent<PhotoTargetOfInterest>();
-
                 target.Captured();
             }
-
+            else
+            {
+                Debug.Log("component not found");
+            }
         }
+
     }
 
 }
