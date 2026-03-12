@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &28313113 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3213170024270272837, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+  m_PrefabInstance: {fileID: 553110342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96de92966c0e9a24c874ab46e3d29f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
 --- !u!1001 &165016170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -460,6 +471,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+--- !u!1001 &949764181
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 715620318634057878, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: m_Name
+      value: QuestManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137843349528551040, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 28313113}
+    - target: {fileID: 2137843349528551040, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: playerUIDocument
+      value: 
+      objectReference: {fileID: 1830270215}
+    - target: {fileID: 2971090905590172751, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.20393
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971090905590172751, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971090905590172751, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.28809
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971090905590172751, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971090905590172751, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971090905590172751, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971090905590172751, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971090905590172751, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971090905590172751, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971090905590172751, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
 --- !u!1001 &958448360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1212,6 +1288,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 622bdb26c270b5c41a123e5e8a728160, type: 3}
+--- !u!114 &1830270215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4118439677488814054, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+  m_PrefabInstance: {fileID: 553110342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!1001 &1914392911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2464,6 +2551,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 949764181}
   - {fileID: 1914392911}
   - {fileID: 208787148}
   - {fileID: 553110342}
