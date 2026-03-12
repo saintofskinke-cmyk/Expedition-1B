@@ -636,8 +636,11 @@ MonoBehaviour:
   photoCamera: {fileID: 3308425355016115998}
   inPhotoMode: 0
   cameraAnim: {fileID: 8573822028690415807}
+  isCameraInHand: 0
   cameraFlash: {fileID: 8312548101427655166}
   cameraShutterSound: {fileID: 1555458405966042277}
+  flashObject: {fileID: 4639570564383011023}
+  cameraObject: {fileID: 7069940068321705616}
   photoLayers:
     serializedVersion: 2
     m_Bits: 8247
@@ -672,7 +675,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6648248277632334091}
-  - component: {fileID: 8058217664969009281}
   m_Layer: 3
   m_Name: HandAnchor
   m_TagString: Untagged
