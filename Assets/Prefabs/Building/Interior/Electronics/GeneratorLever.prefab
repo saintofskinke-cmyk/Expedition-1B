@@ -251,6 +251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   interactionAnimator: {fileID: 5776693950404798283}
+  objectiveEventID: 1
+  questManager: {fileID: 0}
 --- !u!65 &4997152958630689055
 BoxCollider:
   m_ObjectHideFlags: 0
