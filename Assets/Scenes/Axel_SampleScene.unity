@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &58450191 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3442802065119588940, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-  m_PrefabInstance: {fileID: 553110342}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75157045300bc9048b827558904b1054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Inventory
 --- !u!1 &79405333
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,73 +473,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 669174419598343256, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044379961969129615, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2567248587572828292, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3213170024270272837, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: inventory
-      value: 
-      objectReference: {fileID: 58450191}
     - target: {fileID: 3213170024270272837, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: questManager
       value: 
       objectReference: {fileID: 1350339430}
-    - target: {fileID: 3213170024270272837, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: photoLayers.m_Bits
-      value: 8247
-      objectReference: {fileID: 0}
-    - target: {fileID: 3308425355016115998, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4118439677488814054, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4732859604887980817, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4817075075411021333, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5187260791479900343, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 8215
-      objectReference: {fileID: 0}
     - target: {fileID: 5994108340518225187, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5994108340518225187, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6903465211498327187, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950227691962517812, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390193161350584486, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8316628391173076604, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
