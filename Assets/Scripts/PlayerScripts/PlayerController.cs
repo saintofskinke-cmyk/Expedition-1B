@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private Vector3 finalMove;
     private float stamina = 25f;
-    private int staminaMultiplier = 5;
+    private int staminaMultiplier = 3;
     private bool isStaminaRecovering;
 
     [Header("Other Parameters")]
