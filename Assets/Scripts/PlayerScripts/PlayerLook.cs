@@ -76,7 +76,7 @@ public class PlayerLook : MonoBehaviour
         {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange))
             {
-                if (hit.collider.gameObject.CompareTag("Interactable") || hit.collider.gameObject.CompareTag("Item") || hit.collider.gameObject.CompareTag("Camera"))
+                if (hit.collider.gameObject.CompareTag("Interactable") || hit.collider.gameObject.CompareTag("Item") || hit.collider.gameObject.CompareTag("Camera") || hit.collider.gameObject.CompareTag("ImportantItem"))
                 {
                     txtPickUp.style.display = DisplayStyle.Flex;
                     if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
@@ -93,14 +93,25 @@ public class PlayerLook : MonoBehaviour
                             case "Interactable":
                                 hit.collider.gameObject.GetComponent<InteractionHandler>().StartInteractionLogic();
                                 break;
-
-                            //case "Camera":
-                            //    cameraInHand = hit.collider.gameObject;
-                            //    originalHandItemAnchor = hit.transform.parent;
-                            //    OnItemPickedUp(hit, handAnchor);
-                            //    itemInHand = hit.transform;
-                            //    hasItemInHand = true;
-                            //    break;
+                            /*
+                            case "Camera":
+                                cameraInHand = hit.collider.gameObject;
+                                originalHandItemAnchor = hit.transform.parent;
+                                OnItemPickedUp(hit, handAnchor);
+                                itemInHand = hit.transform;
+                                hasItemInHand = true;
+                                break;
+                            */
+                            case "ImportantItem":
+                                if(hit.collider.gameObject.GetComponent<ItemPickupEvent>()  != null)
+                                {
+                                    hit.collider.gameObject.GetComponent<ItemPickupEvent>().OnPickup();
+                                }
+                                originalHandItemAnchor = hit.transform.parent;
+                                OnItemPickedUp(hit, handAnchor);
+                                itemInHand = hit.transform;
+                                hasItemInHand = true;
+                                break;
                         }
                         return;
                     }
@@ -146,5 +157,11 @@ public class PlayerLook : MonoBehaviour
         // Throw the item
         itemInHand.GetComponent<Rigidbody>().AddForce(transform.forward * force, ForceMode.VelocityChange);
         StartCoroutine(playerController.FlareCountdown());
+    }
+
+    public void UpdateTextUI()
+    {
+        root = playerHudDocument.GetComponent<UIDocument>().rootVisualElement;
+        txtPickUp = root.Q<Label>("txtPickUp");
     }
 }

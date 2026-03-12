@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1332726471591268367}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5307312613548026305}
   - component: {fileID: 4118439677488814054}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MainCameraParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 3863231773381868478}
   - component: {fileID: 5187260791479900343}
   - component: {fileID: 3679698287577532303}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FakeTextureCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 1521867885001128321}
   - component: {fileID: 8312548101427655166}
   - component: {fileID: 1555458405966042277}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PhotoCameraParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3957548827792995353}
   - component: {fileID: 4623443493189301731}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 3533007924080820335}
   - component: {fileID: 1204594897021940832}
   - component: {fileID: 4083227025731411738}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: VirtualPlayerCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 3468694089003712351}
   - component: {fileID: 3213170024270272837}
   - component: {fileID: 3442802065119588940}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -631,14 +631,16 @@ MonoBehaviour:
   PlayerLook: {fileID: 4623443493189301731}
   GM: {fileID: 5036068552155920496, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
   inventory: {fileID: 3442802065119588940}
+  questManager: {fileID: 0}
   mainCamera: {fileID: 1044379961969129615}
   photoCamera: {fileID: 3308425355016115998}
   inPhotoMode: 0
   cameraAnim: {fileID: 8573822028690415807}
   cameraFlash: {fileID: 8312548101427655166}
   cameraShutterSound: {fileID: 1555458405966042277}
-  flashObject: {fileID: 4639570564383011023}
-  cameraObject: {fileID: 7069940068321705616}
+  photoLayers:
+    serializedVersion: 2
+    m_Bits: 8247
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   sprintAction: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   crouchAction: {fileID: 7040659881675835329, guid: 052faaac586de48259a63d0c4782560b, type: 3}
@@ -670,7 +672,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6648248277632334091}
-  m_Layer: 0
+  - component: {fileID: 8058217664969009281}
+  m_Layer: 3
   m_Name: HandAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +707,7 @@ GameObject:
   - component: {fileID: 6201458414737303949}
   - component: {fileID: 1553549327973985067}
   - component: {fileID: 3181011887937943357}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: VirtualPhotoCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7450075713258810039}
   - component: {fileID: 716660499580369117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: photoCameraPostProcessing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +858,7 @@ GameObject:
   - component: {fileID: 4362586525148848034}
   - component: {fileID: 171589004005978668}
   - component: {fileID: 6622175163802791912}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

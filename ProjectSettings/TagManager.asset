@@ -8,11 +8,13 @@ TagManager:
   - GameManager
   - Interactable
   - Camera
+  - ImportantItem
+  - QuestManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
