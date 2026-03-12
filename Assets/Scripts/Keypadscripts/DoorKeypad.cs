@@ -3,95 +3,146 @@ using UnityEngine.UIElements;
 
 public class DoorKeypad : MonoBehaviour
 {
-    [SerializeField] private string code = "1234";
-    private string input = "";
+    public string correctCode = "1234";
+    public GameObject player; // assign your player GameObject
 
+    private string input = "";
     private UIDocument ui;
-    private MonoBehaviour playerController; // Referencer til FPS-controller script
+    private Button _Keypad;
+    private List<Button> _keypadButtons = new List<Button>();
+    private Label display;
+    private MonoBehaviour[] playerScripts;
+
+    private void Awake()
+    {
+        _Keypad = _document.rootVisualElement.Q("Keypad") as _Keypad:
+        _Keypad.RegisterCallback<ClickEvent>(OnPlayGameClick);
+
+        _keypadButtons = _document.rootVisualElement.Query<_Keypad>(). ToList();
+        for (int i = 0; i < _keypadButtons.Count; i++)
+        {
+            _keypadButtons[i].RegisterCallback<ClickEvent>()
+        }
+
+    }
+    private void OndDisable()
+    {
+        _button.UnregisterCallback<ClickEvent>(OnPlayGameClick;)
+        for (int i = 0; i < _keypadButtons.Count; i++)
+        {
+            _keypadButtons[i].RegisterCallback<ClickEvent>(OnAllButtonsClick);
+        }
+    }
 
     void Start()
     {
         ui = GetComponent<UIDocument>();
-        if (ui == null)
-        {
-            Debug.LogError("UIDocument mangler på GameObjectet!");
-            return;
-        }
-
-        // Find FPS-controller script i scenen (tilpas navnet)
-        playerController = FindObjectOfType<PlayerController>();
-        if (playerController == null)
-            Debug.LogWarning("FPS-controller script ikke fundet. UI input kan blive fanget.");
-
-        var root = ui.rootVisualElement;
-        var display = root.Q<Label>("Display");
-
-        // Skjul UI til start
         ui.rootVisualElement.style.display = DisplayStyle.None;
 
-        // Tilføj klik-events til alle knapper
-        root.Query<Button>().ForEach(btn =>
-        {
-            btn.clicked += () =>
-            {
-                input += btn.text;
-                display.text = input;
+        display = ui.rootVisualElement.Q<Label>("Display");
 
-                if (input.Length == 4)
-                {
-                    if (input == code)
-                    {
-                        Debug.Log("Døren er åben!");
-                        CloseUI();
-                    }
-                    else
-                    {
-                        Debug.Log("Forkert kode");
-                        display.text = "Forkert kode";
-                        Invoke(nameof(ResetInput), 1f);
-                    }
-                }
-            };
-        });
-    }
-
-    private void ResetInput()
-    {
-        input = "";
-        var display = ui.rootVisualElement.Q<Label>("Display");
-        if (display != null)
-            display.text = "";
+        // Find alle scripts på player
+        if (player != null)
+            playerScripts = player.GetComponents<MonoBehaviour>();
     }
 
     public void OpenUI()
     {
-        if (ui == null) return;
-
         ui.rootVisualElement.style.display = DisplayStyle.Flex;
 
-        // Unlock mus og gør den synlig
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         UnityEngine.Cursor.visible = true;
 
-        // Deaktiver FPS-controller midlertidigt
-        if (playerController != null)
-            playerController.enabled = false;
+        // Deaktiver player scripts
+        if (playerScripts != null)
+        {
+            foreach (var script in playerScripts)
+            {
+                if (script != this)
+                    script.enabled = false;
+            }
+        }
+
+        Debug.Log("Keypad åbnet. Indtast koden med tastaturet.");
     }
 
     public void CloseUI()
     {
-        if (ui == null) return;
-
         ui.rootVisualElement.style.display = DisplayStyle.None;
 
-        // Lock mus igen
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
 
-        // Re-aktiver FPS-controller
-        if (playerController != null)
-            playerController.enabled = true;
+        // Aktivér player scripts igen
+        if (playerScripts != null)
+        {
+            foreach (var script in playerScripts)
+            {
+                if (script != this)
+                    script.enabled = true;
+            }
+        }
 
         ResetInput();
+
+        Debug.Log("Keypad lukket.");
+    }
+
+    void Update()
+    {
+        if (ui.rootVisualElement.style.display == DisplayStyle.Flex)
+        {
+            // Keyboard input 0-9
+            for (KeyCode key = KeyCode.Alpha0; key <= KeyCode.Alpha9; key++)
+            {
+                if (Input.GetKeyDown(key))
+                {
+                    string number = (key == KeyCode.Alpha0) ? "0" : ((int)key - (int)KeyCode.Alpha0).ToString();
+                    OnNumberPressed(number);
+                }
+            }
+
+            // Escape lukker UI
+            if (Input.GetKeyDown(KeyCode.Escape))
+                CloseUI();
+        }
+    }
+
+    void OnNumberPressed(string number)
+    {
+        if (input.Length >= 4) return;
+
+        input += number;
+        display.text = input;
+
+        Debug.Log("Tastetryk registreret: " + number);
+
+        if (input.Length == 4)
+            CheckCode();
+    }
+
+    void CheckCode()
+    {
+        if (input == correctCode)
+        {
+            display.text = "Correct";
+            Debug.Log("Døren er åben! Koden er korrekt.");
+            Invoke(nameof(CloseUI), 1f);
+        }
+        else
+        {
+            display.text = "Wrong";
+            Debug.Log("Forkert kode! Prøv igen.");
+            Invoke(nameof(ResetInput), 1f);
+        }
+    }
+
+    void ResetInput()
+    {
+        input = "";
+        if (display != null)
+            display.text = "";
+
+        Debug.Log("Input nulstillet.");
     }
 }

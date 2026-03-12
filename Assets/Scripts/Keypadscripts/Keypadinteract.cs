@@ -1,15 +1,16 @@
 using UnityEngine;
 
-public class KeypadInteract : MonoBehaviour
+public class KeypadTrigger : MonoBehaviour
 {
-    public GameObject keypadUI; // Dit UI med DoorKeypad scriptet
-    private bool playerNearby = false;
+    public DoorKeypad keypad;
+
+    private bool playerInside = false;
 
     void Update()
     {
-        if (playerNearby && Input.GetKeyDown(KeyCode.E))
+        if (playerInside && Input.GetKeyDown(KeyCode.E))
         {
-            keypadUI.SetActive(true);
+            keypad.OpenUI();
         }
     }
 
@@ -17,7 +18,7 @@ public class KeypadInteract : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerNearby = true;
+            playerInside = true;
         }
     }
 
@@ -25,7 +26,7 @@ public class KeypadInteract : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerNearby = false;
+            playerInside = false;
         }
     }
 }
