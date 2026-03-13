@@ -448,7 +448,6 @@ MonoBehaviour:
   hasItemInHand: 0
   handAnchor: {fileID: 6648248277632334091}
   itemInHand: {fileID: 0}
-  cameraInHand: {fileID: 0}
   playerHudDocument: {fileID: 1044379961969129615}
 --- !u!1 &4817075075411021333
 GameObject:
@@ -648,7 +647,6 @@ MonoBehaviour:
   PlayerLook: {fileID: 4623443493189301731}
   GM: {fileID: 5036068552155920496, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
   inventory: {fileID: 3442802065119588940}
-  questManager: {fileID: 0}
   mainCamera: {fileID: 1044379961969129615}
   photoCamera: {fileID: 3308425355016115998}
   inPhotoMode: 0
@@ -1029,10 +1027,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flash
       objectReference: {fileID: 0}
-    - target: {fileID: 5172336604759982996, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
-      propertyPath: m_BounceIntensity
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -1059,27 +1053,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9942145
+      value: 0.99480504
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10522185
+      value: 0.059421957
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.010220733
+      value: 0.0794097
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.01901274
+      value: -0.02293655
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 12.1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.956
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
