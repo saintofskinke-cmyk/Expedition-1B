@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerLook PlayerLook;
     [SerializeField] private GameObject GM;
     [SerializeField] private Inventory inventory;
-    [SerializeField] private QuestManager questManager;
+    private QuestManager questManager;
 
     [Header("Movement Parameters")]
     private float moveSpeed;
@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
         eyesPosStand = eyesPosCrouch + 0.3f;
         inventory = gameObject.GetComponent<Inventory>();
         StartCoroutine(FlareCountdown());
+        questManager = GameObject.FindGameObjectWithTag("QuestManager").GetComponent<QuestManager>();
     }
 
     private void Start()

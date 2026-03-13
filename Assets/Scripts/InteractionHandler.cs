@@ -17,10 +17,12 @@ public class InteractionHandler : MonoBehaviour
 
     public void StartInteractionLogic()
     {
+        // Animation
         interactionAnimator = GetComponent<Animator>();
         boolValue = !boolValue; // Toggle animation state
         interactionAnimator.SetBool("Activate", boolValue);
 
+        // Functionallity
         switch (gameObject.name)
         {
             case "LeverHandle":

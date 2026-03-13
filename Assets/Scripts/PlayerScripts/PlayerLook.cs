@@ -22,7 +22,6 @@ public class PlayerLook : MonoBehaviour
     [SerializeField] private Transform handAnchor;
     private Transform originalHandItemAnchor;
     public Transform itemInHand;
-    public GameObject cameraInHand;
     public GameObject playerHudDocument;
     private VisualElement root;
     private Label txtPickUp;
@@ -93,15 +92,7 @@ public class PlayerLook : MonoBehaviour
                             case "Interactable":
                                 hit.collider.gameObject.GetComponent<InteractionHandler>().StartInteractionLogic();
                                 break;
-                            /*
-                            case "Camera":
-                                cameraInHand = hit.collider.gameObject;
-                                originalHandItemAnchor = hit.transform.parent;
-                                OnItemPickedUp(hit, handAnchor);
-                                itemInHand = hit.transform;
-                                hasItemInHand = true;
-                                break;
-                            */
+
                             case "ImportantItem":
                                 if(hit.collider.gameObject.GetComponent<ItemPickupEvent>()  != null)
                                 {
