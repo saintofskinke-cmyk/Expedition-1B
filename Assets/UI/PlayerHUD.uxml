@@ -1,7 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; align-items: flex-start; justify-content: center; align-self: stretch; flex-direction: column-reverse;">
         <ui:VisualElement name="Inventory" style="flex-grow: 1; align-self: flex-start; justify-content: center; align-items: auto; flex-direction: column-reverse; position: absolute; background-image: url(&quot;project://database/Assets/Materials/Buildings/Items/Textures/HandFlare_instructions.png?fileID=2800000&amp;guid=d0f38c609de860f4e9e8326f1ed235a3&amp;type=3#HandFlare_instructions&quot;); width: 2%; height: 26%; top: 4%; left: 2%;">
-            <ui:Label text="-" name="txtFlareCount" style="width: 7px; -unity-font-style: bold; font-size: 28%; left: 61%; bottom: 64%;"/>
+            <ui:Label text="-" name="txtFlareCount" style="width: 7px; -unity-font-style: bold; font-size: 28%; left: 61%; bottom: 64%; color: rgb(255, 255, 255);"/>
             <ui:VisualElement name="flareCooldown" style="flex-grow: 1; background-color: rgba(113, 52, 52, 0.65); width: 18px; top: 39px; left: 26px; height: 0; flex-direction: column-reverse; align-self: auto; justify-content: space-around; align-items: center; scale: 0.5 0.4; flex-shrink: 2; translate: 5% 25%;"/>
         </ui:VisualElement>
         <ui:VisualElement name="Stamina" style="flex-grow: 1; align-self: stretch; justify-content: space-between; flex-direction: column; align-items: center; height: 664px;">
