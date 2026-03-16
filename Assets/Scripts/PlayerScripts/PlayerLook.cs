@@ -12,7 +12,7 @@ public class PlayerLook : MonoBehaviour
 
     [Header("Looking Parameters")]
     [SerializeField] private Transform orientation;
-    private float mouseSens = 10f;
+    private float mouseSens = 3f;
     private float xRotation;
     private float yRotation;
 
@@ -49,12 +49,8 @@ public class PlayerLook : MonoBehaviour
 
     private void Update()
     {
-        PickUpdate();
-    }
-
-    private void LateUpdate()
-    {
         LookUpdate();
+        PickUpdate();
     }
 
     private void LookUpdate()
