@@ -47,7 +47,8 @@ public class PlayerController : MonoBehaviour
     public Animator cameraAnim;
     public bool isCameraInHand = false;
     [SerializeField] private CameraFlash cameraFlash;
-    [SerializeField] private AudioSource cameraShutterSound;
+    [SerializeField] private AudioSource cameraAudioSource;
+    [SerializeField] private AudioClip cameraFlashPopSound;
     [SerializeField] private GameObject flashObject;
     [SerializeField] private GameObject cameraObject;
     [SerializeField] LayerMask photoLayers;
@@ -333,7 +334,7 @@ public class PlayerController : MonoBehaviour
         if (inPhotoMode && !cameraFlash.takingPicture)
         {
             cameraFlash.Flash();
-            cameraShutterSound.Play();
+            cameraAudioSource.PlayOneShot(cameraFlashPopSound);
 
             CheckObjectInPicture();
         }
