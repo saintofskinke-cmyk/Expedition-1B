@@ -357,10 +357,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2589852609939180963, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
-      propertyPath: m_ColorTemperature
-      value: 15612
-      objectReference: {fileID: 0}
     - target: {fileID: 5994108340518225187, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -608,38 +604,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2412280829550459234, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -11.588028
-      objectReference: {fileID: 0}
-    - target: {fileID: 2412280829550459234, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2412280829550459234, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3358796872305330268, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
-      propertyPath: priority
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367065613281708690, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
-      propertyPath: m_ScaleFactor
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367065613281708690, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367065613281708690, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367065613281708690, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
-      objectReference: {fileID: 0}
     - target: {fileID: 5036068552155920496, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1544,7 +1508,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1914392911}
   - {fileID: 208787148}
-  - {fileID: 553110342}
   - {fileID: 295275558}
   - {fileID: 3109943135789723128}
   - {fileID: 266165718873320326}
@@ -1561,3 +1524,4 @@ SceneRoots:
   - {fileID: 3955469504595734983}
   - {fileID: 8005942873122018989}
   - {fileID: 2871621422473102921}
+  - {fileID: 553110342}
