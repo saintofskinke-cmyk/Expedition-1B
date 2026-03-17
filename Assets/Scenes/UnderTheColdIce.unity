@@ -46875,10 +46875,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1555458405966042277, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3213170024270272837, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: questManager
       value: 
       objectReference: {fileID: 1402675526}
+    - target: {fileID: 3213170024270272837, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+      propertyPath: cameraAudioSource
+      value: 
+      objectReference: {fileID: 1814632195}
+    - target: {fileID: 3213170024270272837, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+      propertyPath: cameraFlashPopSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2897385d0e9631547b55e6db838fdb91, type: 3}
     - target: {fileID: 3307974483764264900, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -75172,6 +75184,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90035fb34d4e54d43aeed8b5f4045210, type: 3}
+--- !u!82 &1814632195 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1555458405966042277, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+  m_PrefabInstance: {fileID: 1118946925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1818690838
 PrefabInstance:
   m_ObjectHideFlags: 0
