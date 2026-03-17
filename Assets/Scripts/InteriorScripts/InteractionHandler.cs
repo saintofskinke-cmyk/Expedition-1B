@@ -9,6 +9,8 @@ public class InteractionHandler : MonoBehaviour
     [SerializeField] private int objectiveEventID = 0;
     private bool alreadyCompleted = false;
     [SerializeField] QuestManager questManager;
+    [SerializeField] private GenStart genStart1;
+    [SerializeField] private GenStart genStart2;
 
     private void Start()
     {
@@ -30,6 +32,8 @@ public class InteractionHandler : MonoBehaviour
                 {
                     questManager.Progress(progressAmount);
                     alreadyCompleted = true;
+                    genStart1.PlayGenSound();
+                    genStart2.PlayGenSound();
                 }
                 break;
         }
