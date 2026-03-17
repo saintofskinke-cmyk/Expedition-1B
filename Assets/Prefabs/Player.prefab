@@ -163,7 +163,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 8215
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 05d24a8bce70cfd41b77c58d89d9a21a, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -750,7 +750,8 @@ MonoBehaviour:
   cameraAnim: {fileID: 8573822028690415807}
   isCameraInHand: 0
   cameraFlash: {fileID: 8312548101427655166}
-  cameraShutterSound: {fileID: 1555458405966042277}
+  cameraAudioSource: {fileID: 1555458405966042277}
+  cameraFlashPopSound: {fileID: 8300000, guid: 2897385d0e9631547b55e6db838fdb91, type: 3}
   flashObject: {fileID: 4639570564383011023}
   cameraObject: {fileID: 7069940068321705616}
   photoLayers:
@@ -1391,6 +1392,26 @@ PrefabInstance:
       value: Flash
       objectReference: {fileID: 0}
     - target: {fileID: 5172336604759982996, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.58717513
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172336604759982996, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
+      propertyPath: m_Color.g
+      value: 0.78355134
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172336604759982996, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172336604759982996, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
+      propertyPath: m_SpotAngle
+      value: 70.34937
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172336604759982996, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 55.539062
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172336604759982996, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_ColorTemperature
       value: 15612
       objectReference: {fileID: 0}
@@ -1420,23 +1441,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99480504
+      value: 0.99675155
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.059421957
+      value: -0.0014309111
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0794097
+      value: 0.07844607
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.02293655
+      value: -0.018181447
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5667937845221162853, guid: 6970bb1ee6347134cac3a1d8564f7fd6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

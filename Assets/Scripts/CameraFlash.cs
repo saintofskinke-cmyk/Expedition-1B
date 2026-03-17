@@ -41,7 +41,7 @@ public class CameraFlash : MonoBehaviour
 
         flash.style.opacity = 100f;
 
-        flashObject.GetComponent<Light>().intensity = 2f;
+        flashObject.GetComponentInChildren<Light>().intensity = 100f;
 
         yield return new WaitForSeconds(0.05f);
 
@@ -67,7 +67,7 @@ public class CameraFlash : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(2f);
 
-        flashObject.GetComponent<Light>().intensity = 0f;
+        flashObject.GetComponentInChildren<Light>().intensity = 0f;
 
         Time.timeScale = 1f;
 
