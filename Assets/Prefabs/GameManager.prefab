@@ -119,7 +119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &354349350541690145
 Transform:
   m_ObjectHideFlags: 0
@@ -423,6 +423,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   flarePrefab: {fileID: 5860162835614752441, guid: 4018ee69cb3acef4c8d2afc12fca46be, type: 3}
+  footSteps:
+  - {fileID: 8300000, guid: bfeadf8f66806904b9926cbad89e9021, type: 3}
+  - {fileID: 8300000, guid: 2db748e0843060b4682de6fb25b3851d, type: 3}
+  - {fileID: 8300000, guid: f4fcdd58930b8e8429b279b7d08e1f12, type: 3}
+  - {fileID: 8300000, guid: f1c1730a7d4a7624e892acf8740327e9, type: 3}
+  - {fileID: 8300000, guid: 51377c6ff92a3de4fa1ea4c499604dd2, type: 3}
 --- !u!1 &5537561145107832515
 GameObject:
   m_ObjectHideFlags: 0

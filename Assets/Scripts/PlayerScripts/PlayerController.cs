@@ -7,6 +7,7 @@ using DevData;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Parameters
     [Header("Player Components")]
     private CharacterController controller;
     [SerializeField] private Transform eyes;
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private float eyesPosCrouch, eyesPosStand;
     [SerializeField] private PlayerLook PlayerLook;
     private GameObject GM;
+    private GameManager gameManager;
+    private AudioSource audSovs;
     [SerializeField] private Inventory inventory;
     private PauseMenu PauseMenu;
     private QuestManager questManager;
@@ -34,6 +37,8 @@ public class PlayerController : MonoBehaviour
     private float stamina = 25f;
     private int staminaMultiplier = 3;
     private bool isStaminaRecovering;
+    private bool isPlayerMoving;
+    private float footstepDelay = 0.5f;
 
     [Header("Other Parameters")]
     private bool isFlareThrown;
@@ -52,6 +57,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject flashObject;
     [SerializeField] private GameObject cameraObject;
     [SerializeField] LayerMask photoLayers;
+    #endregion
 
     #region Input Actions
     [Header("Input Actions")]
@@ -91,6 +97,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         GM = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager = GM.GetComponent<GameManager>();
         PauseMenu = GM.GetComponentInChildren<PauseMenu>();
 
         controller = GetComponent<CharacterController>();
@@ -100,6 +107,8 @@ public class PlayerController : MonoBehaviour
         inventory = gameObject.GetComponent<Inventory>();
         StartCoroutine(FlareCountdown());
         questManager = GameObject.FindGameObjectWithTag("QuestManager").GetComponent<QuestManager>();
+
+        audSovs = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -108,6 +117,8 @@ public class PlayerController : MonoBehaviour
         photoCamera.SetActive(false);
         flashObject.SetActive(false);
         cameraObject.SetActive(false);
+        StartCoroutine(Footsteps()); // Start checking if player is moving. If player is moving Play footstep sounds
+
     }
 
     private void Update()
@@ -143,9 +154,12 @@ public class PlayerController : MonoBehaviour
         Vector2 input = moveAction.action.ReadValue<Vector2>();
         Vector3 move = eyesRight * input.x + eyesForward * input.y;
         move.Normalize(); // S�rger for at spilleren bev�ger sig med samme hastighed uanset hvor spilleren kigger hen
-        if (move != Vector3.zero) { transform.position = move; }
-        
-        
+        if (move != Vector3.zero) { 
+            transform.position = move;
+            isPlayerMoving = true;
+        }
+        else { isPlayerMoving = false; }
+
         // Crouch
         if (crouchAction.action.IsPressed() && isPlayerGrounded)
         {
@@ -175,16 +189,24 @@ public class PlayerController : MonoBehaviour
             if (sprintAction.action.IsPressed() && move != Vector3.zero && !isStaminaRecovering)
             {
                 stamina -= staminaMultiplier * Time.deltaTime; // Make stamina decrease when running
-                if (stamina <= 0) { 
+                if (stamina <= 0)
+                {
                     stamina = 0;
                     moveSpeed = walkSpeed;
+                    footstepDelay = 0.5f;
                     staminaBarColor = Colors.staminaRed; // Stamina bar is red
-                    isStaminaRecovering = true; } // If stamina is EMPTY stop removing stamina and stop running
-                else moveSpeed = sprintSpeed; // Only sprint if player has stamina
+                    isStaminaRecovering = true;
+                } // If stamina is EMPTY stop removing stamina and stop running
+                else
+                {
+                    moveSpeed = sprintSpeed; // Only sprint if player has stamina
+                    footstepDelay = 0.25f;
+                }
             }
             else
             {
                 moveSpeed = walkSpeed;
+                footstepDelay = 0.5f;
                 stamina += staminaMultiplier * 0.7f * Time.deltaTime; // Make stamina increase when not running
                 if (stamina >= 25f) { 
                     stamina = 25f;
@@ -205,10 +227,25 @@ public class PlayerController : MonoBehaviour
 
 
 
-            // Make MoveUpdate() work
-            finalMove = move * moveSpeed + velocity.y * Vector3.up;
+        // Make MoveUpdate() work
+        finalMove = move * moveSpeed + velocity.y * Vector3.up;
         controller.Move(finalMove * Time.deltaTime);
     }
+
+    IEnumerator Footsteps()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => isPlayerMoving); // Only play footstep sounds when moving
+            yield return new WaitForSeconds(0.1f);
+
+            int i = UnityEngine.Random.Range(0, gameManager.footSteps.Length);
+            audSovs.PlayOneShot(gameManager.footSteps[i]);
+
+            yield return new WaitForSeconds(footstepDelay);
+        }
+    }
+
 
     // Add force to rigidbodies when colliding with them
     private void OnControllerColliderHit(ControllerColliderHit hit)
