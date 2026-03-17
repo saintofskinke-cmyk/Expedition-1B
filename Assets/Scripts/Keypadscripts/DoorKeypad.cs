@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 public class DoorKeypad : MonoBehaviour
 {
     public string correctCode = "1234";
-    public GameObject player; // assign your player GameObject
+    public GameObject player;
 
     private string input = "";
     private UIDocument ui;
@@ -19,11 +19,9 @@ public class DoorKeypad : MonoBehaviour
 
         if (ui == null)
         {
-            Debug.LogError("UIDocument component mangler på objektet.");
             return;
         }
 
-        // Hent alle buttons i UI'et
         keypadButtons = ui.rootVisualElement.Query<Button>().ToList();
 
         foreach (Button button in keypadButtons)
@@ -51,7 +49,6 @@ public class DoorKeypad : MonoBehaviour
             ui.rootVisualElement.style.display = DisplayStyle.None;
         }
 
-        // Find alle scripts på player
         if (player != null)
         {
             playerScripts = player.GetComponents<MonoBehaviour>();
@@ -67,7 +64,6 @@ public class DoorKeypad : MonoBehaviour
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         UnityEngine.Cursor.visible = true;
 
-        // Deaktiver player scripts
         if (playerScripts != null)
         {
             foreach (var script in playerScripts)
@@ -78,8 +74,6 @@ public class DoorKeypad : MonoBehaviour
                 }
             }
         }
-
-        Debug.Log("Keypad åbnet. Indtast koden med tastaturet.");
     }
 
     public void CloseUI()
@@ -91,7 +85,6 @@ public class DoorKeypad : MonoBehaviour
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
 
-        // Aktivér player scripts igen
         if (playerScripts != null)
         {
             foreach (var script in playerScripts)
@@ -104,8 +97,6 @@ public class DoorKeypad : MonoBehaviour
         }
 
         ResetInput();
-
-        Debug.Log("Keypad lukket.");
     }
 
     private void Update()
@@ -114,7 +105,6 @@ public class DoorKeypad : MonoBehaviour
 
         if (ui.rootVisualElement.style.display.value == DisplayStyle.Flex)
         {
-            // Keyboard input 0-9
             for (KeyCode key = KeyCode.Alpha0; key <= KeyCode.Alpha9; key++)
             {
                 if (Input.GetKeyDown(key))
@@ -124,7 +114,6 @@ public class DoorKeypad : MonoBehaviour
                 }
             }
 
-            // Escape lukker UI
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 CloseUI();
@@ -174,8 +163,6 @@ public class DoorKeypad : MonoBehaviour
             display.text = input;
         }
 
-        Debug.Log("Tastetryk registreret: " + number);
-
         if (input.Length == 4)
         {
             CheckCode();
@@ -191,7 +178,6 @@ public class DoorKeypad : MonoBehaviour
                 display.text = "Correct";
             }
 
-            Debug.Log("Døren er åben! Koden er korrekt.");
             Invoke(nameof(CloseUI), 1f);
         }
         else
@@ -201,7 +187,6 @@ public class DoorKeypad : MonoBehaviour
                 display.text = "Wrong";
             }
 
-            Debug.Log("Forkert kode! Prøv igen.");
             Invoke(nameof(ResetInput), 1f);
         }
     }
@@ -214,7 +199,5 @@ public class DoorKeypad : MonoBehaviour
         {
             display.text = "";
         }
-
-        Debug.Log("Input nulstillet.");
     }
 }
