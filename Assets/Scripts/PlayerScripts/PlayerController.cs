@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     [Header("Other Parameters")]
     private bool isFlareThrown;
     private Color staminaBarColor;
+    VisualElement flareIcon;
 
     [Header("PhotoCamera Parameters")]
     public GameObject mainCamera;
@@ -234,19 +235,22 @@ public class PlayerController : MonoBehaviour
             inventory.RemoveItem("Flare"); // Remove flare from inventory
         }
 
-        if(getCameraAction.action.WasPressedThisFrame() && !PlayerLook.hasItemInHand)
+        if(getCameraAction.action.WasPressedThisFrame() && !PlayerLook.hasItemInHand && !inPhotoMode)
         {
-            if(!isCameraInHand)
+            flareIcon = PlayerLook.playerHudDocument.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Inventory");
+            if (!isCameraInHand)
             {
                 isCameraInHand = true;
                 cameraObject.SetActive(true);
                 flashObject.SetActive(true);
+                flareIcon.style.display = DisplayStyle.None;
             }
             else
             {
                 isCameraInHand = false;
                 cameraObject.SetActive(false);
                 flashObject.SetActive(false);
+                flareIcon.style.display = DisplayStyle.Flex;
             }
         }
     }
@@ -316,7 +320,8 @@ public class PlayerController : MonoBehaviour
         questManager.UpdateUI();
         PlayerLook.UpdateTextUI();
 
-        
+        flareIcon = PlayerLook.playerHudDocument.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Inventory");
+        flareIcon.style.display = DisplayStyle.None;
 
         inPhotoMode = false;
         yield return new WaitForSeconds(0.1f); //wait
