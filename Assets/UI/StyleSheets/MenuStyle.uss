@@ -1,0 +1,91 @@
+:root {
+}
+
+.stylePauseButtons {
+    background-image: url("project://database/Assets/Materials/Buildings/Interior/RustySign/RustySign_Roughness_1k.jpg?fileID=2800000&guid=f687d7fe59920f3449c37be639f322dd&type=3#RustySign_Roughness_1k");
+    background-size: 200% 400%;
+    background-position-x: left 0;
+    margin-top: 57px;
+    margin-right: 57px;
+    margin-bottom: 57px;
+    margin-left: 57px;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    font-size: 57px;
+    -unity-font-style: normal;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Swinging%20Wake.otf?fileID=12800000&guid=5d8f6637f1eae8b4c916ab2195b0cb8b&type=3#Swinging Wake");
+    letter-spacing: 19px;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    border-bottom-left-radius: 22px;
+    -unity-background-image-tint-color: rgb(183, 89, 1);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(83, 156, 124);
+}
+
+.stylePauseButtons:hover {
+    background-image: url("project://database/Assets/Materials/Buildings/Interior/RustySign/RustySign_Roughness_1k.jpg?fileID=2800000&guid=f687d7fe59920f3449c37be639f322dd&type=3#RustySign_Roughness_1k");
+    background-size: 200% 400%;
+    background-position-x: left 0;
+    margin-top: 57px;
+    margin-right: 57px;
+    margin-bottom: 57px;
+    margin-left: 57px;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    font-size: 57px;
+    -unity-font-style: normal;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Swinging%20Wake.otf?fileID=12800000&guid=5d8f6637f1eae8b4c916ab2195b0cb8b&type=3#Swinging Wake");
+    letter-spacing: 19px;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    border-bottom-left-radius: 22px;
+    -unity-background-image-tint-color: rgb(212, 0, 59);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(83, 156, 124);
+    scale: 1.1 1.1;
+}
+
+.stylePauseButtons:active {
+    background-image: url("project://database/Assets/Materials/Buildings/Interior/RustySign/RustySign_Roughness_1k.jpg?fileID=2800000&guid=f687d7fe59920f3449c37be639f322dd&type=3#RustySign_Roughness_1k");
+    background-size: 200% 400%;
+    background-position-x: left 0;
+    margin-top: 57px;
+    margin-right: 57px;
+    margin-bottom: 57px;
+    margin-left: 57px;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    font-size: 57px;
+    -unity-font-style: normal;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Swinging%20Wake.otf?fileID=12800000&guid=5d8f6637f1eae8b4c916ab2195b0cb8b&type=3#Swinging Wake");
+    letter-spacing: 19px;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    border-bottom-left-radius: 22px;
+    -unity-background-image-tint-color: rgb(134, 144, 5);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(83, 156, 124);
+    scale: 0.957 0.957;
+}

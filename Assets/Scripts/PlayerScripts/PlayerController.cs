@@ -13,8 +13,9 @@ public class PlayerController : MonoBehaviour
     private float eyesPosY;
     private float eyesPosCrouch, eyesPosStand;
     [SerializeField] private PlayerLook PlayerLook;
-    [SerializeField] private GameObject GM;
+    private GameObject GM;
     [SerializeField] private Inventory inventory;
+    private PauseMenu PauseMenu;
     private QuestManager questManager;
 
     [Header("Movement Parameters")]
@@ -87,6 +88,9 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        GM = GameObject.FindGameObjectWithTag("GameManager");
+        PauseMenu = GM.GetComponentInChildren<PauseMenu>();
+
         controller = GetComponent<CharacterController>();
         eyesPosY = eyes.position.y;
         eyesPosCrouch = eyesPosY - 0.3f;
@@ -106,13 +110,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // Apply gravity
-        velocity.y += gravity * Time.deltaTime;
+        if (!PauseMenu.isGamePaused)
+        {
+            // Apply gravity
+            velocity.y += gravity * Time.deltaTime;
 
-        MoveUpdate();
-        ActionUpdate();
+            MoveUpdate();
+            ActionUpdate();
 
-        CameraActionUpdate();
+            CameraActionUpdate();
+        }
     }
 
     private void MoveUpdate()
