@@ -36,6 +36,9 @@ public class InteractionHandler : MonoBehaviour
                     genStart2.PlayGenSound();
                 }
                 break;
+            case "BigHallLeverHandle":
+                gameObject.GetComponentInParent<BigHallLever>().ActivateLever();
+                break;
         }
     }
 
