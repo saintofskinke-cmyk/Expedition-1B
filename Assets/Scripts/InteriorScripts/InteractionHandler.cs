@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionHandler : MonoBehaviour
@@ -12,18 +13,22 @@ public class InteractionHandler : MonoBehaviour
     [SerializeField] private GenStart genStart1;
     [SerializeField] private GenStart genStart2;
 
-    [Header("Valve Parameters")]
+    [Header("Giant Metal Door Parameters")]
     private int valveTurn;
-    private int maxValveTurns = 5;
+    private int maxValveTurns = 8;
+    private int correctValveTurn;
+    [SerializeField] private string valveSide;
 
     private void Start()
     {
         questManager = GameObject.FindGameObjectWithTag("QuestManager").GetComponent<QuestManager>();
+        correctValveTurn = Random.Range(0, maxValveTurns);
     }
 
     public void StartInteractionLogic()
     {
-        // Functionallity for different interactable objects can be added here by using the name of the gameobject as a switch case. This way we can have one script that handles all interactions in the game and we can easily add new interactable objects by adding a new case to the switch statement.
+        // Functionallity for different interactable objects can be added here by using the name of the gameobject as a switch case.
+        // This way we can have one script that handles all interactions in the game and we can easily add new interactable objects by adding a new case to the switch statement.
         switch (gameObject.name)
         {
             case "LeverHandle":
@@ -42,17 +47,26 @@ public class InteractionHandler : MonoBehaviour
                 gameObject.GetComponentInParent<BigHallLever>().ActivateLever();
                 break;
 
+            case "GiantDoorLeverHandle":
+                PlayAnimation();
+                StartCoroutine(GetComponentInParent<GiantMetalDoor>().OpenGiantMetalDoor(valveSide));
+                gameObject.GetComponent<Collider>().enabled = false;
+                break;
+
             case "RedValve":
+                // Change the turn value
                 valveTurn++;
                 if(valveTurn >= maxValveTurns) { valveTurn = 0; }
 
-                switch (valveTurn)
-                {
-                    case 0:
-                        gameObject.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-                        break;
+                // Play a different sound at each valve turn
+                AudioSource.PlayClipAtPoint(GameManager.Instance.valveSounds[valveTurn], gameObject.transform.position);
+
+                // Check if Valve is turned correctly
+                if (valveTurn == correctValveTurn) {
+                    GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, true, valveSide);
+                } else {
+                    GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, true, valveSide);
                 }
-                Debug.Log(valveTurn);
                 break;
 
             default:

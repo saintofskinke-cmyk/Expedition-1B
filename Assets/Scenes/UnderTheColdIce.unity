@@ -317,11 +317,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2412280829550459234, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -132.66121
+      value: -39.77122
       objectReference: {fileID: 0}
     - target: {fileID: 2412280829550459234, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -91.514656
+      value: -96.11466
       objectReference: {fileID: 0}
     - target: {fileID: 2412280829550459234, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -334,10 +334,6 @@ PrefabInstance:
     - target: {fileID: 2795087538356301864, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3602216059719989969, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
-      propertyPath: m_TargetTexture
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5036068552155920496, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
       propertyPath: m_Name
@@ -383,6 +379,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6555401898879488796, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: valveSounds.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555401898879488796, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: 'valveSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b6f351949d0b2e489e3d1a0ff508273, type: 3}
+    - target: {fileID: 6555401898879488796, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: 'valveSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bfeadf8f66806904b9926cbad89e9021, type: 3}
+    - target: {fileID: 6555401898879488796, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: 'valveSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cbce3b1bd055f9b49932acfcd1caff1c, type: 3}
+    - target: {fileID: 6555401898879488796, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: 'valveSounds.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 51377c6ff92a3de4fa1ea4c499604dd2, type: 3}
+    - target: {fileID: 6555401898879488796, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: 'valveSounds.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: f1c1730a7d4a7624e892acf8740327e9, type: 3}
+    - target: {fileID: 6555401898879488796, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: 'valveSounds.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 26be3edb20525d349accd110632d2184, type: 3}
+    - target: {fileID: 6555401898879488796, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: 'valveSounds.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2db748e0843060b4682de6fb25b3851d, type: 3}
+    - target: {fileID: 6555401898879488796, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: 'valveSounds.Array.data[7]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e33b435369ae1c34fb40acc782ccf700, type: 3}
     - target: {fileID: 8926005970400234228, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
       propertyPath: mainCameraParent
       value: 
@@ -626,7 +658,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 74740890314986862, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -127.09
+      value: -34.2
       objectReference: {fileID: 0}
     - target: {fileID: 74740890314986862, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -634,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 74740890314986862, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -89.7
+      value: -94.3
       objectReference: {fileID: 0}
     - target: {fileID: 74740890314986862, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: m_LocalRotation.w

@@ -7,4 +7,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Sounds")]
     public AudioClip[] footSteps;
+    public AudioClip[] valveSounds;
+
+
+    public static GameManager Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
 }
