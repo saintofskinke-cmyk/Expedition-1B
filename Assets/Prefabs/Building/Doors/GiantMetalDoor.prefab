@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1854750854715636431}
   - component: {fileID: 2898291626357590426}
   m_Layer: 0
-  m_Name: Door_GiantMetal_Left.001
+  m_Name: GiantDoorFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,9 +101,11 @@ GameObject:
   - component: {fileID: 1097530448922905985}
   - component: {fileID: 6291375809482240287}
   - component: {fileID: 7417440805204510662}
+  - component: {fileID: 4864997740675196010}
+  - component: {fileID: 863172784080777783}
   m_Layer: 0
-  m_Name: ValveRight_3
-  m_TagString: Untagged
+  m_Name: RedValve
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,13 +118,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2247957194884389706}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -1, y: 1.4943245e-10, z: -3.2659498e-18, w: 0.0000003208842}
+  m_LocalPosition: {x: -1.0399994, y: 2.51, z: -7.8099933}
+  m_LocalScale: {x: 2.02, y: 2.0200005, z: 2.02}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7369436693774577801}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 8756277779367464652}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!33 &6291375809482240287
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -180,6 +182,43 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4864997740675196010
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247957194884389706}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5351492, y: 0.91199994, z: 0.9120001}
+  m_Center: {x: 0.18165658, y: -0.00000041723254, z: -0.0000004771757}
+--- !u!114 &863172784080777783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2247957194884389706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f59a51aded6491448bc4792a1430e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
+  objectiveEventID: 0
+  questManager: {fileID: 0}
+  genStart1: {fileID: 0}
+  genStart2: {fileID: 0}
 --- !u!1 &2262474626948289913
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +250,11 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6310988677977672121}
+  - {fileID: 5279642089589058412}
+  - {fileID: 505866074315089538}
+  - {fileID: 1791335966086875260}
   m_Father: {fileID: 7369436693774577801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6049555009893297312
@@ -290,8 +333,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.000001, y: 31.969858, z: 10.000006}
-  m_Center: {x: 0.000030517578, y: 15.984929, z: 5.000002}
+  m_Size: {x: 0.85891604, y: 31.969858, z: 10.000006}
+  m_Center: {x: 0.000030516672, y: 15.984929, z: 5.000002}
 --- !u!1 &3348393228477205989
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +366,11 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4378183182654733269}
+  - {fileID: 842456913484777677}
+  - {fileID: 1097530448922905985}
+  - {fileID: 8054927508995030572}
   m_Father: {fileID: 7369436693774577801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8120460445578713622
@@ -402,8 +449,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.000001, y: 31.969858, z: 10.000006}
-  m_Center: {x: 0.000030517578, y: 15.984929, z: -5.000003}
+  m_Size: {x: 0.85891604, y: 31.969858, z: 10.000006}
+  m_Center: {x: 0.000030516672, y: 15.984929, z: -5.0000024}
 --- !u!1 &4627989865044536563
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,9 +462,11 @@ GameObject:
   - component: {fileID: 4378183182654733269}
   - component: {fileID: 8966062218331635871}
   - component: {fileID: 8839393367477747260}
+  - component: {fileID: 3812965787994842799}
+  - component: {fileID: 3537699824191038542}
   m_Layer: 0
-  m_Name: ValveRight_1
-  m_TagString: Untagged
+  m_Name: RedValve
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,13 +479,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4627989865044536563}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -1, y: 1.4943245e-10, z: -3.2659498e-18, w: 0.0000003208842}
+  m_LocalPosition: {x: -1.0400094, y: 2.5100002, z: -2.259996}
+  m_LocalScale: {x: 2.02, y: 2.0200005, z: 2.02}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7369436693774577801}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 8756277779367464652}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!33 &8966062218331635871
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -494,6 +543,43 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3812965787994842799
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627989865044536563}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5351492, y: 0.91199994, z: 0.9119995}
+  m_Center: {x: 0.1816719, y: -0.00000041723254, z: 0.000015437265}
+--- !u!114 &3537699824191038542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627989865044536563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f59a51aded6491448bc4792a1430e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
+  objectiveEventID: 0
+  questManager: {fileID: 0}
+  genStart1: {fileID: 0}
+  genStart2: {fileID: 0}
 --- !u!1 &5414810485975507518
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,6 +591,7 @@ GameObject:
   - component: {fileID: 1791335966086875260}
   - component: {fileID: 1878718633373314378}
   - component: {fileID: 6876754372538150547}
+  - component: {fileID: 4122240620335014357}
   m_Layer: 0
   m_Name: ValveLeft_Giant
   m_TagString: Untagged
@@ -520,13 +607,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5414810485975507518}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.3499818, y: 6.451615, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7369436693774577801}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 7630089755413503609}
+  m_LocalEulerAnglesHint: {x: 55, y: 0, z: 0}
 --- !u!33 &1878718633373314378
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -584,6 +671,28 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &4122240620335014357
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5414810485975507518}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e0136edca37c2440ad8a8b64175252d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5652389575890838893
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,9 +704,11 @@ GameObject:
   - component: {fileID: 6310988677977672121}
   - component: {fileID: 4105136370163988216}
   - component: {fileID: 2653891508570313638}
+  - component: {fileID: 4020708505276539854}
+  - component: {fileID: 6744797993656409405}
   m_Layer: 0
-  m_Name: ValveLeft_1
-  m_TagString: Untagged
+  m_Name: RedValve
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -610,13 +721,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5652389575890838893}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -1, y: 1.4943245e-10, z: -3.2659498e-18, w: 0.0000003208842}
+  m_LocalPosition: {x: -1.0400022, y: 2.5100002, z: 2.2499928}
+  m_LocalScale: {x: 2.02, y: 2.0200005, z: 2.02}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7369436693774577801}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 7630089755413503609}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!33 &4105136370163988216
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -674,6 +785,43 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4020708505276539854
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652389575890838893}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5351492, y: 0.9119997, z: 0.91199976}
+  m_Center: {x: 0.18164133, y: -0.00000041723254, z: 0.00000017847569}
+--- !u!114 &6744797993656409405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652389575890838893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f59a51aded6491448bc4792a1430e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
+  objectiveEventID: 0
+  questManager: {fileID: 0}
+  genStart1: {fileID: 0}
+  genStart2: {fileID: 0}
 --- !u!1 &5790425246550305337
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,9 +833,11 @@ GameObject:
   - component: {fileID: 842456913484777677}
   - component: {fileID: 7443191878441086241}
   - component: {fileID: 7363343897683965227}
+  - component: {fileID: 7175095541230931460}
+  - component: {fileID: 660671196713022103}
   m_Layer: 0
-  m_Name: ValveRight_2
-  m_TagString: Untagged
+  m_Name: RedValve
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -700,13 +850,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5790425246550305337}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -1, y: 1.4943245e-10, z: -3.2659498e-18, w: 0.0000003208842}
+  m_LocalPosition: {x: -1.0399818, y: 2.51, z: -5.03001}
+  m_LocalScale: {x: 2.02, y: 2.0200005, z: 2.02}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7369436693774577801}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 8756277779367464652}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!33 &7443191878441086241
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -764,6 +914,43 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7175095541230931460
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5790425246550305337}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5351492, y: 0.9119998, z: 0.91199964}
+  m_Center: {x: 0.18165658, y: -0.0000004768372, z: -0.000015020709}
+--- !u!114 &660671196713022103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5790425246550305337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f59a51aded6491448bc4792a1430e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
+  objectiveEventID: 0
+  questManager: {fileID: 0}
+  genStart1: {fileID: 0}
+  genStart2: {fileID: 0}
 --- !u!1 &6538723212693558599
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,9 +962,11 @@ GameObject:
   - component: {fileID: 5279642089589058412}
   - component: {fileID: 5804573471539659498}
   - component: {fileID: 7068158915944255856}
+  - component: {fileID: 2887437515796012754}
+  - component: {fileID: 8874845893522617841}
   m_Layer: 0
-  m_Name: ValveLeft_2
-  m_TagString: Untagged
+  m_Name: RedValve
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -790,13 +979,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6538723212693558599}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -1, y: 1.4943245e-10, z: -3.2659498e-18, w: 0.0000003208842}
+  m_LocalPosition: {x: -1.0399805, y: 2.5100005, z: 5.0200057}
+  m_LocalScale: {x: 2.02, y: 2.0200005, z: 2.02}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7369436693774577801}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 7630089755413503609}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!33 &5804573471539659498
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -854,6 +1043,43 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2887437515796012754
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6538723212693558599}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5351492, y: 0.9119998, z: 0.91199964}
+  m_Center: {x: 0.18165664, y: -0.0000004768372, z: 0.00000023808036}
+--- !u!114 &8874845893522617841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6538723212693558599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f59a51aded6491448bc4792a1430e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
+  objectiveEventID: 0
+  questManager: {fileID: 0}
+  genStart1: {fileID: 0}
+  genStart2: {fileID: 0}
 --- !u!1 &6663073361775987507
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +1091,7 @@ GameObject:
   - component: {fileID: 8054927508995030572}
   - component: {fileID: 7120352945621877565}
   - component: {fileID: 8546766417588530407}
+  - component: {fileID: 1412586421595472732}
   m_Layer: 0
   m_Name: ValveRight_Giant
   m_TagString: Untagged
@@ -880,12 +1107,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6663073361775987507}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.3500006, y: 6.4516144, z: -5.0000134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7369436693774577801}
+  m_Father: {fileID: 8756277779367464652}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7120352945621877565
 MeshFilter:
@@ -944,6 +1171,28 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &1412586421595472732
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6663073361775987507}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8a3445b61124351448019c07d368273a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7460799708758379399
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,9 +1204,11 @@ GameObject:
   - component: {fileID: 505866074315089538}
   - component: {fileID: 1795725441118945263}
   - component: {fileID: 7365933262224337909}
+  - component: {fileID: 349087275531460161}
+  - component: {fileID: 4042771258838105217}
   m_Layer: 0
-  m_Name: ValveLeft_3
-  m_TagString: Untagged
+  m_Name: RedValve
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -970,13 +1221,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7460799708758379399}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -1, y: 1.4943245e-10, z: -3.2659498e-18, w: 0.0000003208842}
+  m_LocalPosition: {x: -1.0400048, y: 2.5100005, z: 7.780001}
+  m_LocalScale: {x: 2.02, y: 2.0200005, z: 2.02}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 7369436693774577801}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 7630089755413503609}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!33 &1795725441118945263
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1034,6 +1285,43 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &349087275531460161
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460799708758379399}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5351492, y: 0.9119997, z: 0.91199964}
+  m_Center: {x: 0.18165658, y: -0.00000041723254, z: -0.00000023875702}
+--- !u!114 &4042771258838105217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460799708758379399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f59a51aded6491448bc4792a1430e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
+  objectiveEventID: 0
+  questManager: {fileID: 0}
+  genStart1: {fileID: 0}
+  genStart2: {fileID: 0}
 --- !u!1 &8850778415454663368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +1331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7369436693774577801}
+  - component: {fileID: 6179365029659371876}
   m_Layer: 0
   m_Name: GiantMetalDoor
   m_TagString: Untagged
@@ -1058,21 +1347,35 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8850778415454663368}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7139126, z: -0, w: 0.70023483}
+  m_LocalRotation: {x: 0, y: -0.7139107, z: 0, w: 0.70023674}
   m_LocalPosition: {x: 11.054779, y: 0.0000009536743, z: -13.607683}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.31, y: 0.31, z: 0.31}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7630089755413503609}
   - {fileID: 5635862654596930793}
   - {fileID: 8756277779367464652}
-  - {fileID: 6310988677977672121}
-  - {fileID: 5279642089589058412}
-  - {fileID: 505866074315089538}
-  - {fileID: 1791335966086875260}
-  - {fileID: 4378183182654733269}
-  - {fileID: 842456913484777677}
-  - {fileID: 1097530448922905985}
-  - {fileID: 8054927508995030572}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -91.108, z: 0}
+--- !u!95 &6179365029659371876
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8850778415454663368}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24fab05f1f705fc4db79323bacd6a25f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
