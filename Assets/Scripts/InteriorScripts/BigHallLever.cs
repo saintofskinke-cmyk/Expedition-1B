@@ -6,6 +6,7 @@ public class BigHallLever : MonoBehaviour
 {
     [SerializeField] private List<GameObject> industrialLamps;
     [SerializeField] private Material bolbMaterial_Lit;
+    [SerializeField] private AudioClip bolbClip_Lit;
 
     public void ActivateLever()
     {
@@ -21,6 +22,7 @@ public class BigHallLever : MonoBehaviour
             _gameObject.GetComponentsInChildren<Light>()[0].enabled = true;
             _gameObject.GetComponentsInChildren<Light>()[1].enabled = true; 
             _gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = bolbMaterial_Lit; // Change the material of the lightbulb to a lit version
+            AudioSource.PlayClipAtPoint(bolbClip_Lit, _gameObject.transform.position, 1f);
             yield return new WaitForSeconds(1f);
         }
     }

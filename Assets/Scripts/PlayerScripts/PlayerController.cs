@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
     private int staminaMultiplier = 3;
     private bool isStaminaRecovering;
     private bool isPlayerMoving;
-    private float footstepDelay = 0.5f;
 
     [Header("Other Parameters")]
     private bool isFlareThrown;
@@ -193,20 +192,17 @@ public class PlayerController : MonoBehaviour
                 {
                     stamina = 0;
                     moveSpeed = walkSpeed;
-                    footstepDelay = 0.5f;
                     staminaBarColor = Colors.staminaRed; // Stamina bar is red
                     isStaminaRecovering = true;
                 } // If stamina is EMPTY stop removing stamina and stop running
                 else
                 {
                     moveSpeed = sprintSpeed; // Only sprint if player has stamina
-                    footstepDelay = 0.25f;
                 }
             }
             else
             {
                 moveSpeed = walkSpeed;
-                footstepDelay = 0.5f;
                 stamina += staminaMultiplier * 0.7f * Time.deltaTime; // Make stamina increase when not running
                 if (stamina >= 25f) { 
                     stamina = 25f;
@@ -242,7 +238,9 @@ public class PlayerController : MonoBehaviour
             int i = UnityEngine.Random.Range(0, gameManager.footSteps.Length);
             audSovs.PlayOneShot(gameManager.footSteps[i]);
 
-            yield return new WaitForSeconds(footstepDelay);
+            yield return new WaitForSeconds(0.25f);
+            if (moveSpeed <= walkSpeed)
+            { yield return new WaitForSeconds(0.25f); }
         }
     }
 
@@ -257,7 +255,7 @@ public class PlayerController : MonoBehaviour
     #region ActionUpdate + Flare
     private void ActionUpdate()
     {
-        if(throwFlareAction.action.WasPerformedThisFrame() && inventory.flareCount != 0 && !isFlareThrown && !isCameraInHand && !PlayerLook.hasItemInHand)
+        if(throwFlareAction.action.WasPressedThisFrame() && inventory.flareCount != 0 && !isFlareThrown && !isCameraInHand && !PlayerLook.hasItemInHand)
         {
             StartCoroutine(FlareCountdown());
 
