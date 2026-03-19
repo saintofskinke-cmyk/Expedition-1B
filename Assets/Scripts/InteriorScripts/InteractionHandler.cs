@@ -23,7 +23,7 @@ public class InteractionHandler : MonoBehaviour
 
     public void StartInteractionLogic()
     {
-        // Functionallity
+        // Functionallity for different interactable objects can be added here by using the name of the gameobject as a switch case. This way we can have one script that handles all interactions in the game and we can easily add new interactable objects by adding a new case to the switch statement.
         switch (gameObject.name)
         {
             case "LeverHandle":
@@ -50,18 +50,6 @@ public class InteractionHandler : MonoBehaviour
                 {
                     case 0:
                         gameObject.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-                        break;
-                    case 1:
-                        gameObject.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
-                        break;
-                    case 2:
-                        gameObject.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
-                        break;
-                    case 3:
-                        gameObject.transform.localRotation = Quaternion.Euler(0f, 270f, 0f);
-                        break;
-                    case 4:
-                        gameObject.transform.localRotation = Quaternion.Euler(0f, 360f, 0f);
                         break;
                 }
                 Debug.Log(valveTurn);
