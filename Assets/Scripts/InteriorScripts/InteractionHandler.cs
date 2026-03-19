@@ -40,6 +40,8 @@ public class InteractionHandler : MonoBehaviour
                     genStart1.PlayGenSound();
                     genStart2.PlayGenSound();
                 }
+                PowerGeneratorEvent.Instance.ActivateEvent();
+
                 break;
 
             case "BigHallLeverHandle":
