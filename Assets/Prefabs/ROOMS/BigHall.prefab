@@ -8930,6 +8930,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a3ef1f49d54acc54db214b35444ca209, type: 2}
+    - target: {fileID: 6421527074463159648, guid: 403b51315af4d634c8a41e252288a620, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a3ef1f49d54acc54db214b35444ca209, type: 2}
     - target: {fileID: 6785459349023027185, guid: 403b51315af4d634c8a41e252288a620, type: 3}
       propertyPath: m_Name
       value: WindowWall
@@ -9892,7 +9896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6513605266262832224, guid: 87466bc9f524a5e4b971566a74e704d0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -86.088
+      value: -86.245
       objectReference: {fileID: 0}
     - target: {fileID: 6513605266262832224, guid: 87466bc9f524a5e4b971566a74e704d0, type: 3}
       propertyPath: m_LocalRotation.w
