@@ -26,11 +26,11 @@ public class GiantMetalDoor : MonoBehaviour
                 if (correctValves_Left.Count == 3)
                 {
                     foreach (GameObject redValve in correctValves_Left)
-                    { redValve.GetComponent<Collider>().enabled = false; } // Make sure the player can't turn the valves after completion
+                    { redValve.tag = "Untagged"; } // Make sure the player can't turn the valves after completion
 
                     anim.SetBool(doorSide, true); // Play GiantValve animation
 
-                    leverLeft.GetComponentInChildren<Collider>().enabled = true; // Make the lever interactable
+                    leverLeft.tag = "Interactable"; // Make the lever interactable
                     alarmLampLeft.SetActive(true); // Turn on the red light
                 }
                 break;
@@ -40,11 +40,11 @@ public class GiantMetalDoor : MonoBehaviour
                 if (correctValves_Right.Count == 3)
                 {
                     foreach (GameObject redValve in correctValves_Right)
-                    { redValve.GetComponent<Collider>().enabled = false; } // Make sure the player can't turn the valves after completion
+                    { redValve.tag = "Untagged"; } // Make sure the player can't turn the valves after completion
 
                     anim.SetBool(doorSide, true); // Play GiantValve animation
 
-                    leverRight.GetComponentInChildren<Collider>().enabled = true; // Make the lever interactable
+                    leverRight.tag = "Interactable"; // Make the lever interactable
                     alarmLampRight.SetActive(true); // Turn on the red light
                 }
                 break;
