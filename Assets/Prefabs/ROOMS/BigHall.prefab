@@ -10045,6 +10045,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 14997867387855766}
     m_Modifications:
+    - target: {fileID: 648851943354620403, guid: e9280e5778e040149b6a3565145dbaa7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 648851943354620403, guid: e9280e5778e040149b6a3565145dbaa7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 3064478802857692024, guid: e9280e5778e040149b6a3565145dbaa7, type: 3}
       propertyPath: valveSide
       value: Right
