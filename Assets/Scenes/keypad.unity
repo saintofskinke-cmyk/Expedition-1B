@@ -483,6 +483,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &988437448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3213170024270272837, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+  m_PrefabInstance: {fileID: 886951529}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988437433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96de92966c0e9a24c874ab46e3d29f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+--- !u!114 &1065975871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4623443493189301731, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+  m_PrefabInstance: {fileID: 886951529}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57741a133afe45846b06af24baab0edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLook
 --- !u!1001 &1253049842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -734,7 +756,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5031099242775119252, guid: 3bdfc7e6d0eb74f44ae37b45da363a60, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.64
+      value: 3.789
       objectReference: {fileID: 0}
     - target: {fileID: 5031099242775119252, guid: 3bdfc7e6d0eb74f44ae37b45da363a60, type: 3}
       propertyPath: m_LocalPosition.y
@@ -742,7 +764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5031099242775119252, guid: 3bdfc7e6d0eb74f44ae37b45da363a60, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.024
+      value: 1.952
       objectReference: {fileID: 0}
     - target: {fileID: 5031099242775119252, guid: 3bdfc7e6d0eb74f44ae37b45da363a60, type: 3}
       propertyPath: m_LocalRotation.w
@@ -776,6 +798,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: antarctic_russian_keypad
       objectReference: {fileID: 0}
+    - target: {fileID: 6889954246327359557, guid: 3bdfc7e6d0eb74f44ae37b45da363a60, type: 3}
+      propertyPath: playerLook
+      value: 
+      objectReference: {fileID: 1065975871}
+    - target: {fileID: 6889954246327359557, guid: 3bdfc7e6d0eb74f44ae37b45da363a60, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 988437448}
+    - target: {fileID: 6889954246327359557, guid: 3bdfc7e6d0eb74f44ae37b45da363a60, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 988437448}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

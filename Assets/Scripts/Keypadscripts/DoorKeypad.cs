@@ -5,22 +5,19 @@ using UnityEngine.UIElements;
 public class DoorKeypad : MonoBehaviour
 {
     public string correctCode = "1234";
-    public GameObject player;
+
+    public UIDocument ui;
+
+    public MonoBehaviour playerMovement;
+    public MonoBehaviour playerLook;   // ← NY
 
     private string input = "";
-    private UIDocument ui;
     private Label display;
     private List<Button> keypadButtons = new List<Button>();
-    private MonoBehaviour[] playerScripts;
 
     private void Awake()
     {
         ui = GetComponent<UIDocument>();
-
-        if (ui == null)
-        {
-            return;
-        }
 
         keypadButtons = ui.rootVisualElement.Query<Button>().ToList();
 
@@ -32,93 +29,39 @@ public class DoorKeypad : MonoBehaviour
         display = ui.rootVisualElement.Q<Label>("Display");
     }
 
-    private void OnDisable()
-    {
-        if (keypadButtons == null) return;
-
-        foreach (Button button in keypadButtons)
-        {
-            button.UnregisterCallback<ClickEvent>(OnButtonClicked);
-        }
-    }
-
     private void Start()
     {
-        if (ui != null)
-        {
-            ui.rootVisualElement.style.display = DisplayStyle.None;
-        }
-
-        if (player != null)
-        {
-            playerScripts = player.GetComponents<MonoBehaviour>();
-        }
+        ui.rootVisualElement.style.display = DisplayStyle.None;
     }
 
     public void OpenUI()
     {
-        if (ui == null) return;
-
         ui.rootVisualElement.style.display = DisplayStyle.Flex;
 
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         UnityEngine.Cursor.visible = true;
 
-        if (playerScripts != null)
-        {
-            foreach (var script in playerScripts)
-            {
-                if (script != this)
-                {
-                    script.enabled = false;
-                }
-            }
-        }
+        if (playerMovement != null)
+            playerMovement.enabled = false;
+
+        if (playerLook != null)
+            playerLook.enabled = false;
     }
 
     public void CloseUI()
     {
-        if (ui == null) return;
-
         ui.rootVisualElement.style.display = DisplayStyle.None;
 
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
 
-        if (playerScripts != null)
-        {
-            foreach (var script in playerScripts)
-            {
-                if (script != this)
-                {
-                    script.enabled = true;
-                }
-            }
-        }
+        if (playerMovement != null)
+            playerMovement.enabled = true;
+
+        if (playerLook != null)
+            playerLook.enabled = true;
 
         ResetInput();
-    }
-
-    private void Update()
-    {
-        if (ui == null) return;
-
-        if (ui.rootVisualElement.style.display.value == DisplayStyle.Flex)
-        {
-            for (KeyCode key = KeyCode.Alpha0; key <= KeyCode.Alpha9; key++)
-            {
-                if (Input.GetKeyDown(key))
-                {
-                    string number = ((int)key - (int)KeyCode.Alpha0).ToString();
-                    OnNumberPressed(number);
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                CloseUI();
-            }
-        }
     }
 
     private void OnButtonClicked(ClickEvent evt)
@@ -134,7 +77,7 @@ public class DoorKeypad : MonoBehaviour
             return;
         }
 
-        if (value == "X" || value.ToLower() == "close")
+        if (value == "X")
         {
             CloseUI();
             return;
@@ -159,34 +102,22 @@ public class DoorKeypad : MonoBehaviour
         input += number;
 
         if (display != null)
-        {
             display.text = input;
-        }
 
         if (input.Length == 4)
-        {
             CheckCode();
-        }
     }
 
     private void CheckCode()
     {
         if (input == correctCode)
         {
-            if (display != null)
-            {
-                display.text = "Correct";
-            }
-
+            display.text = "Correct";
             Invoke(nameof(CloseUI), 1f);
         }
         else
         {
-            if (display != null)
-            {
-                display.text = "Wrong";
-            }
-
+            display.text = "Wrong";
             Invoke(nameof(ResetInput), 1f);
         }
     }
@@ -194,10 +125,6 @@ public class DoorKeypad : MonoBehaviour
     private void ResetInput()
     {
         input = "";
-
-        if (display != null)
-        {
-            display.text = "";
-        }
+        display.text = "";
     }
 }
