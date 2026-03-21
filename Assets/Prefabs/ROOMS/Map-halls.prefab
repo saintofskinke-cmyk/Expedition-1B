@@ -8400,7 +8400,12 @@ PrefabInstance:
       value: Wall and cieling (42)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8129195560223537138, guid: f5e06b9af8a8d904db64d56a23216fc8, type: 3}
+    - {fileID: 5727521628590494193, guid: f5e06b9af8a8d904db64d56a23216fc8, type: 3}
+    - {fileID: 302917393133357267, guid: f5e06b9af8a8d904db64d56a23216fc8, type: 3}
+    - {fileID: 3685887324747775518, guid: f5e06b9af8a8d904db64d56a23216fc8, type: 3}
+    - {fileID: 357948830220480544, guid: f5e06b9af8a8d904db64d56a23216fc8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3899855857331764692, guid: f5e06b9af8a8d904db64d56a23216fc8, type: 3}
@@ -19079,7 +19084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4838442512679070373, guid: c8f5ff6744c630e48a168fbf31eefa0c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.171013
+      value: 42.411
       objectReference: {fileID: 0}
     - target: {fileID: 4838442512679070373, guid: c8f5ff6744c630e48a168fbf31eefa0c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19087,7 +19092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4838442512679070373, guid: c8f5ff6744c630e48a168fbf31eefa0c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 34.78
+      value: 34.736
       objectReference: {fileID: 0}
     - target: {fileID: 4838442512679070373, guid: c8f5ff6744c630e48a168fbf31eefa0c, type: 3}
       propertyPath: m_LocalRotation.w
