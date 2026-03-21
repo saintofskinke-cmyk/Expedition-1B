@@ -1199,6 +1199,7 @@ GameObject:
   - component: {fileID: 1401810054646066652}
   - component: {fileID: 2090872263211236443}
   - component: {fileID: 7312780187007968939}
+  - component: {fileID: 7027590654623481914}
   m_Layer: 0
   m_Name: WindowFrame (1)
   m_TagString: Untagged
@@ -1278,6 +1279,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7027590654623481914
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971565994518655005}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.25599995, y: 3.6000009, z: 5.5999994}
+  m_Center: {x: 0.0000019073486, y: 1.8000002, z: -0.0000039339066}
 --- !u!1 &980594289921817632
 GameObject:
   m_ObjectHideFlags: 0
@@ -4656,6 +4678,7 @@ GameObject:
   - component: {fileID: 2328242008652581850}
   - component: {fileID: 3119167358575756953}
   - component: {fileID: 2228073157563568999}
+  - component: {fileID: 2525546906479685132}
   m_Layer: 0
   m_Name: WindowFrame (3)
   m_TagString: Untagged
@@ -4735,6 +4758,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2525546906479685132
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5094477835674638152}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.25599998, y: 3.6000009, z: 5.599999}
+  m_Center: {x: 0, y: 1.8000002, z: -0.00000011920928}
 --- !u!1 &5261607293633625450
 GameObject:
   m_ObjectHideFlags: 0
@@ -6447,6 +6491,7 @@ GameObject:
   - component: {fileID: 6519889483292853162}
   - component: {fileID: 8201488517844029926}
   - component: {fileID: 546361809327486688}
+  - component: {fileID: 115243548096437266}
   m_Layer: 0
   m_Name: WindowFrame (2)
   m_TagString: Untagged
@@ -6526,6 +6571,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &115243548096437266
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497759744903680893}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.25599998, y: 3.6000009, z: 5.599999}
+  m_Center: {x: 0.0000038146973, y: 1.8000002, z: -0.000015377998}
 --- !u!1 &7871842439420101706
 GameObject:
   m_ObjectHideFlags: 0
@@ -18661,18 +18727,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 2390728864297461864}
     m_Modifications:
     - target: {fileID: 981580393722164601, guid: 9ab7c23dbc26d694aaa01dcc8a31fabb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 981580393722164601, guid: 9ab7c23dbc26d694aaa01dcc8a31fabb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 981580393722164601, guid: 9ab7c23dbc26d694aaa01dcc8a31fabb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 981580393722164601, guid: 9ab7c23dbc26d694aaa01dcc8a31fabb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1900005
       objectReference: {fileID: 0}
@@ -18712,17 +18766,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 981580393722164601, guid: 9ab7c23dbc26d694aaa01dcc8a31fabb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1527854014065670968, guid: 9ab7c23dbc26d694aaa01dcc8a31fabb, type: 3}
       propertyPath: m_Name
       value: EggTube (20)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7784328597184004700, guid: 9ab7c23dbc26d694aaa01dcc8a31fabb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

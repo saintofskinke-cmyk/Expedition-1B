@@ -30,7 +30,7 @@ public class GiantMetalDoor : MonoBehaviour
 
                     anim.SetBool(doorSide, true); // Play GiantValve animation
 
-                    leverLeft.tag = "Interactable"; // Make the lever interactable
+                    leverLeft.transform.GetChild(1).tag = "Interactable"; // Make the lever interactable
                     alarmLampLeft.SetActive(true); // Turn on the red light
                 }
                 break;
@@ -44,7 +44,7 @@ public class GiantMetalDoor : MonoBehaviour
 
                     anim.SetBool(doorSide, true); // Play GiantValve animation
 
-                    leverRight.tag = "Interactable"; // Make the lever interactable
+                    leverRight.transform.GetChild(1).tag = "Interactable"; // Make the lever interactable
                     alarmLampRight.SetActive(true); // Turn on the red light
                 }
                 break;
