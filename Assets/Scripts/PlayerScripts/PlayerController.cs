@@ -235,8 +235,8 @@ public class PlayerController : MonoBehaviour
             yield return new WaitUntil(() => isPlayerMoving); // Only play footstep sounds when moving
             yield return new WaitForSeconds(0.1f);
 
-            int i = UnityEngine.Random.Range(0, gameManager.footSteps.Length);
-            audSovs.PlayOneShot(gameManager.footSteps[i]);
+            int i = UnityEngine.Random.Range(0, AudioManager.Instance.footSteps.Length);
+            audSovs.PlayOneShot(AudioManager.Instance.footSteps[i]);
 
             yield return new WaitForSeconds(0.25f);
             if (moveSpeed <= walkSpeed)

@@ -3,7 +3,16 @@ guid: 57741a133afe45846b06af24baab0edd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - playerController: {instanceID: 0}
+  - lookAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  - handInterAction: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  - handPickUpAction: {fileID: 42837898425332914, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  - orientation: {instanceID: 0}
+  - raycastCamera: {instanceID: 0}
+  - handAnchor: {instanceID: 0}
+  - itemInHand: {instanceID: 0}
+  - playerHudDocument: {instanceID: 0}
   executionOrder: 320
   icon: {instanceID: 0}
   userData: 

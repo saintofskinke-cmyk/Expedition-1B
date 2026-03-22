@@ -28,6 +28,7 @@ public class GiantMetalDoor : MonoBehaviour
                     foreach (GameObject redValve in correctValves_Left)
                     { redValve.tag = "Untagged"; } // Make sure the player can't turn the valves after completion
 
+                    AudioSource.PlayClipAtPoint(AudioManager.Instance.giantValveTurn, gameObject.transform.GetChild(1).position);
                     anim.SetBool(doorSide, true); // Play GiantValve animation
 
                     leverLeft.transform.GetChild(1).tag = "Interactable"; // Make the lever interactable
@@ -42,6 +43,7 @@ public class GiantMetalDoor : MonoBehaviour
                     foreach (GameObject redValve in correctValves_Right)
                     { redValve.tag = "Untagged"; } // Make sure the player can't turn the valves after completion
 
+                    AudioSource.PlayClipAtPoint(AudioManager.Instance.giantValveTurn_2, gameObject.transform.GetChild(2).position);
                     anim.SetBool(doorSide, true); // Play GiantValve animation
 
                     leverRight.transform.GetChild(1).tag = "Interactable"; // Make the lever interactable

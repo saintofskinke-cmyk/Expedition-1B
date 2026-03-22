@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class InteractionHandler : MonoBehaviour
@@ -16,13 +17,24 @@ public class InteractionHandler : MonoBehaviour
     [Header("Giant Metal Door Parameters")]
     private int valveTurn;
     private int maxValveTurns = 8;
-    private int correctValveTurn;
+    private bool isValveTurning;
+    private float r;
+    private Quaternion rotAngle;
     [SerializeField] private string valveSide;
+    [SerializeField] private int valveNumber;
+    private bool isRadioPlaying = false;
 
     private void Start()
     {
         questManager = GameObject.FindGameObjectWithTag("QuestManager").GetComponent<QuestManager>();
-        correctValveTurn = Random.Range(0, maxValveTurns);
+    }
+
+    private void Update()
+    {
+        if (gameObject.name == "RedValve")
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotAngle, 0.1f);
+        }
     }
 
     public void StartInteractionLogic()
@@ -55,16 +67,21 @@ public class InteractionHandler : MonoBehaviour
                 gameObject.GetComponent<Collider>().enabled = false;
                 break;
 
+            case "Radio_Code":
+                StartCoroutine(gameObject.GetComponent<RadioCode>().PlayCode(isRadioPlaying));
+                break;
+
             case "RedValve":
                 // Change the turn value
                 valveTurn++;
                 if(valveTurn >= maxValveTurns) { valveTurn = 0; }
+                rotAngle = Quaternion.Euler(transform.rotation.x - 45f * valveTurn, transform.rotation.y + 180, transform.rotation.z);
 
                 // Play a different sound at each valve turn
-                AudioSource.PlayClipAtPoint(GameManager.Instance.valveSounds[valveTurn], gameObject.transform.position);
+                AudioSource.PlayClipAtPoint(AudioManager.Instance.redValveSounds[valveTurn], gameObject.transform.position);
 
                 // Check if Valve is turned correctly
-                if (valveTurn == correctValveTurn) {
+                if (valveTurn == gameObject.GetComponent<RedValve>().correctValveTurn) {
                     GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, true, valveSide);
                 } else {
                     GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, false, valveSide);
@@ -83,5 +100,4 @@ public class InteractionHandler : MonoBehaviour
         boolValue = !boolValue; // Toggle animation state
         interactionAnimator.SetBool("Activate", boolValue);
     }
-
 }

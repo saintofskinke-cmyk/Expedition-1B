@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5724782644299149094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2373537514122728941}
+  - component: {fileID: 9037425956970778386}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &2373537514122728941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724782644299149094}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9037425956970778386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724782644299149094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 283a316c510697c4e918576a9602ac8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  footSteps:
+  - {fileID: 8300000, guid: bfeadf8f66806904b9926cbad89e9021, type: 3}
+  - {fileID: 8300000, guid: 2db748e0843060b4682de6fb25b3851d, type: 3}
+  - {fileID: 8300000, guid: f4fcdd58930b8e8429b279b7d08e1f12, type: 3}
+  - {fileID: 8300000, guid: f1c1730a7d4a7624e892acf8740327e9, type: 3}
+  - {fileID: 8300000, guid: 51377c6ff92a3de4fa1ea4c499604dd2, type: 3}
+  redValveSounds:
+  - {fileID: 8300000, guid: 366d877cf3b8fb540aab777a07d6a0b4, type: 3}
+  - {fileID: 8300000, guid: 022e2759e0281b34db7ec2310565264c, type: 3}
+  - {fileID: 8300000, guid: a04591ef403b34b4da27f246147e3fdb, type: 3}
+  - {fileID: 8300000, guid: 553ef44d583d398429bbbb4b0b6cdb32, type: 3}
+  - {fileID: 8300000, guid: 1d7ec2c13306e964381f716fd404c2f3, type: 3}
+  - {fileID: 8300000, guid: 9aee98114ae6a9048924ac4db45c926a, type: 3}
+  - {fileID: 8300000, guid: a1ec6208d82f4ce488ac8dfde85379e3, type: 3}
+  - {fileID: 8300000, guid: 641916e0c570de54086da4cbe4accc41, type: 3}
+  radioValveSounds:
+  - {fileID: 8300000, guid: adc758346ad3f7f4cba36c835e700e6c, type: 3}
+  - {fileID: 8300000, guid: 0be0f50b4559c964092425c08866e514, type: 3}
+  - {fileID: 8300000, guid: 5c1b1ca8aebe5274497819ab11936a68, type: 3}
+  - {fileID: 8300000, guid: 0356ea19e78c71a4da6944277940e040, type: 3}
+  - {fileID: 8300000, guid: 92367acb1c7c5d14893fb500fb766ccd, type: 3}
+  - {fileID: 8300000, guid: 8450bc95ecbb50c4eaaeaebbbb219788, type: 3}
+  - {fileID: 8300000, guid: 569497f92ebec8049a667ac74deeee1a, type: 3}
+  - {fileID: 8300000, guid: 3f3630dbe2faca345a25e7d182e83a1c, type: 3}
+  giantValveTurn: {fileID: 8300000, guid: 1fb756fa93607fb4ea2626e379994a91, type: 3}
+  giantValveTurn_2: {fileID: 8300000, guid: 2921964aa52af0b4080364a8db4d8f74, type: 3}

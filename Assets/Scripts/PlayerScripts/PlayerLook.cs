@@ -9,10 +9,11 @@ public class PlayerLook : MonoBehaviour
     [Header("Actions")]
     [SerializeField] private InputActionReference lookAction;
     [SerializeField] private InputActionReference handInterAction;
+    [SerializeField] private InputActionReference handPickUpAction;
 
     [Header("Looking Parameters")]
     [SerializeField] private Transform orientation;
-    private float mouseSens = 3f;
+    private float mouseSens = 7f;
     private float xRotation;
     private float yRotation;
 
@@ -39,12 +40,14 @@ public class PlayerLook : MonoBehaviour
     {
         lookAction.action.Enable();
         handInterAction.action.Enable();
+        handPickUpAction.action.Enable();
     }
 
     private void OnDisable()
     {
         lookAction.action.Disable();
         handInterAction.action.Disable();
+        handPickUpAction.action.Disable();
     }
 
     private void Update()
@@ -73,58 +76,72 @@ public class PlayerLook : MonoBehaviour
             if (Physics.Raycast(raycastCamera.ScreenPointToRay(Mouse.current.position.ReadValue()), out RaycastHit hit, pickUpRange))
             {
                 GameObject hitObj = hit.collider.gameObject;
-                if (hitObj.CompareTag("Interactable") || hitObj.CompareTag("Item") || hitObj.CompareTag("Camera") || hitObj.CompareTag("ImportantItem") || hitObj.CompareTag("Flare"))
+                if (hitObj.CompareTag("Interactable") || hitObj.CompareTag("Camera"))
                 {
+                    if (hitObj.layer == 7) { txtPickUp.text = "[E] or [R]"; } // if an interactable object can be picked up
+                    else { txtPickUp.text = "[E]"; }
                     txtPickUp.style.display = DisplayStyle.Flex;
-                    if (handInterAction.action.WasPressedThisFrame() && !hasItemInHand)
+                    
+                    if (handInterAction.action.WasPressedThisFrame())
+                    {
+                        hitObj.GetComponent<InteractionHandler>().StartInteractionLogic();
+                        return;
+                    }
+                    else if (handPickUpAction.action.WasPressedThisFrame() && !hasItemInHand && hitObj.layer == 7)
+                    {
+                        SetItemInHand(hit);
+                        return;
+                    }
+                    else { TryItemDrop(); }
+                    return;
+                }
+                else if (hitObj.CompareTag("Item") || hitObj.CompareTag("ImportantItem") || hitObj.CompareTag("Flare"))
+                {
+                    txtPickUp.text = "[R]";
+                    txtPickUp.style.display = DisplayStyle.Flex;
+
+                    if (handPickUpAction.action.WasPressedThisFrame() && !hasItemInHand)
                     {
                         switch (hit.collider.gameObject.tag)
                         {
                             case "Item":
-                                originalHandItemAnchor = hit.transform.parent;
-                                OnItemPickedUp(hit, handAnchor);
-                                itemInHand = hit.transform;
-                                hasItemInHand = true;
+                                SetItemInHand(hit);
                                 break;
 
                             case "Flare":
-                                originalHandItemAnchor = hit.transform.parent;
-                                OnItemPickedUp(hit, handAnchor);
-                                itemInHand = hit.transform;
-                                hasItemInHand = true;
+                                SetItemInHand(hit);
                                 itemInHand.GetComponentInChildren<Light>().transform.localPosition = new Vector3(-0.02f, 0.7f, -0.11f); // Change the position of the light to make it look better in the player's hand
                                 break;
 
-                            case "Interactable":
-                                hit.collider.gameObject.GetComponent<InteractionHandler>().StartInteractionLogic();
-                                break;
-
                             case "ImportantItem":
-                                if(hit.collider.gameObject.GetComponent<ItemPickupEvent>()  != null)
+                                if (hit.collider.gameObject.GetComponent<ItemPickupEvent>() != null)
                                 {
                                     hit.collider.gameObject.GetComponent<ItemPickupEvent>().OnPickup();
                                 }
-                                originalHandItemAnchor = hit.transform.parent;
-                                OnItemPickedUp(hit, handAnchor);
-                                itemInHand = hit.transform;
-                                hasItemInHand = true;
+                                SetItemInHand(hit);
                                 break;
                         }
-                        return;
                     }
-                    TryItemDrop();
-                    return;
+                    else { TryItemDrop(); }
+                    return;   
                 }
             }
             TryItemDrop();
-            
         }
         txtPickUp.style.display = DisplayStyle.None;
     }
     
+    private void SetItemInHand(RaycastHit hit)
+    {
+        originalHandItemAnchor = hit.transform.parent;
+        OnItemPickedUp(hit, handAnchor);
+        itemInHand = hit.transform;
+        hasItemInHand = true;
+    }
+
     private void TryItemDrop()
     {
-        if (handInterAction.action.WasPressedThisFrame() && hasItemInHand)
+        if (handPickUpAction.action.WasPressedThisFrame() && hasItemInHand)
         {
             if (itemInHand.CompareTag("Flare"))
             {

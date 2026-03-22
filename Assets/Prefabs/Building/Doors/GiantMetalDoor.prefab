@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 9217907689317395967}
   - component: {fileID: 2981182156385666202}
   - component: {fileID: 4951277654942644826}
+  - component: {fileID: 5920965312064809957}
   m_Layer: 0
   m_Name: RedValve
   m_TagString: Interactable
@@ -220,6 +221,23 @@ MonoBehaviour:
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
   valveSide: Left
+  valveNumber: 0
+--- !u!114 &5920965312064809957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974447212118996763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf0ccaef19561e4dbc35a66d6788050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RedValve
+  correctValveTurn: 0
+  valveNumber: 2
+  valveSide: Left
+  radio: {fileID: 0}
 --- !u!1 &1165410225534053372
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +251,7 @@ GameObject:
   - component: {fileID: 2991438513185478173}
   - component: {fileID: 987928247705853414}
   - component: {fileID: 654041403885983486}
+  - component: {fileID: 4285270867537306638}
   m_Layer: 0
   m_Name: RedValve
   m_TagString: Interactable
@@ -350,6 +369,23 @@ MonoBehaviour:
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
   valveSide: Left
+  valveNumber: 0
+--- !u!114 &4285270867537306638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165410225534053372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf0ccaef19561e4dbc35a66d6788050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RedValve
+  correctValveTurn: 0
+  valveNumber: 1
+  valveSide: Left
+  radio: {fileID: 0}
 --- !u!1 &1882973507295147600
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +631,7 @@ GameObject:
   - component: {fileID: 8644301098946956248}
   - component: {fileID: 4394267827705894671}
   - component: {fileID: 6949544255969425266}
+  - component: {fileID: 1534964444476293373}
   m_Layer: 0
   m_Name: RedValve
   m_TagString: Interactable
@@ -712,6 +749,23 @@ MonoBehaviour:
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
   valveSide: Right
+  valveNumber: 0
+--- !u!114 &1534964444476293373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2534465487581630875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf0ccaef19561e4dbc35a66d6788050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RedValve
+  correctValveTurn: 0
+  valveNumber: 2
+  valveSide: Right
+  radio: {fileID: 0}
 --- !u!1 &3215208646668705765
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +779,7 @@ GameObject:
   - component: {fileID: 123350835039027457}
   - component: {fileID: 5207703729643735669}
   - component: {fileID: 775197585291561136}
+  - component: {fileID: 3013549729761936927}
   m_Layer: 0
   m_Name: RedValve
   m_TagString: Interactable
@@ -842,6 +897,23 @@ MonoBehaviour:
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
   valveSide: Right
+  valveNumber: 0
+--- !u!114 &3013549729761936927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215208646668705765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf0ccaef19561e4dbc35a66d6788050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RedValve
+  correctValveTurn: 0
+  valveNumber: 1
+  valveSide: Right
+  radio: {fileID: 0}
 --- !u!1 &6249236476211551834
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +927,7 @@ GameObject:
   - component: {fileID: 8631213297164323157}
   - component: {fileID: 6135927804520722151}
   - component: {fileID: 3297071816835276441}
+  - component: {fileID: 3173036465431910394}
   m_Layer: 0
   m_Name: RedValve
   m_TagString: Interactable
@@ -972,6 +1045,23 @@ MonoBehaviour:
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
   valveSide: Right
+  valveNumber: 0
+--- !u!114 &3173036465431910394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6249236476211551834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf0ccaef19561e4dbc35a66d6788050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RedValve
+  correctValveTurn: 0
+  valveNumber: 3
+  valveSide: Right
+  radio: {fileID: 0}
 --- !u!1 &6393551918954186909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,6 +1336,7 @@ GameObject:
   - component: {fileID: 5655779171248445366}
   - component: {fileID: 8147922684643255466}
   - component: {fileID: 6543887048452165979}
+  - component: {fileID: 5778356388204135129}
   m_Layer: 0
   m_Name: RedValve
   m_TagString: Interactable
@@ -1363,6 +1454,23 @@ MonoBehaviour:
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
   valveSide: Left
+  valveNumber: 0
+--- !u!114 &5778356388204135129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9029665951475084229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf0ccaef19561e4dbc35a66d6788050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RedValve
+  correctValveTurn: 0
+  valveNumber: 3
+  valveSide: Left
+  radio: {fileID: 0}
 --- !u!1001 &1947233048229032774
 PrefabInstance:
   m_ObjectHideFlags: 0
