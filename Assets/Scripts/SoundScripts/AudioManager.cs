@@ -5,6 +5,9 @@ public class AudioManager : MonoBehaviour
     [Header("Player")]
     public AudioClip[] footSteps;
 
+    [Header("Electricity")]
+    public AudioClip lever;
+
     [Header("Valves")]
     public AudioClip[] redValveSounds;
     public AudioClip[] radioValveSounds;

@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 242029835658865338}
   - component: {fileID: 3575543091814349155}
   - component: {fileID: 2675414315025583626}
+  - component: {fileID: 4472436078595215953}
   m_Layer: 0
   m_Name: Industrial_Lamp
   m_TagString: Untagged
@@ -182,6 +183,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4472436078595215953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838968000872550971}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.009999998, z: 0.0040983553}
+  m_Center: {x: 5.9604643e-10, y: -0.000000028014185, z: 0.00013285562}
 --- !u!1 &1970298685180692464
 GameObject:
   m_ObjectHideFlags: 0

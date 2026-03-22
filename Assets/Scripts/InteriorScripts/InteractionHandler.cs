@@ -17,8 +17,6 @@ public class InteractionHandler : MonoBehaviour
     [Header("Giant Metal Door Parameters")]
     private int valveTurn;
     private int maxValveTurns = 8;
-    private bool isValveTurning;
-    private float r;
     private Quaternion rotAngle;
     [SerializeField] private string valveSide;
     [SerializeField] private int valveNumber;
@@ -45,6 +43,7 @@ public class InteractionHandler : MonoBehaviour
         {
             case "LeverHandle":
                 PlayAnimation();
+                AudioSource.PlayClipAtPoint(AudioManager.Instance.lever, gameObject.transform.position);
                 if (boolValue && objectiveEventID == questManager.currentObjectiveIndex && !alreadyCompleted)
                 {
                     questManager.Progress(progressAmount);
@@ -58,11 +57,13 @@ public class InteractionHandler : MonoBehaviour
 
             case "BigHallLeverHandle":
                 PlayAnimation();
+                AudioSource.PlayClipAtPoint(AudioManager.Instance.lever, gameObject.transform.position);
                 gameObject.GetComponentInParent<BigHallLever>().ActivateLever();
                 break;
 
             case "GiantDoorLeverHandle":
                 PlayAnimation();
+                AudioSource.PlayClipAtPoint(AudioManager.Instance.lever, gameObject.transform.position);
                 StartCoroutine(GetComponentInParent<GiantMetalDoor>().OpenGiantMetalDoor(valveSide));
                 gameObject.GetComponent<Collider>().enabled = false;
                 break;

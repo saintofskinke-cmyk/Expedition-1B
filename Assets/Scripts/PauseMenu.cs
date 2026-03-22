@@ -5,25 +5,33 @@ using UnityEngine.InputSystem;
 public class PauseMenu : MonoBehaviour
 {
     PlayerController playerController;
+    PlayerLook playerLook;
+
     private VisualElement root;
     private VisualElement playerHudRoot;
+    private Button continueButton, menuButton;
+    private Slider mouseSensSlider;
     [SerializeField] private GameObject mainCameraParent;
-    private Button continueButton, settingsButton, menuButton;
     [SerializeField] private InputActionReference pauseAction;
     [HideInInspector] public bool isGamePaused;
 
     private void Awake()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerLook = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerLook>();
+
         root = GetComponent<UIDocument>().rootVisualElement;
         playerHudRoot = mainCameraParent.GetComponent<UIDocument>().rootVisualElement;
+
         continueButton = root.Q<Button>("btnContinue");
-        settingsButton = root.Q<Button>("btnSettings");
         menuButton = root.Q<Button>("btnMainMenu");
+        mouseSensSlider = root.Q<Slider>("MouseSensitivity");
+
         continueButton.RegisterCallback<ClickEvent>(OnContinueClicked);
-        settingsButton.RegisterCallback<ClickEvent>(OnSettingsClicked);
         menuButton.RegisterCallback<ClickEvent>(OnMenuClicked);
+
         root.style.display = DisplayStyle.None;
+        UpdateSettings();
     }
 
     private void Update()
@@ -55,6 +63,7 @@ public class PauseMenu : MonoBehaviour
                 UnityEngine.Cursor.visible = false;
             }
             isGamePaused = !isGamePaused;
+            UpdateSettings();
         }
     }
 
@@ -62,19 +71,22 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         isGamePaused = false;
+        UpdateSettings();
+
         root.style.display = DisplayStyle.None;
         playerHudRoot.style.display = DisplayStyle.Flex;
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
     }
 
-    private void OnSettingsClicked(ClickEvent evt)
-    {
-        Debug.Log("Settings button clicked");
-    }
-
     private void OnMenuClicked(ClickEvent evt)
     {
         Debug.Log("Go back to Main Menu");
+        UpdateSettings();
+    }
+
+    private void UpdateSettings()
+    {
+        playerLook.mouseSens = mouseSensSlider.value * 0.25f + 1; // Sætter mouse sensitivity til sliderens værdi
     }
 }
