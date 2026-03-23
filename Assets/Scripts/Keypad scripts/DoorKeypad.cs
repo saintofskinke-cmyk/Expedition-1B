@@ -11,7 +11,8 @@ public class DoorKeypad : MonoBehaviour
     public MonoBehaviour playerMovement;
     public MonoBehaviour playerLook;   // ← NY
 
-    public MetalDoor door;
+    public Animator doorAnimator;
+    public string openTriggerName = "Activate";
 
     private string input = "";
     private Label display;
@@ -116,8 +117,14 @@ public class DoorKeypad : MonoBehaviour
         {
             display.text = "Correct";
 
-            if (door != null)
-                door.OpenDoor();
+            if (doorAnimator != null)
+            {
+                doorAnimator.SetBool("Activate", true);
+            }
+            else
+            {
+                Debug.LogError("Door Animator mangler på DoorKeypad!");
+            }
 
             Invoke(nameof(CloseUI), 1f);
         }
