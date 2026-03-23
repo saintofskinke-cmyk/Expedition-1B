@@ -9,17 +9,21 @@ public class TypewriterUI : MonoBehaviour
     private bool showCursor = true;
     private bool finishedTyping = false;
 
-    public string fullText = "Welcome to the world of Unity! This is a typewriter effect demonstration.";
+    private string fullText = "WHEN\r\nThe 7th of January in the geophysical year 1957.\r\n\r\n\t\t\t       \t  Where\r\nAbout 50 miles east of the US mcmurdo resarch\r\nstation on antarctica\r\n             -78,29053262971581,  170,4175091612813.\r\n\r\n                                          How\r\n\t\t           We don't know...\r\n\r\n                                          Why\r\n                    We don't know that either...\r\n\r\n                                         Who\r\nWe found an underground cave system under\r\nthe ice and i found a door that led to an \r\nunderground ussr research facility.\r\n\r\n\r\n                                     objective\r\n                     discover and document...\r\n          what were they doing down here?";
     public float typingSpeed = 0.05f;
 
     public AudioSource audioSource;
     public AudioClip clickSound;
 
-    private Label textLabel;
+    // Delay (seconds) before hiding the UI after typing completes
+    public float hideDelay = 4f;
 
-    void OnEnable()
+    private Label textLabel;
+    private Coroutine blinkCoroutine;
+
+    void Awake()
     {
-        var root = uiDocument.rootVisualElement;
+        VisualElement root = uiDocument.rootVisualElement;
         textLabel = root.Q<Label>("IntroText");
 
         textLabel.text = "";
@@ -28,38 +32,76 @@ public class TypewriterUI : MonoBehaviour
 
     IEnumerator TypeText()
     {
+        // Clear at start
+        textLabel.text = "";
+
+        // Toggle used to play sound every other non-space character
+        bool playThisCharSound = false;
+
         foreach (char letter in fullText)
         {
             textLabel.text += letter;
 
             if (letter != ' ')
             {
-                audioSource.PlayOneShot(clickSound);
+                // Flip the toggle for each non-space char, play only on true
+                playThisCharSound = !playThisCharSound;
+
+                if (playThisCharSound && audioSource != null && clickSound != null)
+                {
+                    audioSource.PlayOneShot(clickSound);
+                }
             }
 
             if (letter == '.')
                 yield return new WaitForSeconds(0.5f);
             else
                 yield return new WaitForSeconds(typingSpeed);
-
-            finishedTyping = true;
-            StartCoroutine(BlinkCursor());
-
-
         }
-        IEnumerator BlinkCursor()
+
+        // Typing finished; set flag and start cursor blink once
+        finishedTyping = true;
+        blinkCoroutine = StartCoroutine(BlinkCursor());
+
+        // Hide UI after configured delay
+        StartCoroutine(HideUIAfterDelay());
+    }
+
+    IEnumerator BlinkCursor()
+    {
+        // Ensure the label shows the full text first
+        textLabel.text = fullText;
+
+        while (true)
         {
-            while (true)
-            {
-                showCursor = !showCursor;
+            showCursor = !showCursor;
 
-                if (showCursor)
-                    textLabel.text = fullText + "|";
-                else
-                    textLabel.text = fullText;
+            textLabel.text = fullText + (showCursor ? "|" : "");
 
-                yield return new WaitForSeconds(0.5f);
-            }
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    IEnumerator HideUIAfterDelay()
+    {
+        yield return new WaitForSeconds(hideDelay);
+
+        // Stop blinking coroutine if running
+        if (blinkCoroutine != null)
+        {
+            StopCoroutine(blinkCoroutine);
+            blinkCoroutine = null;
+        }
+
+        // Hide the UI document's root visual element
+        if (uiDocument != null && uiDocument.rootVisualElement != null)
+        {
+            uiDocument.rootVisualElement.style.display = DisplayStyle.None;
+        }
+        else
+        {
+            // Fallback: disable this GameObject if UIDocument is not assigned
+            gameObject.SetActive(false);
         }
     }
 }
