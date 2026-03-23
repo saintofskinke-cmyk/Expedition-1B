@@ -12,6 +12,11 @@ public class PowerGeneratorEvent : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
 
         for (int i = 0; i < generatorLamps.transform.childCount; i++) {
