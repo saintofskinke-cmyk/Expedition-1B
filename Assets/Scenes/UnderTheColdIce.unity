@@ -402,6 +402,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 340526666}
     m_Modifications:
+    - target: {fileID: 2795087538356301864, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5036068552155920496, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -615,6 +619,7 @@ MonoBehaviour:
   typingSpeed: 0.05
   audioSource: {fileID: 588398541}
   clickSound: {fileID: 8300000, guid: 9cd09d9691a958c4bbd7113e4edea894, type: 3}
+  hideDelay: 4
 --- !u!4 &588398543
 Transform:
   m_ObjectHideFlags: 0

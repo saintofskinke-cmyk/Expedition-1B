@@ -9,7 +9,22 @@ public class TypewriterUI : MonoBehaviour
     private bool showCursor = true;
     private bool finishedTyping = false;
 
-    private string fullText = "WHEN\r\nThe 7th of January in the geophysical year 1957.\r\n\r\n\t\t\t       \t  Where\r\nAbout 50 miles east of the US mcmurdo resarch\r\nstation on antarctica\r\n             -78,29053262971581,  170,4175091612813.\r\n\r\n                                          How\r\n\t\t           We don't know...\r\n\r\n                                          Why\r\n                    We don't know that either...\r\n\r\n                                         Who\r\nWe found an underground cave system under\r\nthe ice and i found a door that led to an \r\nunderground ussr research facility.\r\n\r\n\r\n                                     objective\r\n                     discover and document...\r\n          what were they doing down here?";
+    private string fullText = "WHEN\r\n" +
+        "The 7th of January in the geophysical year 1957.\r\n\r\n" +
+        "WHERE\r\n" +
+        "About 50 miles east of the US McMURDO resarch\r\nstation on antarctica\r\n" +
+        "-78,29053262971581,  170,4175091612813.\r\n\r\n" +
+        "HOW\r\n" +
+        "We don't know...\r\n\r\n" +
+        "WHY\r\n" +
+        "We don't know that either...\r\n\r\n" +
+        "WHO\r\n" +
+        "We found an underground cave system under\r\n" +
+        "the ice and i found a door that led to an \r\n" +
+        "underground USSR research facility.\r\n\r\n\r\n" +
+        "OBJECTIVE\r\n" +
+        "Discover and document...\r\n" +
+        "What were they doing down here?";
     public float typingSpeed = 0.05f;
 
     public AudioSource audioSource;
