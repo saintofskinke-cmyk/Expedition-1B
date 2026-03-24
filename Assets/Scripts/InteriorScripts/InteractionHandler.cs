@@ -10,9 +10,7 @@ public class InteractionHandler : MonoBehaviour
     private int progressAmount = 1;
     [SerializeField] private int objectiveEventID = 0;
     private bool alreadyCompleted = false;
-    [SerializeField] QuestManager questManager;
-    [SerializeField] private GenStart genStart1;
-    [SerializeField] private GenStart genStart2;
+    [SerializeField] private QuestManager questManager;
 
     [Header("Giant Metal Door Parameters")]
     private int valveTurn;
@@ -48,8 +46,6 @@ public class InteractionHandler : MonoBehaviour
                 {
                     questManager.Progress(progressAmount);
                     alreadyCompleted = true;
-                    genStart1.PlayGenSound();
-                    genStart2.PlayGenSound();
                 }
                 EventManager.StartGenerator();
                 break;

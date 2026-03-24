@@ -41,7 +41,7 @@ public class CameraFlash : MonoBehaviour
 
         flash.style.opacity = 100f;
 
-        flashObject.GetComponentInChildren<Light>().intensity = 100f;
+        flashObject.GetComponentInChildren<Light>().intensity = 10f;
 
         yield return new WaitForSeconds(0.05f);
 
