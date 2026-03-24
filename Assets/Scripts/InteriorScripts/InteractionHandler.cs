@@ -29,7 +29,7 @@ public class InteractionHandler : MonoBehaviour
 
     private void Update()
     {
-        if (gameObject.name == "RedValve")
+        if (gameObject.name == "RedValve" && !GiantMetalDoor.isDoorUnlocked)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, rotAngle, 0.1f);
         }
@@ -89,7 +89,7 @@ public class InteractionHandler : MonoBehaviour
                 if (valveTurn == gameObject.GetComponent<RedValve>().correctValveTurn) {
                     GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, true, valveSide);
                 } else {
-                    GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, false, valveSide);
+                    GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, true, valveSide);
                 }
                 break;
 

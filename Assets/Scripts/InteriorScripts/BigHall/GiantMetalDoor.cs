@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 
 public class GiantMetalDoor : MonoBehaviour
 {
+    public static bool isDoorUnlocked = false;
+
     [SerializeField] private List<GameObject> correctValves_Left, correctValves_Right; // Listen holder styr på hvilke valves der er sat correct
     [SerializeField] private GameObject leverLeft, leverRight, alarmLampLeft, alarmLampRight;
     [SerializeField] private GameObject[] alarmLamp_green;
@@ -72,11 +74,14 @@ public class GiantMetalDoor : MonoBehaviour
 
         if (anim.GetBool("LeverLeft") == true && anim.GetBool("LeverRight") == true)
         {
+            isDoorUnlocked = true;
             yield return new WaitForSeconds(1f);
 
             foreach (GameObject greenAlarmLamp in alarmLamp_green) {
                 greenAlarmLamp.SetActive(true);
             }
+
+            StartCoroutine(StopVeryEarlyAccessGameplay());
         }
         
     }
@@ -85,5 +90,7 @@ public class GiantMetalDoor : MonoBehaviour
     {
         yield return new WaitForSeconds(19.57f);
         GetComponent<UIDocument>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().PlayOneShot(AudioManager.Instance.endScreenSound);
+        Time.timeScale = 0f;
     }
 }
