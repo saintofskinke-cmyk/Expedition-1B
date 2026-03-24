@@ -41,7 +41,7 @@ public class InteractionHandler : MonoBehaviour
         // This way we can have one script that handles all interactions in the game and we can easily add new interactable objects by adding a new case to the switch statement.
         switch (gameObject.name)
         {
-            case "LeverHandle":
+            case "GeneratorLeverHandle":
                 PlayAnimation();
                 AudioSource.PlayClipAtPoint(AudioManager.Instance.lever, gameObject.transform.position);
                 if (boolValue && objectiveEventID == questManager.currentObjectiveIndex && !alreadyCompleted)
@@ -51,8 +51,7 @@ public class InteractionHandler : MonoBehaviour
                     genStart1.PlayGenSound();
                     genStart2.PlayGenSound();
                 }
-                PowerGeneratorEvent.Instance.ActivateEvent();
-
+                EventManager.StartGenerator();
                 break;
 
             case "BigHallLeverHandle":
@@ -66,6 +65,10 @@ public class InteractionHandler : MonoBehaviour
                 AudioSource.PlayClipAtPoint(AudioManager.Instance.lever, gameObject.transform.position);
                 StartCoroutine(GetComponentInParent<GiantMetalDoor>().OpenGiantMetalDoor(valveSide));
                 gameObject.GetComponent<Collider>().enabled = false;
+                break;
+
+            case "Keypad":
+                GetComponent<DoorKeypad>().OpenUI();
                 break;
 
             case "Radio_Code":

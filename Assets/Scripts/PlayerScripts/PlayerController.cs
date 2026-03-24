@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference sprintAction;
     [SerializeField] private InputActionReference crouchAction;
     [SerializeField] private InputActionReference jumpAction;
-    [SerializeField] private InputActionReference throwFlareAction;
+    public InputActionReference throwFlareAction;
     [SerializeField] private InputActionReference cameraAction;
     [SerializeField] private InputActionReference photoAction;
     [SerializeField] private InputActionReference getCameraAction;
@@ -264,14 +264,23 @@ public class PlayerController : MonoBehaviour
             int rndY = UnityEngine.Random.Range(-180, 180);
             int rndZ = UnityEngine.Random.Range(-180, 180);
 
-            // Instantiate flare and add forward force
-            GameObject flare = Instantiate(GM.GetComponent<GameManager>().flarePrefab, eyes.position + eyes.forward, Quaternion.Euler(rndX, rndY, rndZ));
-            flare.GetComponent<Rigidbody>().AddForce(eyes.forward * 10f, ForceMode.VelocityChange);
+            GameObject flare;
+            if (PlayerLook.isHoldingFlare)
+            {
+                PlayerLook.TryFlareDrop();
+            }
+            else
+            {
+                // Instantiate flare and add forward force
+                flare = Instantiate(GM.GetComponent<GameManager>().flarePrefab, eyes.position + eyes.forward, Quaternion.Euler(rndX, rndY, rndZ));
+                inventory.RemoveItem("Flare"); // Remove flare from inventory
+                flare.GetComponent<Rigidbody>().AddForce(eyes.forward * 10f, ForceMode.VelocityChange);
+            }
+            
 
-            inventory.RemoveItem("Flare"); // Remove flare from inventory
         }
 
-        if(getCameraAction.action.WasPressedThisFrame() && !PlayerLook.hasItemInHand && !inPhotoMode)
+        if(getCameraAction.action.WasPressedThisFrame() && !PlayerLook.hasItemInHand && !inPhotoMode && !PlayerLook.isHoldingFlare)
         {
             flareIcon = PlayerLook.playerHudDocument.GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("Inventory");
             if (!isCameraInHand)

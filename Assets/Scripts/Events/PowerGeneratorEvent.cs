@@ -1,35 +1,33 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerGeneratorEvent : MonoBehaviour
 {
-    public static PowerGeneratorEvent Instance;
-
     [Header("Generator Room")]
     [SerializeField] private GameObject generatorAlarmLamp;
-    [SerializeField] private GameObject generatorLamps;
-    private List<GameObject> generatorLights = new List<GameObject>();
+    [SerializeField] private AudioSource generatorAudio;
 
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
 
-        for (int i = 0; i < generatorLamps.transform.childCount; i++) {
-            generatorLights.Add(generatorLamps.transform.GetChild(i).gameObject);
-        }
-    }
 
-    public void ActivateEvent()
+    private void Start() { EventManager.Generator += PowerGenerator; }
+    private void OnDisable() { EventManager.Generator -= PowerGenerator; }
+
+    private void PowerGenerator()
     {
         generatorAlarmLamp.GetComponentInChildren<Light>().enabled = false;
-        foreach (GameObject go in generatorLights)
+
+        // Audio
+        generatorAudio.PlayOneShot(AudioManager.Instance.generatorRoom_StartUp);
+        StartCoroutine(GeneratorSound());
+    }
+
+    IEnumerator GeneratorSound()
+    {
+        while (generatorAudio.isPlaying)
         {
-            go.GetComponentInChildren<Light>().enabled = true;
+            yield return null;
         }
+        generatorAudio.Play();
     }
 }

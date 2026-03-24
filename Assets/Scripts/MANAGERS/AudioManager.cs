@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("Electricity")]
     public AudioClip lever;
+    public AudioClip generatorRoom_StartUp;
+    public AudioClip generatorRoom_Loop;
 
     [Header("Valves")]
     public AudioClip[] redValveSounds;

@@ -20,11 +20,11 @@ public class PlayerLook : MonoBehaviour
     [Header("Pick Up Parameters")]
     [SerializeField] private Camera raycastCamera;
     private int pickUpRange = 4;
-    public bool hasItemInHand;
-    [SerializeField] private Transform handAnchor;
-    private Transform originalHandItemAnchor;
+    public bool hasItemInHand, isHoldingFlare;
+    [SerializeField] private Transform handAnchor, secondHandAnchor;
+    private Transform originalHandItemAnchor, originalHandFlareAnchor;
     public Transform itemInHand;
-    public GameObject playerHudDocument;
+    public GameObject playerHudDocument, flareInHand;
     private VisualElement root;
     private Label txtPickUp;
 
@@ -109,8 +109,12 @@ public class PlayerLook : MonoBehaviour
                                 break;
 
                             case "Flare":
-                                SetItemInHand(hit);
-                                itemInHand.GetComponentInChildren<Light>().transform.localPosition = new Vector3(-0.02f, 0.7f, -0.11f); // Change the position of the light to make it look better in the player's hand
+                                if (isHoldingFlare) { return; }
+                                originalHandFlareAnchor = hit.transform.parent;
+                                OnItemPickedUp(hit, secondHandAnchor);
+                                isHoldingFlare = true;
+                                flareInHand = hit.transform.gameObject;
+                                flareInHand.GetComponentInChildren<Light>().transform.localPosition = new Vector3(-0.02f, 0.7f, -0.11f); // Change the position of the light to make it look better in the player's hand
                                 break;
 
                             case "ImportantItem":
@@ -147,10 +151,21 @@ public class PlayerLook : MonoBehaviour
             {
                 itemInHand.GetComponentInChildren<Light>().transform.localPosition = new Vector3(0f, 0.92f, 0f); // Change the position of the light to make it look better when dropped
             }
-            OnItemDropped(hasItemInHand, itemInHand, originalHandItemAnchor, 10f);
+            OnItemDropped(itemInHand, originalHandItemAnchor, 10f);
             hasItemInHand = false;
         }
     }
+
+    public void TryFlareDrop()
+    {
+        if (playerController.throwFlareAction.action.WasPressedThisFrame() && isHoldingFlare)
+        {
+            flareInHand.GetComponentInChildren<Light>().transform.localPosition = new Vector3(0f, 0.92f, 0f); // Change the position of the light to make it look better when dropped
+            OnItemDropped(flareInHand.transform, originalHandFlareAnchor, 10f);
+            isHoldingFlare = false;
+        }
+    }
+
     private void OnItemPickedUp(RaycastHit hit, Transform handAnchor)
     {
         hit.transform.SetParent(handAnchor);
@@ -160,7 +175,7 @@ public class PlayerLook : MonoBehaviour
         hit.transform.rotation = handAnchor.rotation;
     }
 
-    private void OnItemDropped(bool hasItemInHand, Transform itemInHand, Transform originalAnchor, float force)
+    private void OnItemDropped(Transform itemInHand, Transform originalAnchor, float force)
     {
         itemInHand.GetComponent<Rigidbody>().isKinematic = false;
         itemInHand.GetComponent<Collider>().enabled = true;

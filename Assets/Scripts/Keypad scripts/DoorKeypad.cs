@@ -6,13 +6,13 @@ public class DoorKeypad : MonoBehaviour
 {
     public string correctCode = "1234";
 
-    public UIDocument ui;
+    public UIDocument ui; // -------- brug hellere "private VisualElement root;" da "root" er hurtigere og lettere at overskue end "ui.rootVisualElement". Det er ikke noget der gør det store, men det er bare god practice ;P 
 
     public MonoBehaviour playerMovement;
-    public MonoBehaviour playerLook;   // ← NY
+    public MonoBehaviour playerLook;   // ← NY -------- What does NY mean?
 
     public Animator doorAnimator;
-    public string openTriggerName = "Activate";
+    public string openTriggerName = "Activate"; // ------- Unused?
 
     private string input = "";
     private Label display;
@@ -20,11 +20,11 @@ public class DoorKeypad : MonoBehaviour
 
     private void Awake()
     {
-        ui = GetComponent<UIDocument>();
+        ui = GetComponent<UIDocument>(); // -------- her vil vi istedet skrive "root = GetComponent<UIDocument>().rootVisualElement;". Nu kan vi replace "ui.rootVisualElement" med "root". JUUUBIIII ;D)-< 
 
         keypadButtons = ui.rootVisualElement.Query<Button>().ToList();
 
-        foreach (Button button in keypadButtons)
+        foreach (Button button in keypadButtons) // ------ Nice brug af foreach loop ;D
         {
             button.RegisterCallback<ClickEvent>(OnButtonClicked);
         }
@@ -35,6 +35,17 @@ public class DoorKeypad : MonoBehaviour
     private void Start()
     {
         ui.rootVisualElement.style.display = DisplayStyle.None;
+        EventManager.Generator += TurnOnKeypad; // This will add the method to the Generator event. That means the method will be activated when this event is happening.
+    }
+
+    private void TurnOnKeypad()
+    {
+        tag = "Interactable";
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Generator -= TurnOnKeypad; // This will remove the object from the event, so it doesn't accidentually cause an error if the event is activated while the object is not active.
     }
 
     public void OpenUI()
