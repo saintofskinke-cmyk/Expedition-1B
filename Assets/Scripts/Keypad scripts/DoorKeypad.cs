@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 public class DoorKeypad : MonoBehaviour
 {
-    public string correctCode = "1234";
+    public string correctCode = "1957";
 
     public UIDocument ui; // -------- brug hellere "private VisualElement root;" da "root" er hurtigere og lettere at overskue end "ui.rootVisualElement". Det er ikke noget der gør det store, men det er bare god practice ;P 
 
@@ -131,6 +131,7 @@ public class DoorKeypad : MonoBehaviour
             if (doorAnimator != null)
             {
                 doorAnimator.SetBool("Activate", true);
+                AudioSource.PlayClipAtPoint(AudioManager.Instance.metalDoorUnlock, doorAnimator.gameObject.transform.position);
             }
             else
             {
@@ -149,7 +150,7 @@ public class DoorKeypad : MonoBehaviour
     {
         if (ui.rootVisualElement.style.display == DisplayStyle.Flex)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (GameManager.Instance.pauseAction.action.WasPressedThisFrame())
             {
                 CloseUI();
             }

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -12,7 +11,6 @@ public class PauseMenu : MonoBehaviour
     private Button continueButton, menuButton;
     private Slider mouseSensSlider;
     [SerializeField] private GameObject mainCameraParent;
-    [SerializeField] private InputActionReference pauseAction;
     [HideInInspector] public bool isGamePaused;
 
     private void Awake()
@@ -37,7 +35,7 @@ public class PauseMenu : MonoBehaviour
     private void Update()
     {
         // Open & Close the Pause Menu when ESC is pressed
-        if (pauseAction.action.WasPressedThisFrame() && !playerController.inPhotoMode)
+        if (GameManager.Instance.pauseAction.action.WasPressedThisFrame() && !playerController.inPhotoMode)
         {
             if (!isGamePaused)
             {
