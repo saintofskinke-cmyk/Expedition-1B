@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7085254482014419386
 Transform:
@@ -109,7 +109,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5129999506864466448
 Transform:
@@ -244,6 +244,8 @@ MonoBehaviour:
   questManager: {fileID: 0}
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!1 &1588156431849545660
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +262,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &480010970000211376
 Transform:
@@ -350,7 +352,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2094662718737371915
 Transform:
@@ -440,7 +442,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3440806776996498222
 Transform:
@@ -531,7 +533,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4402416152923284401
 Transform:
@@ -647,7 +649,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6461974891127811444
 Transform:
@@ -782,6 +784,8 @@ MonoBehaviour:
   questManager: {fileID: 0}
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!1 &2428051148085050107
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +802,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4571133488400051492
 Transform:
@@ -891,7 +895,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3788088097221667766
 Transform:
@@ -1025,6 +1029,8 @@ MonoBehaviour:
   questManager: {fileID: 0}
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!1 &3368629836689728681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,7 +1045,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5605899659094587240
 Transform:
@@ -1084,7 +1090,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7374938043231750919
 Transform:
@@ -1219,6 +1225,8 @@ MonoBehaviour:
   questManager: {fileID: 0}
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!1 &3952591489122414106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,7 +1246,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4936052596412318509
 Transform:
@@ -1372,6 +1380,8 @@ MonoBehaviour:
   questManager: {fileID: 0}
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!1 &4399468059436037389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,7 +1398,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &994177487621765432
 Transform:
@@ -1478,7 +1488,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5918384500901437111
 Transform:
@@ -1568,7 +1578,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8966272880023959024
 Transform:
@@ -1658,7 +1668,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3231085320556623884
 Transform:
@@ -1748,7 +1758,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1385952483355618184
 Transform:
@@ -1841,7 +1851,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &601946479034376648
 Transform:
@@ -1975,6 +1985,8 @@ MonoBehaviour:
   questManager: {fileID: 0}
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!1 &7386307392348105656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1994,7 +2006,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7758239669266156510
 Transform:
@@ -2128,6 +2140,8 @@ MonoBehaviour:
   questManager: {fileID: 0}
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!1 &7607040626873071185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,7 +2158,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3854065816854178430
 Transform:
@@ -2234,7 +2248,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7932884894221499758
 Transform:
@@ -2327,7 +2341,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &982235504933501290
 Transform:
@@ -2462,6 +2476,8 @@ MonoBehaviour:
   questManager: {fileID: 0}
   genStart1: {fileID: 0}
   genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!1 &9169299377220722345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,7 +2494,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &249908449232773897
 Transform:
