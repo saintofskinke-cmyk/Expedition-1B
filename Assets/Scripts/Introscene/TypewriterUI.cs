@@ -9,7 +9,6 @@ public class TypewriterUI : MonoBehaviour
 
 
     private bool showCursor = true;
-    private bool finishedTyping = false;
 
     private string fullText = "WHEN\r\n" +
         "The 7th of January in the geophysical year 1957.\r\n\r\n" +
@@ -107,7 +106,6 @@ public class TypewriterUI : MonoBehaviour
         }
 
         // Typing finished; set flag and start cursor blink once
-        finishedTyping = true;
         blinkCoroutine = StartCoroutine(BlinkCursor());
 
         // Unregister keyboard callback since we no longer need input
