@@ -15,6 +15,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] radioValveSounds;
     public AudioClip giantValveTurn, giantValveTurn_2;
 
+    [Header("SFX")]
+    public AudioClip endScreenSound;
+
 
     public static AudioManager Instance;
     private void Awake()

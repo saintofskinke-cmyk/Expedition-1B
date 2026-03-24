@@ -553,6 +553,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   flarePrefab: {fileID: 5860162835614752441, guid: 4018ee69cb3acef4c8d2afc12fca46be, type: 3}
+  standardBulb_Unlit: {fileID: 2100000, guid: 4bbcc1710216f724192be98e72429958, type: 2}
+  standardBulb_Lit: {fileID: 2100000, guid: 1c2098262a00fb84c93c38cff8b972c5, type: 2}
 --- !u!114 &8767242204534396534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,7 +596,7 @@ Transform:
   m_GameObject: {fileID: 5537561145107832515}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7136702, z: 0, w: -0.70048195}
-  m_LocalPosition: {x: 29.998781, y: 1.5729998, z: 19.58534}
+  m_LocalPosition: {x: -12.87122, y: 3.9430003, z: 4.9853406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

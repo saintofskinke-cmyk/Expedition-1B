@@ -686,6 +686,7 @@ GameObject:
   - component: {fileID: 3468694089003712351}
   - component: {fileID: 3213170024270272837}
   - component: {fileID: 3442802065119588940}
+  - component: {fileID: 8165668703388838662}
   - component: {fileID: 5017882573345097170}
   m_Layer: 3
   m_Name: Player
@@ -743,7 +744,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5994108340518225187}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96de92966c0e9a24c874ab46e3d29f9a, type: 3}
   m_Name: 
@@ -786,6 +787,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   playerHudDocument: {fileID: 1044379961969129615}
   flareCount: 10
+--- !u!114 &8165668703388838662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994108340518225187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbdb8a005b57e0428535ac9b8740c48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StartPlayerEvent
 --- !u!82 &5017882573345097170
 AudioSource:
   m_ObjectHideFlags: 0

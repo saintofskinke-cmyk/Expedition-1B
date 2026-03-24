@@ -51,6 +51,7 @@ public class InteractionHandler : MonoBehaviour
                     genStart1.PlayGenSound();
                     genStart2.PlayGenSound();
                 }
+                tag = "Untagged";
                 EventManager.StartGenerator();
                 break;
 
@@ -102,6 +103,6 @@ public class InteractionHandler : MonoBehaviour
     {
         interactionAnimator = GetComponent<Animator>();
         boolValue = !boolValue; // Toggle animation state
-        interactionAnimator.SetBool("Activate", boolValue);
+        interactionAnimator.SetBool("Activate", true);
     }
 }

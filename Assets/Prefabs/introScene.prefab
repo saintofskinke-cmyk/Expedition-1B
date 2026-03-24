@@ -51,6 +51,7 @@ MonoBehaviour:
   audioSource: {fileID: 5129368466327374283}
   clickSound: {fileID: 8300000, guid: 9cd09d9691a958c4bbd7113e4edea894, type: 3}
   hideDelay: 4
+  charsPerKey: 3
 --- !u!82 &5129368466327374283
 AudioSource:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: 06cb7c41602b8d94d979bd537933502b, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 9dc90ec82260a7e4f82eecc92d30caed, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Position: 0
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GiantMetalDoor : MonoBehaviour
 {
@@ -78,5 +79,11 @@ public class GiantMetalDoor : MonoBehaviour
             }
         }
         
+    }
+
+    IEnumerator StopVeryEarlyAccessGameplay()
+    {
+        yield return new WaitForSeconds(19.57f);
+        GetComponent<UIDocument>().enabled = true;
     }
 }
