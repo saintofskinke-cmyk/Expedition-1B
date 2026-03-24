@@ -33,13 +33,32 @@ public class TypewriterUI : MonoBehaviour
     // Delay (seconds) before hiding the UI after typing completes
     public float hideDelay = 4f;
 
+    // How many characters to reveal per key press (set to 3)
+    public int charsPerKey = 3;
+
     private Label textLabel;
     private Coroutine blinkCoroutine;
 
+    // UIElements root reference and flag set by KeyDown callback
+    private VisualElement rootElement;
+    private bool nextKeyPressed;
+
     void Awake()
     {
-        VisualElement root = uiDocument.rootVisualElement;
-        textLabel = root.Q<Label>("IntroText");
+        if (uiDocument == null)
+        {
+            Debug.LogError("UIDocument reference is not assigned.");
+            enabled = false;
+            return;
+        }
+
+        rootElement = uiDocument.rootVisualElement;
+        textLabel = rootElement.Q<Label>("IntroText");
+
+        // Make root focusable and register keyboard callback so UIElements receives keys.
+        rootElement.focusable = true;
+        rootElement.RegisterCallback<KeyDownEvent>(OnKeyDown);
+        rootElement.Focus();
 
         textLabel.text = "";
         StartCoroutine(TypeText());
@@ -53,33 +72,56 @@ public class TypewriterUI : MonoBehaviour
         // Toggle used to play sound every other non-space character
         bool playThisCharSound = false;
 
-        foreach (char letter in fullText)
+        int i = 0;
+        int length = fullText.Length;
+
+        while (i < length)
         {
-            textLabel.text += letter;
+            // Wait until the user presses any key on the UIElements root.
+            nextKeyPressed = false;
+            yield return new WaitUntil(() => nextKeyPressed);
 
-            if (letter != ' ')
+            // Reveal up to charsPerKey characters for this key press
+            for (int c = 0; c < charsPerKey && i < length; c++, i++)
             {
-                // Flip the toggle for each non-space char, play only on true
-                playThisCharSound = !playThisCharSound;
+                char letter = fullText[i];
+                textLabel.text += letter;
 
-                if (playThisCharSound && audioSource != null && clickSound != null)
+                if (letter != ' ')
                 {
-                    audioSource.PlayOneShot(clickSound);
-                }
-            }
+                    // Flip the toggle for each non-space char, play only on true
+                    playThisCharSound = !playThisCharSound;
 
-            if (letter == '.')
-                yield return new WaitForSeconds(0.5f);
-            else
-                yield return new WaitForSeconds(typingSpeed);
+                    if (playThisCharSound && audioSource != null && clickSound != null)
+                    {
+                        audioSource.PlayOneShot(clickSound);
+                    }
+                }
+
+                // If you still want a tiny delay between characters inside the batch, uncomment:
+                // yield return new WaitForSeconds(typingSpeed);
+            }
         }
 
         // Typing finished; set flag and start cursor blink once
         finishedTyping = true;
         blinkCoroutine = StartCoroutine(BlinkCursor());
 
+        // Unregister keyboard callback since we no longer need input
+        if (rootElement != null)
+            rootElement.UnregisterCallback<KeyDownEvent>(OnKeyDown);
+
         // Hide UI after configured delay
         StartCoroutine(HideUIAfterDelay());
+    }
+
+    void OnKeyDown(KeyDownEvent evt)
+    {
+        // Accept any key press to advance the text.
+        nextKeyPressed = true;
+
+        // Prevent other handlers from also consuming if needed:
+        evt.StopImmediatePropagation();
     }
 
     IEnumerator BlinkCursor()
