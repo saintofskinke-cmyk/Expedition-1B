@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class StartPlayerEvent : MonoBehaviour
 {
@@ -8,7 +9,10 @@ public class StartPlayerEvent : MonoBehaviour
     }
 
     private void StartPlayerController()
-    { GetComponent<PlayerController>().enabled = true; }
+    { 
+        GetComponent<PlayerController>().enabled = true; 
+        GetComponentInChildren<UIDocument>().rootVisualElement.style.display = DisplayStyle.Flex;
+    }
 
     private void OnDisable()
     {

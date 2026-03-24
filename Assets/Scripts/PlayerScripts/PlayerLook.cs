@@ -36,6 +36,11 @@ public class PlayerLook : MonoBehaviour
         txtPickUp = root.Q<Label>("txtPickUp");
     }
 
+    private void Start()
+    {
+        root.style.display = DisplayStyle.None;
+    }
+
     private void OnEnable()
     {
         lookAction.action.Enable();
