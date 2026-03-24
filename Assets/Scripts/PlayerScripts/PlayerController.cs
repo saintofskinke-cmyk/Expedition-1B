@@ -117,7 +117,6 @@ public class PlayerController : MonoBehaviour
         flashObject.SetActive(false);
         cameraObject.SetActive(false);
         StartCoroutine(Footsteps()); // Start checking if player is moving. If player is moving Play footstep sounds
-
     }
 
     private void Update()
@@ -255,7 +254,7 @@ public class PlayerController : MonoBehaviour
     #region ActionUpdate + Flare
     private void ActionUpdate()
     {
-        if(throwFlareAction.action.WasPressedThisFrame() && inventory.flareCount != 0 && !isFlareThrown && !isCameraInHand && !PlayerLook.hasItemInHand)
+        if(throwFlareAction.action.WasPressedThisFrame() && !isFlareThrown && !isCameraInHand && !PlayerLook.hasItemInHand)
         {
             StartCoroutine(FlareCountdown());
 
@@ -269,7 +268,7 @@ public class PlayerController : MonoBehaviour
             {
                 PlayerLook.TryFlareDrop();
             }
-            else
+            else if (inventory.flareCount != 0)
             {
                 // Instantiate flare and add forward force
                 flare = Instantiate(GM.GetComponent<GameManager>().flarePrefab, eyes.position + eyes.forward, Quaternion.Euler(rndX, rndY, rndZ));
