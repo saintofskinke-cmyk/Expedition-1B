@@ -82,6 +82,7 @@ Transform:
   - {fileID: 3111698446176338173}
   - {fileID: 3344264028004696635}
   - {fileID: 2605234355373858181}
+  - {fileID: 5901083107144599706}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2137843349528551040
@@ -101,6 +102,7 @@ MonoBehaviour:
   - {fileID: 9217722518092885599}
   - {fileID: 3708212118076316876}
   - {fileID: 3393094082604804519}
+  - {fileID: 7633582104880961330}
   currentObjectiveIndex: 0
   playerUIDocument: {fileID: 0}
   playerController: {fileID: 0}
@@ -197,6 +199,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveClass
   description: Turn On The Power
+  requiredProgress: 1
+  currentProgress: 0
+  isComplete: 0
+--- !u!1 &2187646133767742127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5901083107144599706}
+  - component: {fileID: 7633582104880961330}
+  m_Layer: 0
+  m_Name: Objective_ReportScience4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5901083107144599706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187646133767742127}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2971090905590172751}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7633582104880961330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187646133767742127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7ecbac0bfcc9c42ae6bd5fc79f37e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectiveClass
+  description: '''Report'' To Science'
   requiredProgress: 1
   currentProgress: 0
   isComplete: 0
