@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 using DevData;
 
 public class PlayerController : MonoBehaviour
+
+    
+
 {
     #region Parameters
     [Header("Player Components")]
@@ -134,8 +137,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+  
     private void MoveUpdate()
     {
+        
+        {
+            
+        }
         // Jump
         isPlayerGrounded = controller.isGrounded;
         if (isPlayerGrounded && velocity.y < 0f)

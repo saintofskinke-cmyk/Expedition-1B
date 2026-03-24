@@ -4,8 +4,10 @@ using UnityEngine.UIElements;
 
 public class TypewriterUI : MonoBehaviour
 {
+    public System.Action OnFinished;
     public UIDocument uiDocument;
-
+    
+    
     private bool showCursor = true;
     private bool finishedTyping = false;
 
@@ -45,6 +47,7 @@ public class TypewriterUI : MonoBehaviour
 
     void Awake()
     {
+
         if (uiDocument == null)
         {
             Debug.LogError("UIDocument reference is not assigned.");
@@ -160,5 +163,6 @@ public class TypewriterUI : MonoBehaviour
             // Fallback: disable this GameObject if UIDocument is not assigned
             gameObject.SetActive(false);
         }
+        OnFinished?.Invoke();
     }
 }
