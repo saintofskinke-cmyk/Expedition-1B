@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5570458008523849588
 Transform:
@@ -49,7 +49,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5596478434186467618
 Transform:
@@ -142,7 +142,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7208523457784056522
 Transform:
@@ -253,6 +253,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 1
   questManager: {fileID: 0}
+  genStart1: {fileID: 0}
+  genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!65 &4997152958630689055
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -290,7 +294,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8690895945364025392
 Transform:

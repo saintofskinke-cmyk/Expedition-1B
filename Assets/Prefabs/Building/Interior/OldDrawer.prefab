@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1848077030508115905
 Transform:
@@ -129,6 +129,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
+  genStart1: {fileID: 0}
+  genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!1 &5316132936570117464
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +150,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2537496314954914502
 Transform:
@@ -260,7 +264,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8910019136359579390
 Transform:
@@ -371,6 +375,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
+  genStart1: {fileID: 0}
+  genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!1 &6090242777448597919
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +397,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &923453089386484797
 Transform:
@@ -500,6 +508,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
+  genStart1: {fileID: 0}
+  genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!1 &7049676995597516181
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +530,7 @@ GameObject:
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2666107473154936893
 Transform:
@@ -629,6 +641,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
+  genStart1: {fileID: 0}
+  genStart2: {fileID: 0}
+  valveSide: 
+  valveNumber: 0
 --- !u!1 &7792674612105815762
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +659,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5988447348177036834
 Transform:
@@ -655,8 +671,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2537496314954914502}
   - {fileID: 923453089386484797}
