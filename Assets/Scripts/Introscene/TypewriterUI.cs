@@ -112,6 +112,7 @@ public class TypewriterUI : MonoBehaviour
         if (uiDocument != null && uiDocument.rootVisualElement != null)
         {
             uiDocument.rootVisualElement.style.display = DisplayStyle.None;
+            EventManager.StartPlayerEvent(); // Trigger the event to start the player
         }
         else
         {
