@@ -145,10 +145,19 @@ public class DoorKeypad : MonoBehaviour
             Invoke(nameof(ResetInput), 1f);
         }
     }
-
+    private void Update()
+    {
+        if (ui.rootVisualElement.style.display == DisplayStyle.Flex)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CloseUI();
+            }
+        }
+    }
     private void ResetInput()
     {
         input = "";
         display.text = "";
     }
-}
+}   
