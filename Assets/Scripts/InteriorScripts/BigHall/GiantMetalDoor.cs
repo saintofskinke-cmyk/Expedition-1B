@@ -81,6 +81,8 @@ public class GiantMetalDoor : MonoBehaviour
                 greenAlarmLamp.SetActive(true);
             }
 
+            GetComponent<AudioSource>().PlayOneShot(AudioManager.Instance.giantMetalDoor_Open);
+
             StartCoroutine(StopVeryEarlyAccessGameplay());
         }
         
