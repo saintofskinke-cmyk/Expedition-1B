@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class InteractionHandler : MonoBehaviour
 {
@@ -72,7 +73,12 @@ public class InteractionHandler : MonoBehaviour
 
             case "Keypad": GetComponent<DoorKeypad>().OpenUI(); break;
 
-            case "Radio_Code": StartCoroutine(GetComponent<RadioCode>().PlayCode(isRadioPlaying)); break;
+            case "Radio_Code": 
+                GetComponent<UIDocument>().rootVisualElement.Q("RadioUI").style.display = DisplayStyle.Flex;
+                UnityEngine.Cursor.lockState = CursorLockMode.None;
+                UnityEngine.Cursor.visible = true;
+                GameManager.Instance.pauseAction.action.Disable();
+                break;
 
             case "RedValve":
                 // Change the turn value
@@ -87,7 +93,7 @@ public class InteractionHandler : MonoBehaviour
                 if (valveTurn == GetComponent<RedValve>().correctValveTurn) {
                     GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, true, valveSide);
                 } else {
-                    GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, true, valveSide);
+                    GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, false, valveSide);
                 }
                 break;
 

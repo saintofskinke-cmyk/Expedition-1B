@@ -10,6 +10,6 @@ public class RedValve : MonoBehaviour
     private void Awake()
     {
         correctValveTurn = Random.Range(0, 8);
-        if (valveSide == "Right") { radio.GetComponent<RadioCode>().SetCode(correctValveTurn, valveNumber, valveSide); }
+        radio.GetComponent<RadioCode>().SetCode(correctValveTurn, valveNumber, valveSide);
     }
 }

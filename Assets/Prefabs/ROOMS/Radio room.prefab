@@ -1866,6 +1866,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8674712785128426091, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8170083380704506001}
+    - targetCorrespondingSourceObject: {fileID: 8674712785128426091, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7516011679665681268}
   m_SourcePrefab: {fileID: 100100000, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
 --- !u!1 &5939318318665704224 stripped
 GameObject:
@@ -1899,8 +1902,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
-  genStart1: {fileID: 0}
-  genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
 --- !u!54 &8170083380704506001
@@ -1930,6 +1931,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7516011679665681268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5939318318665704224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 06cb7c41602b8d94d979bd537933502b, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: b852237fb73e45349ba91ba4a9cdf210, type: 3}
+  m_SortingOrder: 8
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
 --- !u!4 &6582951613358151637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8166468988652011166, guid: d274d31f2dce8334e8351dc8b2935237, type: 3}
