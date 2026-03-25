@@ -1,0 +1,15 @@
+:root {
+}
+
+.button {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.button:active {
+    -unity-background-image-tint-color: rgb(149, 149, 149);
+}
+
+.redValve {
+    color: rgb(103, 9, 9);
+}
