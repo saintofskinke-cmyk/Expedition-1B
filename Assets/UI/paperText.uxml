@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Paper" style="flex-grow: 1; width: 40%; left: 30%; background-color: rgb(190, 190, 190); display: none;">
+        <ui:Label text="код: 6270" name="paperText" style="width: 134px; left: 8%; height: 39px; top: 58%; font-size: 33px; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/TruetypewriterPolyglott-mELa.ttf?fileID=12800000&amp;guid=385400d0edb57e444a2974e12be6e723&amp;type=3#TruetypewriterPolyglott-mELa&quot;);"/>
+        <ui:Label text="Exit [E]" name="exit" style="top: 62%; left: -62%; width: 52px; background-color: rgba(0, 0, 0, 0.4); color: rgb(242, 235, 235);"/>
+        <ui:VisualElement name="logo" style="flex-grow: 1; top: 37px; background-image: url(&quot;project://database/Assets/UI/SecretLogo.png?fileID=21300000&amp;guid=c974936cc5ff9e6418c137775d43a2be&amp;type=3#SecretLogo&quot;); position: absolute; left: 47px; width: 96px; height: 96px; background-color: rgba(0, 0, 0, 0.09); -unity-background-image-tint-color: rgba(255, 255, 255, 0.69);"/>
+    </ui:VisualElement>
+</ui:UXML>

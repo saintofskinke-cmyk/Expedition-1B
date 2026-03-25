@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class InteractionHandler : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class InteractionHandler : MonoBehaviour
     Vector3 objPos;
     private Animator interactionAnimator;
     private bool boolValue = false;
+    private PaperInput paperInput;
 
     private int progressAmount = 1;
     [SerializeField] private int objectiveEventID = 0;
@@ -89,6 +91,12 @@ public class InteractionHandler : MonoBehaviour
                 } else {
                     GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, true, valveSide);
                 }
+                break;
+
+            case "Paper":
+                paperInput = gameObject.GetComponent<PaperInput>();
+                paperInput.ShowPaperText();
+
                 break;
 
             default: PlayAnimation(); break;
