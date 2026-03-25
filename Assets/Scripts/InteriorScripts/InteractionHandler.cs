@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InteractionHandler : MonoBehaviour
 {
+    AudioManager AUDIO;
+    Vector3 objPos;
     private Animator interactionAnimator;
     private bool boolValue = false;
 
@@ -25,11 +27,13 @@ public class InteractionHandler : MonoBehaviour
     private void Start()
     {
         questManager = GameObject.FindGameObjectWithTag("QuestManager").GetComponent<QuestManager>();
+        AUDIO = AudioManager.Instance;
+        objPos = transform.position;
     }
 
     private void Update()
     {
-        if (gameObject.name == "RedValve" && !GiantMetalDoor.isDoorUnlocked)
+        if (name == "RedValve" && !GiantMetalDoor.isDoorUnlocked)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, rotAngle, 0.1f);
         }
@@ -39,11 +43,13 @@ public class InteractionHandler : MonoBehaviour
     {
         // Functionallity for different interactable objects can be added here by using the name of the gameobject as a switch case.
         // This way we can have one script that handles all interactions in the game and we can easily add new interactable objects by adding a new case to the switch statement.
-        switch (gameObject.name)
+        switch (name)
         {
+            case "Door_Metal": PlayAnimation(); AudioSource.PlayClipAtPoint(AUDIO.metalDoorOpen, objPos); break;
+
             case "GeneratorLeverHandle":
                 PlayAnimation();
-                AudioSource.PlayClipAtPoint(AudioManager.Instance.lever, gameObject.transform.position);
+                AudioSource.PlayClipAtPoint(AUDIO.lever, objPos);
                 if (boolValue && objectiveEventID == questManager.currentObjectiveIndex && !alreadyCompleted)
                 {
                     questManager.Progress(progressAmount);
@@ -57,24 +63,20 @@ public class InteractionHandler : MonoBehaviour
 
             case "BigHallLeverHandle":
                 PlayAnimation();
-                AudioSource.PlayClipAtPoint(AudioManager.Instance.lever, gameObject.transform.position);
-                gameObject.GetComponentInParent<BigHallLever>().ActivateLever();
+                AudioSource.PlayClipAtPoint(AUDIO.lever, objPos);
+                GetComponentInParent<BigHallLever>().ActivateLever();
                 break;
 
             case "GiantDoorLeverHandle":
                 PlayAnimation();
-                AudioSource.PlayClipAtPoint(AudioManager.Instance.lever, gameObject.transform.position);
+                AudioSource.PlayClipAtPoint(AUDIO.lever, objPos);
                 StartCoroutine(GetComponentInParent<GiantMetalDoor>().OpenGiantMetalDoor(valveSide));
-                gameObject.GetComponent<Collider>().enabled = false;
+                GetComponent<Collider>().enabled = false;
                 break;
 
-            case "Keypad":
-                GetComponent<DoorKeypad>().OpenUI();
-                break;
+            case "Keypad": GetComponent<DoorKeypad>().OpenUI(); break;
 
-            case "Radio_Code":
-                StartCoroutine(gameObject.GetComponent<RadioCode>().PlayCode(isRadioPlaying));
-                break;
+            case "Radio_Code": StartCoroutine(GetComponent<RadioCode>().PlayCode(isRadioPlaying)); break;
 
             case "RedValve":
                 // Change the turn value
@@ -83,19 +85,17 @@ public class InteractionHandler : MonoBehaviour
                 rotAngle = Quaternion.Euler(transform.rotation.x - 45f * valveTurn, transform.rotation.y + 180, transform.rotation.z);
 
                 // Play a different sound at each valve turn
-                AudioSource.PlayClipAtPoint(AudioManager.Instance.redValveSounds[valveTurn], gameObject.transform.position);
+                AudioSource.PlayClipAtPoint(AUDIO.redValveSounds[valveTurn], objPos);
 
                 // Check if Valve is turned correctly
-                if (valveTurn == gameObject.GetComponent<RedValve>().correctValveTurn) {
+                if (valveTurn == GetComponent<RedValve>().correctValveTurn) {
                     GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, true, valveSide);
                 } else {
                     GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, true, valveSide);
                 }
                 break;
 
-            default:
-                PlayAnimation();
-                break;
+            default: PlayAnimation(); break;
         }
     }
 
@@ -103,6 +103,6 @@ public class InteractionHandler : MonoBehaviour
     {
         interactionAnimator = GetComponent<Animator>();
         boolValue = !boolValue; // Toggle animation state
-        interactionAnimator.SetBool("Activate", true);
+        interactionAnimator.SetBool("Activate", boolValue);
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5974305357136468530}
   - component: {fileID: 6094243035746990248}
   - component: {fileID: 7168704447721356334}
+  - component: {fileID: 4270817343530385624}
   m_Layer: 0
   m_Name: OldDrawer_2
   m_TagString: Interactable
@@ -133,6 +134,28 @@ MonoBehaviour:
   genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
+--- !u!95 &4270817343530385624
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3453378686056449261}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a3ff1333a737588458df695dc4d44538, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5316132936570117464
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +282,7 @@ GameObject:
   - component: {fileID: 3530650358122084836}
   - component: {fileID: 3621764194791869699}
   - component: {fileID: 8723501495452306686}
+  - component: {fileID: 5865034650149354957}
   m_Layer: 0
   m_Name: OldDrawer_3
   m_TagString: Interactable
@@ -379,6 +403,28 @@ MonoBehaviour:
   genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
+--- !u!95 &5865034650149354957
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927863314169447824}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1391db71b8c851d47851129884458a53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6090242777448597919
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +438,7 @@ GameObject:
   - component: {fileID: 404098343195195007}
   - component: {fileID: 9050825053230711632}
   - component: {fileID: 484325388698504404}
+  - component: {fileID: 3759402961608328381}
   m_Layer: 0
   m_Name: OldDrawer_1
   m_TagString: Interactable
@@ -512,6 +559,28 @@ MonoBehaviour:
   genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
+--- !u!95 &3759402961608328381
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6090242777448597919}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 55d7e7414e5920e4c8729892bb7ccfba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7049676995597516181
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +594,7 @@ GameObject:
   - component: {fileID: 5883227480417400264}
   - component: {fileID: 7988573765487289672}
   - component: {fileID: 1994616219261031285}
+  - component: {fileID: 4122981442808864825}
   m_Layer: 0
   m_Name: OldDrawer_4
   m_TagString: Interactable
@@ -645,6 +715,28 @@ MonoBehaviour:
   genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
+--- !u!95 &4122981442808864825
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7049676995597516181}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 526858e5088722c41b0c291971d7e246, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7792674612105815762
 GameObject:
   m_ObjectHideFlags: 0

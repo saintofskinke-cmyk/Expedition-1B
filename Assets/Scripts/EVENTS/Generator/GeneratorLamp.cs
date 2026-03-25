@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class GeneratorLamp : MonoBehaviour
 {
-    
-    private void Start()
-    {
-        EventManager.Generator += TurnOnLight;
-    }
+    [SerializeField] private Material materialLit;
+
+    private void Start() { EventManager.Generator += TurnOnLight; }
 
     private void TurnOnLight()
     {
-        GetComponentInChildren<Light>().enabled = true;
-        transform.GetChild(1).GetComponent<MeshRenderer>().material = GameManager.Instance.standardBulb_Lit;
+        foreach (Light light in GetComponentsInChildren<Light>()) { light.enabled = true; }
+        GetComponent<MeshRenderer>().material = materialLit;
+        GetComponent<AudioSource>().Play();
     }
 
     private void OnDisable()
