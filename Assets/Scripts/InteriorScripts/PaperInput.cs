@@ -1,28 +1,46 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class PaperInput : MonoBehaviour
 {
-    private UIDocument uIDocument;
+    public PlayerController controller;
+    public PlayerLook playerLook;
+    public InputAction exitUI;
+    
+    private UIDocument paperUIDocument;
     private VisualElement paperUI;
+    private bool showingPaper;
 
     private void UpdateUI()
     {
-        uIDocument = gameObject.GetComponent<UIDocument>();
-        paperUI = uIDocument.rootVisualElement.Q<VisualElement>("Paper");
+        paperUIDocument = gameObject.GetComponent<UIDocument>();
+        paperUI = paperUIDocument.rootVisualElement.Q<VisualElement>("Paper");
         paperUI.style.display = DisplayStyle.None;
     }
 
     public void ShowPaperText()
     {
         UpdateUI();
+        showingPaper = true;
         paperUI.style.display = DisplayStyle.Flex;
-        StartCoroutine(HidePaper());
+        HidePaper();
     }
 
-    System.Collections.IEnumerator HidePaper()
+    private void HidePaper()
     {
-        yield return new WaitForSeconds(4f);
-        paperUI.style.display = DisplayStyle.None;
+        while (showingPaper)
+        {
+            controller.enabled = false;
+            playerLook.enabled = false;
+            
+            if(GameManager.Instance.exitUIAction.action.WasPressedThisFrame())
+            {
+                paperUI.style.display = DisplayStyle.None;
+                showingPaper = false;
+                controller.enabled = true;
+                playerLook.enabled = true;
+            }
+        }
     }
 }

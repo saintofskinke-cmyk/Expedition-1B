@@ -912,6 +912,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3602216059719989969, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5036068552155920496, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -956,6 +960,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6555401898879488796, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: exitUIAction
+      value: 
+      objectReference: {fileID: -1588780323783365677, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 8926005970400234228, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
       propertyPath: mainCameraParent
       value: 
@@ -1375,6 +1383,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3213170024270272837, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4623443493189301731, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: unlockRadioDoor
       value: 
@@ -1696,6 +1708,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99eda0acba38ff94aa571a176f0b6d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  controller: {fileID: 1316908291}
+  playerLook: {fileID: 2115834920}
 --- !u!65 &1754854261
 BoxCollider:
   m_ObjectHideFlags: 0
