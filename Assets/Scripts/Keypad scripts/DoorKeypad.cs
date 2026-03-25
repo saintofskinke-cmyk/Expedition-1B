@@ -6,10 +6,10 @@ public class DoorKeypad : MonoBehaviour
 {
     public string correctCode = "1957";
 
-    public UIDocument ui; // -------- brug hellere "private VisualElement root;" da "root" er hurtigere og lettere at overskue end "ui.rootVisualElement". Det er ikke noget der gør det store, men det er bare god practice ;P 
+    public UIDocument ui;
 
     public MonoBehaviour playerMovement;
-    public MonoBehaviour playerLook;   // ← NY -------- What does NY mean?
+    public MonoBehaviour playerLook;   // ← NY
 
     public Animator doorAnimator;
     public string openTriggerName = "Activate"; // ------- Unused?
@@ -20,11 +20,11 @@ public class DoorKeypad : MonoBehaviour
 
     private void Awake()
     {
-        ui = GetComponent<UIDocument>(); // -------- her vil vi istedet skrive "root = GetComponent<UIDocument>().rootVisualElement;". Nu kan vi replace "ui.rootVisualElement" med "root". JUUUBIIII ;D)-< 
+        ui = GetComponent<UIDocument>();
 
         keypadButtons = ui.rootVisualElement.Query<Button>().ToList();
 
-        foreach (Button button in keypadButtons) // ------ Nice brug af foreach loop ;D
+        foreach (Button button in keypadButtons) 
         {
             button.RegisterCallback<ClickEvent>(OnButtonClicked);
         }
