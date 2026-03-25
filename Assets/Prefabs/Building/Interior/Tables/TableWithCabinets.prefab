@@ -242,8 +242,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
-  genStart1: {fileID: 0}
-  genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
 --- !u!1 &1588156431849545660
@@ -782,8 +780,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
-  genStart1: {fileID: 0}
-  genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
 --- !u!1 &2428051148085050107
@@ -1027,8 +1023,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
-  genStart1: {fileID: 0}
-  genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
 --- !u!1 &3368629836689728681
@@ -1040,6 +1034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5605899659094587240}
+  - component: {fileID: 5681982266113166795}
   m_Layer: 0
   m_Name: TableWithCabinets
   m_TagString: Untagged
@@ -1057,8 +1052,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.090429, y: -0.0000000018561934, z: -17.162779}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7374938043231750919}
   - {fileID: 5129999506864466448}
@@ -1071,6 +1066,20 @@ Transform:
   - {fileID: 4402416152923284401}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5681982266113166795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3368629836689728681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
+  questManager: {fileID: 0}
+  objectiveEventID: 4
 --- !u!1 &3641245928741531189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,8 +1232,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
-  genStart1: {fileID: 0}
-  genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
 --- !u!1 &3952591489122414106
@@ -1378,8 +1385,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
-  genStart1: {fileID: 0}
-  genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
 --- !u!1 &4399468059436037389
@@ -1983,8 +1988,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
-  genStart1: {fileID: 0}
-  genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
 --- !u!1 &7386307392348105656
@@ -2138,8 +2141,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
-  genStart1: {fileID: 0}
-  genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
 --- !u!1 &7607040626873071185
@@ -2474,8 +2475,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionHandler
   objectiveEventID: 0
   questManager: {fileID: 0}
-  genStart1: {fileID: 0}
-  genStart2: {fileID: 0}
   valveSide: 
   valveNumber: 0
 --- !u!1 &9169299377220722345
