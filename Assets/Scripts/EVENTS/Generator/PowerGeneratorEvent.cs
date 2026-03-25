@@ -15,7 +15,10 @@ public class PowerGeneratorEvent : MonoBehaviour
 
     private void PowerGenerator()
     {
-        generatorAlarmLamp.GetComponentInChildren<Light>().enabled = false;
+        foreach (Light light in generatorAlarmLamp.GetComponentsInChildren<Light>())
+        {
+            light.enabled = false;
+        }
 
         // Audio
         generatorAudio.PlayOneShot(AudioManager.Instance.generatorRoom_StartUp);
