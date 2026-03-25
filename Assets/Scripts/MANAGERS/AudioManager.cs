@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     [Header("SFX")]
     public AudioClip endScreenSound;
     public AudioClip metalDoorUnlock;
-
+    public AudioClip metalDoorOpen;
 
     public static AudioManager Instance;
     private void Awake()
