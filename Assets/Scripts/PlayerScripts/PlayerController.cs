@@ -393,7 +393,7 @@ public class PlayerController : MonoBehaviour
         //draws the raycast from start to finish - for debugging
         Debug.DrawRay(ray.origin, ray.direction * 25f, Color.red, 5f);
 
-        //using previous ray and hit (output) with a distance of 10f, layermask ~0 (everything), ignore trigger colliders
+        //using previous ray and hit (output) with a distance of 10f, using photoLayers LayerMask, and ignorering trigger colliders
         if (Physics.SphereCast(ray, 0.15f, out hit, 25f, photoLayers, QueryTriggerInteraction.Ignore))
         {
             //name of the hit object

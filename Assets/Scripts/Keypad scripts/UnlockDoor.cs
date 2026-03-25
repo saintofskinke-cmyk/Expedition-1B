@@ -31,6 +31,6 @@ public class UnlockDoor : MonoBehaviour
     public void LockWithoutKey()
     {
 
-        gameObject.tag = null;
+        gameObject.tag = "Untagged";
     }
 }
