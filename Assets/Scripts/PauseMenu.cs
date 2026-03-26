@@ -83,7 +83,7 @@ public class PauseMenu : MonoBehaviour
         UpdateSettings();
     }
 
-    private void UpdateSettings()
+    public void UpdateSettings()
     {
         playerLook.mouseSens = mouseSensSlider.value * 0.25f + 1; // Sætter mouse sensitivity til sliderens værdi
     }

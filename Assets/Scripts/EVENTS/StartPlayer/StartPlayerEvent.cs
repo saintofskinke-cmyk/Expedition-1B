@@ -10,7 +10,8 @@ public class StartPlayerEvent : MonoBehaviour
 
     private void StartPlayerController()
     { 
-        GetComponent<PlayerController>().enabled = true; 
+        GetComponent<PlayerController>().enabled = true;
+        GetComponentInChildren<PlayerLook>().Enable();
         GetComponentInChildren<UIDocument>().rootVisualElement.style.display = DisplayStyle.Flex;
     }
 

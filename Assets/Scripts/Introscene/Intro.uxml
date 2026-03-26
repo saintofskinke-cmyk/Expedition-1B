@@ -1,5 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; background-color: black; justify-content: center; align-items: center; flex-direction: row; align-self: stretch;">
         <ui:Label name="IntroText" text="hello there                           " parse-escape-sequences="false" style="color: white; font-size: 24px; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/TruetypewriterPolyglott-mELa.ttf?fileID=12800000&amp;guid=385400d0edb57e444a2974e12be6e723&amp;type=3#TruetypewriterPolyglott-mELa&quot;); -unity-text-align: middle-center; height: 29px; width: 330px; text-overflow: clip; white-space: nowrap;"/>
+        <ui:Label name="PressAnyKey" text="[Press Any Key]" parse-escape-sequences="false" style="color: white; font-size: 24px; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/TruetypewriterPolyglott-mELa.ttf?fileID=12800000&amp;guid=385400d0edb57e444a2974e12be6e723&amp;type=3#TruetypewriterPolyglott-mELa&quot;); -unity-text-align: middle-center; height: 29px; width: 330px; text-overflow: clip; white-space: nowrap; position: absolute;"/>
     </ui:VisualElement>
 </ui:UXML>

@@ -1,9 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class PlayerLook : MonoBehaviour
 {
+    [SerializeField] private GameObject pauseMenu;
+
     [SerializeField] private PlayerController playerController;
 
     [Header("Actions")]
@@ -34,11 +37,16 @@ public class PlayerLook : MonoBehaviour
         UnityEngine.Cursor.visible = false;
         root = playerHudDocument.GetComponent<UIDocument>().rootVisualElement;
         txtPickUp = root.Q<Label>("txtPickUp");
+        mouseSens = 0f;
     }
 
     private void Start()
     {
         root.style.display = DisplayStyle.None;
+    }
+
+    public void Enable() { 
+        pauseMenu.GetComponent<PauseMenu>().UpdateSettings();
     }
 
     private void OnEnable()
@@ -70,7 +78,7 @@ public class PlayerLook : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -89f, 89f);
 
         // Camera rotation & orientation
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        transform.rotation = Quaternion.Euler(xRotation, yRotation - 90f, 0f);
         orientation.rotation = Quaternion.Euler(0f, yRotation, 0f);
     }
 
