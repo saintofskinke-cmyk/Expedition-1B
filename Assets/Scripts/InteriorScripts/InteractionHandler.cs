@@ -74,7 +74,14 @@ public class InteractionHandler : MonoBehaviour
 
             case "Keypad": GetComponent<DoorKeypad>().OpenUI(); break;
 
-            case "Radio_Code": StartCoroutine(GetComponent<RadioCode>().PlayCode(isRadioPlaying)); break;
+            case "Radio_Code": 
+                StartCoroutine(GetComponent<RadioCode>().PlayCode(isRadioPlaying));
+
+                if(questManager.currentObjectiveIndex == objectiveEventID)
+                {
+                    questManager.Progress(progressAmount);
+                }
+                    break;
 
             case "RedValve":
                 // Change the turn value

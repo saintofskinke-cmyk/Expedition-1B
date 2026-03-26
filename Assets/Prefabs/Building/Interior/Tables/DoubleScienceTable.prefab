@@ -530,13 +530,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5653956060735274, guid: 7dcd31a1340dd6a4681da6db945f7fe1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5429818127139860524}
   m_SourcePrefab: {fileID: 100100000, guid: 7dcd31a1340dd6a4681da6db945f7fe1, type: 3}
 --- !u!4 &2605712141741045031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9074289471268464306, guid: 7dcd31a1340dd6a4681da6db945f7fe1, type: 3}
   m_PrefabInstance: {fileID: 6469143038037037973}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6472540657388942527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5653956060735274, guid: 7dcd31a1340dd6a4681da6db945f7fe1, type: 3}
+  m_PrefabInstance: {fileID: 6469143038037037973}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5429818127139860524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6472540657388942527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
+  questManager: {fileID: 0}
+  objectiveEventID: 5
 --- !u!1001 &7219996089232787473
 PrefabInstance:
   m_ObjectHideFlags: 0
