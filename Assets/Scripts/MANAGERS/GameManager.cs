@@ -16,17 +16,14 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Input")]
     public InputActionReference pauseAction;
-    public InputActionReference exitUIAction;
 
     private void OnEnable()
     {
         pauseAction.action.Enable();
-        exitUIAction.action.Enable();
     }
     private void OnDisable()
     {
         pauseAction.action.Disable();
-        exitUIAction.action.Disable();
     }
     
     public static GameManager Instance;
