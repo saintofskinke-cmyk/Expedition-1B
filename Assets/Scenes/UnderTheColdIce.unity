@@ -231,6 +231,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 339999572}
   m_LocalEulerAnglesHint: {x: 0, y: -179.997, z: 0}
+--- !u!1 &208262527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4710544425209960456, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+  m_PrefabInstance: {fileID: 573982701}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &224828317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2373537514122728941, guid: 010f8b1b89f812c44a527ed47b8783e2, type: 3}
@@ -952,6 +957,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4623443493189301731, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 208262527}
+    - target: {fileID: 4623443493189301731, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: unlockRadioDoor
       value: 
       objectReference: {fileID: 2045532464}
@@ -1184,7 +1193,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1118946925}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96de92966c0e9a24c874ab46e3d29f9a, type: 3}
   m_Name: 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 408543854345016833}
   - component: {fileID: 4950813015386265111}
   - component: {fileID: 2705556926152875102}
+  - component: {fileID: 4032464046388001996}
   m_Layer: 0
   m_Name: USSR logo
   m_TagString: Untagged
@@ -90,3 +91,24 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4032464046388001996
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4882703030364765576}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.403976, y: 2.3580582, z: 0.4684809}
+  m_Center: {x: -0.004234255, y: -0.024523554, z: 0.08281563}
