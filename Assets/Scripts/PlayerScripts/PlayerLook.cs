@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 public class PlayerLook : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
-
     [SerializeField] private PlayerController playerController;
+    public static PlayerLook Instance;
 
     [Header("Actions")]
     [SerializeField] private InputActionReference lookAction;
@@ -27,27 +27,29 @@ public class PlayerLook : MonoBehaviour
     private Transform originalHandItemAnchor, originalHandFlareAnchor;
     public Transform itemInHand;
     public GameObject playerHudDocument, flareInHand;
+    public UnlockDoor unlockRadioDoor;
+
+    [Header("UI Parameters")]
     private VisualElement root;
     private Label txtPickUp;
-    public UnlockDoor unlockRadioDoor;
+    public Label txtQuest;
 
     private void Awake()
     {
+        if (Instance != null) { Destroy(gameObject); }
+        else { Instance = this; }
+        
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
         root = playerHudDocument.GetComponent<UIDocument>().rootVisualElement;
         txtPickUp = root.Q<Label>("txtPickUp");
+        txtQuest = root.Q<Label>("ObjectiveDisplayText");
         mouseSens = 0f;
     }
 
-    private void Start()
-    {
-        root.style.display = DisplayStyle.None;
-    }
+    private void Start() { root.style.display = DisplayStyle.None; }
 
-    public void Enable() { 
-        pauseMenu.GetComponent<PauseMenu>().UpdateSettings();
-    }
+    public void Enable() { pauseMenu.GetComponent<PauseMenu>().UpdateSettings(); }
 
     private void OnEnable()
     {
@@ -121,6 +123,7 @@ public class PlayerLook : MonoBehaviour
 
                             case "Flare":
                                 if (isHoldingFlare) { return; }
+                                if (Inventory.Instance.flareCount == 9) { txtQuest.text = " "; }
                                 originalHandFlareAnchor = hit.transform.parent;
                                 OnItemPickedUp(hit, secondHandAnchor);
                                 isHoldingFlare = true;

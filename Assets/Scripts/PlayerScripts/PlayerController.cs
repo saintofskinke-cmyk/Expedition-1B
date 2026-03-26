@@ -271,6 +271,8 @@ public class PlayerController : MonoBehaviour
             }
             else if (inventory.flareCount != 0)
             {
+                if (inventory.flareCount == 10) { PlayerLook.Instance.txtQuest.text = "Pick Up Flare [R]"; }
+
                 // Instantiate flare and add forward force
                 flare = Instantiate(GM.GetComponent<GameManager>().flarePrefab, eyes.position + eyes.forward, Quaternion.Euler(rndX, rndY, rndZ));
                 inventory.RemoveItem("Flare"); // Remove flare from inventory

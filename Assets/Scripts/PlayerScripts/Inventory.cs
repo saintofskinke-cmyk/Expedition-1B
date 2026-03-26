@@ -3,6 +3,8 @@ using UnityEngine.UIElements;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance;
+
     [Header("UI Elements")]
     public GameObject playerHudDocument;
     private VisualElement root;
@@ -17,6 +19,9 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null) { Destroy(gameObject); }
+        else {  Instance = this; }
+
         UpdatePlayerHud();
     }
 
