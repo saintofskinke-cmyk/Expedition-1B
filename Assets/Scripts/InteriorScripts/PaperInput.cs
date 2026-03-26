@@ -43,7 +43,7 @@ public class PaperInput : MonoBehaviour
             playerLook.enabled = false;
             playerUIDocument.enabled = false;
             
-            if(GameManager.Instance.exitUIAction.action.WasPressedThisFrame())
+            if(GameManager.Instance.interAction.action.WasPressedThisFrame())
             {
                 paperUI.style.display = DisplayStyle.None;
                 showingPaper = false;

@@ -11,7 +11,6 @@ public class PlayerLook : MonoBehaviour
 
     [Header("Actions")]
     [SerializeField] private InputActionReference lookAction;
-    [SerializeField] private InputActionReference handInterAction;
     [SerializeField] private InputActionReference handPickUpAction;
 
     [Header("Looking Parameters")]
@@ -53,14 +52,12 @@ public class PlayerLook : MonoBehaviour
     private void OnEnable()
     {
         lookAction.action.Enable();
-        handInterAction.action.Enable();
         handPickUpAction.action.Enable();
     }
 
     private void OnDisable()
     {
         lookAction.action.Disable();
-        handInterAction.action.Disable();
         handPickUpAction.action.Disable();
     }
 
@@ -96,7 +93,7 @@ public class PlayerLook : MonoBehaviour
                     else { txtPickUp.text = "[E]"; }
                     txtPickUp.style.display = DisplayStyle.Flex;
                     
-                    if (handInterAction.action.WasPressedThisFrame())
+                    if (GameManager.Instance.interAction.action.WasPressedThisFrame())
                     {
                         hitObj.GetComponent<InteractionHandler>().StartInteractionLogic();
                         return;

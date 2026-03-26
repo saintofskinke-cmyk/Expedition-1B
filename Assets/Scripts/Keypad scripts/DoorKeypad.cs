@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 public class DoorKeypad : MonoBehaviour
 {
     public string correctCode = "1957";
+    [SerializeField] private string correctText;
 
     public UIDocument ui;
 
@@ -126,7 +127,8 @@ public class DoorKeypad : MonoBehaviour
     {
         if (input == correctCode)
         {
-            display.text = "Correct";
+            display.text = correctText;
+            display.style.color = Color.green;
 
             if (doorAnimator != null)
             {
@@ -143,6 +145,7 @@ public class DoorKeypad : MonoBehaviour
         else
         {
             display.text = "Wrong";
+            display.style.color = Color.red;
             Invoke(nameof(ResetInput), 1f);
         }
     }
@@ -154,11 +157,17 @@ public class DoorKeypad : MonoBehaviour
             {
                 CloseUI();
             }
+
+            if (GameManager.Instance.interAction.action.WasPressedThisFrame())
+            {
+                CloseUI();
+            }
         }
     }
     private void ResetInput()
     {
         input = "";
         display.text = "";
+        display.style.color = new Color(1f, 0.8196079f, 0f);
     }
 }   
