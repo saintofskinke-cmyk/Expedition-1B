@@ -11,9 +11,6 @@ public class GiantMetalDoor : MonoBehaviour
     [SerializeField] private GameObject leverLeft, leverRight, alarmLampLeft, alarmLampRight;
     [SerializeField] private GameObject[] alarmLamp_green;
     private Animator anim;
-    [SerializeField] private QuestManager questManager;
-    private int progressAmount = 1;
-    [SerializeField] private int objectiveEventID = 0;
 
     private void Awake()
     {
@@ -78,12 +75,6 @@ public class GiantMetalDoor : MonoBehaviour
         if (anim.GetBool("LeverLeft") == true && anim.GetBool("LeverRight") == true)
         {
             isDoorUnlocked = true;
-            
-            if(questManager.currentObjectiveIndex == objectiveEventID)
-            {
-                questManager.Progress(progressAmount);
-            }
-
             yield return new WaitForSeconds(1f);
 
             foreach (GameObject greenAlarmLamp in alarmLamp_green) {

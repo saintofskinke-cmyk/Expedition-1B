@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6794136766356638316}
   - component: {fileID: 710920213836930776}
   - component: {fileID: 7765626529936176017}
-  - component: {fileID: 1035187862435895225}
   m_Layer: 0
   m_Name: GlassBottle
   m_TagString: Item
@@ -141,17 +140,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1035187862435895225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8600211170105241090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
-  questManager: {fileID: 0}
-  objectiveEventID: 5

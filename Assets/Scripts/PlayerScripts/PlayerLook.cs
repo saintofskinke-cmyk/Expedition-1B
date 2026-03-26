@@ -27,7 +27,6 @@ public class PlayerLook : MonoBehaviour
     public GameObject playerHudDocument, flareInHand;
     private VisualElement root;
     private Label txtPickUp;
-    public UnlockDoor unlockRadioDoor;
 
     private void Awake()
     {
@@ -127,11 +126,6 @@ public class PlayerLook : MonoBehaviour
                                 if (hit.collider.gameObject.GetComponent<ItemPickupEvent>() != null)
                                 {
                                     hit.collider.gameObject.GetComponent<ItemPickupEvent>().OnPickup();
-
-                                    if(unlockRadioDoor != null)
-                                    {
-                                        unlockRadioDoor.UnlockWithKey();
-                                    }
                                 }
                                 SetItemInHand(hit);
                                 break;
@@ -162,11 +156,7 @@ public class PlayerLook : MonoBehaviour
             {
                 itemInHand.GetComponentInChildren<Light>().transform.localPosition = new Vector3(0f, 0.92f, 0f); // Change the position of the light to make it look better when dropped
             }
-            else if (itemInHand.CompareTag("ImportantItem"))
-            {
-                unlockRadioDoor.LockWithoutKey();
-            }
-                OnItemDropped(itemInHand, originalHandItemAnchor, 10f);
+            OnItemDropped(itemInHand, originalHandItemAnchor, 10f);
             hasItemInHand = false;
         }
     }
