@@ -38,6 +38,7 @@ public class TypewriterUI : MonoBehaviour
     public int charsPerKey = 3;
 
     private Label textLabel;
+    private Label pressAnyKey;
     private Coroutine blinkCoroutine;
 
     // UIElements root reference and flag set by KeyDown callback
@@ -56,6 +57,8 @@ public class TypewriterUI : MonoBehaviour
 
         rootElement = uiDocument.rootVisualElement;
         textLabel = rootElement.Q<Label>("IntroText");
+        pressAnyKey = rootElement.Q<Label>("PressAnyKey");
+
 
         // Make root focusable and register keyboard callback so UIElements receives keys.
         rootElement.focusable = true;
@@ -63,14 +66,13 @@ public class TypewriterUI : MonoBehaviour
         rootElement.Focus();
 
         textLabel.text = "";
+        
         StartCoroutine(TypeText());
     }
 
+   
     IEnumerator TypeText()
     {
-        // Clear at start
-        textLabel.text = "";
-
         // Toggle used to play sound every other non-space character
         bool playThisCharSound = false;
 
@@ -82,6 +84,8 @@ public class TypewriterUI : MonoBehaviour
             // Wait until the user presses any key on the UIElements root.
             nextKeyPressed = false;
             yield return new WaitUntil(() => nextKeyPressed);
+            pressAnyKey.style.display = DisplayStyle.None;
+
 
             // Reveal up to charsPerKey characters for this key press
             for (int c = 0; c < charsPerKey && i < length; c++, i++)

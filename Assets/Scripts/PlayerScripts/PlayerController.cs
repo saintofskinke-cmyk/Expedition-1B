@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
         flashObject.SetActive(false);
         cameraObject.SetActive(false);
         StartCoroutine(Footsteps()); // Start checking if player is moving. If player is moving Play footstep sounds
+        GetComponent<PlayerController>().enabled = false; // Disable player movement until the StartPlayer event is invoked
     }
 
     private void Update()
