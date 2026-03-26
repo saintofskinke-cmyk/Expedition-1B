@@ -1199,75 +1199,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5939318318665704224, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
   m_PrefabInstance: {fileID: 6026284112322916224}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1612723329
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2601827992826226257, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: playerLook
-      value: 
-      objectReference: {fileID: 2115834920}
-    - target: {fileID: 2601827992826226257, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: doorAnimator
-      value: 
-      objectReference: {fileID: 1180000539}
-    - target: {fileID: 2601827992826226257, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: playerMovement
-      value: 
-      objectReference: {fileID: 1316908291}
-    - target: {fileID: 3632339432381091354, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.4242425
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632339432381091354, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5803406
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632339432381091354, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -48.681137
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632339432381091354, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7070995
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632339432381091354, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7070998
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632339432381091354, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.0031839292
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632339432381091354, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0031839288
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632339432381091354, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632339432381091354, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632339432381091354, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 180.516
-      objectReference: {fileID: 0}
-    - target: {fileID: 8438464504597823526, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
-      propertyPath: m_Name
-      value: Keypad
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
 --- !u!1001 &1741575456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1540,6 +1471,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75157045300bc9048b827558904b1054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
+--- !u!114 &1864478075 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2137843349528551040, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+  m_PrefabInstance: {fileID: 331023171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3b9c55a1c2fe544b848fbfdcb1649d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestManager
 --- !u!4 &1871193148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6373232112086582899, guid: 1983c9d0b6af348419121308e140aa7d, type: 3}
@@ -1985,6 +1927,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3758059597585918037, guid: 1f3ee5d365186ac4186f89b022cdfd6b, type: 3}
+      propertyPath: playerLook
+      value: 
+      objectReference: {fileID: 2115834920}
+    - target: {fileID: 3758059597585918037, guid: 1f3ee5d365186ac4186f89b022cdfd6b, type: 3}
+      propertyPath: doorAnimator
+      value: 
+      objectReference: {fileID: 1180000539}
+    - target: {fileID: 3758059597585918037, guid: 1f3ee5d365186ac4186f89b022cdfd6b, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1316908291}
     - target: {fileID: 8875240161682612386, guid: 1f3ee5d365186ac4186f89b022cdfd6b, type: 3}
       propertyPath: m_Name
       value: Map-halls
@@ -2085,10 +2039,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1976284602}
     m_Modifications:
-    - target: {fileID: 1314119351284602113, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
-      propertyPath: m_PanelSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 38c9c4a9cfddeb24686c261b7ef793eb, type: 2}
     - target: {fileID: 3565354491909057733, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.507
@@ -2144,7 +2094,7 @@ PrefabInstance:
     - target: {fileID: 5443686256570502997, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
       propertyPath: questManager
       value: 
-      objectReference: {fileID: 1611380065}
+      objectReference: {fileID: 1864478075}
     - target: {fileID: 5443686256570502997, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
       propertyPath: playerUIDocument
       value: 
@@ -2621,4 +2571,3 @@ SceneRoots:
   - {fileID: 1741575456}
   - {fileID: 1077281247}
   - {fileID: 1771866496}
-  - {fileID: 1612723329}
