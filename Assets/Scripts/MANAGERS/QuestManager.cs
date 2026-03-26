@@ -62,7 +62,7 @@ public class QuestManager : MonoBehaviour
         if(currentObjectiveIndex >= objectiveOrder.Count)
         {
             //You completed the game
-            objectiveDisplay.text = "Go Trough The Door";
+            objectiveDisplay.text = "You Win";
             return;
         }
 

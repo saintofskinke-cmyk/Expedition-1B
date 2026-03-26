@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2214856237532727382}
   - component: {fileID: 2418776113407490917}
   - component: {fileID: 3323117102308399112}
-  - component: {fileID: 299485248172808029}
   m_Layer: 13
   m_Name: Pipette
   m_TagString: Item
@@ -141,17 +140,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &299485248172808029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2759018476444375497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
-  questManager: {fileID: 0}
-  objectiveEventID: 5
