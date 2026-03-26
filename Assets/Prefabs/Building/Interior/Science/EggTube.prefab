@@ -308,7 +308,6 @@ GameObject:
   m_Component:
   - component: {fileID: 981580393722164601}
   - component: {fileID: 2860251199666342920}
-  - component: {fileID: 538580385603167271}
   m_Layer: 0
   m_Name: EggTube
   m_TagString: Untagged
@@ -358,20 +357,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.152368, y: 4.0959244, z: 2.152368}
   m_Center: {x: 0, y: -2.0479622, z: -0.00000011920928}
---- !u!114 &538580385603167271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527854014065670968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
-  questManager: {fileID: 0}
-  objectiveEventID: 5
 --- !u!1 &7484978508332224349
 GameObject:
   m_ObjectHideFlags: 0
