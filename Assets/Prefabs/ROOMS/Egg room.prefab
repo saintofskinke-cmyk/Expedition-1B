@@ -12355,7 +12355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3632339432381091354, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -41.164
+      value: -41.1224
       objectReference: {fileID: 0}
     - target: {fileID: 3632339432381091354, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12396,6 +12396,10 @@ PrefabInstance:
     - target: {fileID: 8438464504597823526, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
       propertyPath: m_Name
       value: Keypad
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438464504597823526, guid: e69b149f37e9e1b409edc9d929c0d534, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
