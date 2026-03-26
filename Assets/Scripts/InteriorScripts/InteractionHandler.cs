@@ -9,6 +9,7 @@ public class InteractionHandler : MonoBehaviour
     Vector3 objPos;
     private Animator interactionAnimator;
     private bool boolValue = false;
+    private PaperInput paperInput;
 
     private int progressAmount = 1;
     [SerializeField] private int objectiveEventID = 0;
@@ -78,7 +79,14 @@ public class InteractionHandler : MonoBehaviour
                 UnityEngine.Cursor.lockState = CursorLockMode.None;
                 UnityEngine.Cursor.visible = true;
                 GameManager.Instance.pauseAction.action.Disable();
-                break;
+                
+                StartCoroutine(GetComponent<RadioCode>().PlayCode(isRadioPlaying));
+
+                if(questManager.currentObjectiveIndex == objectiveEventID)
+                {
+                    questManager.Progress(progressAmount);
+                }
+                    break;
 
             case "RedValve":
                 // Change the turn value
@@ -95,6 +103,12 @@ public class InteractionHandler : MonoBehaviour
                 } else {
                     GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, false, valveSide);
                 }
+                break;
+
+            case "Paper":
+                paperInput = gameObject.GetComponent<PaperInput>();
+                paperInput.ShowPaperText();
+
                 break;
 
             default: PlayAnimation(); break;
