@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6514446617380594720}
   - component: {fileID: 8451192662041617847}
   - component: {fileID: 4672402369076629293}
+  - component: {fileID: 1537339334749468340}
   m_Layer: 0
   m_Name: PaperStack_97
   m_TagString: Untagged
@@ -90,3 +91,17 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1537339334749468340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3614097571900201428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
+  questManager: {fileID: 0}
+  objectiveEventID: 5

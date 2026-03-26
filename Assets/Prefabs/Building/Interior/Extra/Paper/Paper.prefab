@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2007308158482381610}
   - component: {fileID: 1712721478304209464}
   - component: {fileID: 8159276083742899192}
+  - component: {fileID: 8222844393387905781}
+  - component: {fileID: 6922171339838303715}
   m_Layer: 0
   m_Name: Paper
   m_TagString: Untagged
@@ -90,3 +92,50 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8222844393387905781
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204441719955846248}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.21472317, y: 0.013589059, z: 0.29700002}
+  m_Center: {x: 0.002361548, y: 0.003221849, z: -0.0000038126336}
+--- !u!114 &6922171339838303715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204441719955846248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99eda0acba38ff94aa571a176f0b6d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PaperInput
+  controller: {fileID: 0}
+  playerLook: {fileID: 0}
+  questManager: {fileID: 0}
+  inventory: {fileID: 0}
+  exitUI:
+    m_Name: Exit UI
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 745e5f05-16dd-4a87-b201-273bbdc83fce
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  playerUIDocument: {fileID: 0}

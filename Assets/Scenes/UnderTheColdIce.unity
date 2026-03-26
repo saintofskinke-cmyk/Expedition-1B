@@ -448,6 +448,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6555401898879488796, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
+      propertyPath: exitUIAction
+      value: 
+      objectReference: {fileID: -1588780323783365677, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 8926005970400234228, guid: a16c8c13554479b45840a80600e5a68a, type: 3}
       propertyPath: mainCameraParent
       value: 
@@ -947,6 +951,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4623443493189301731, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+      propertyPath: unlockRadioDoor
+      value: 
+      objectReference: {fileID: 2045532464}
     - target: {fileID: 5994108340518225187, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1191,6 +1199,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5939318318665704224, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
   m_PrefabInstance: {fileID: 6026284112322916224}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1611380065 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2137843349528551040, guid: fa6b4117bfe53ff40aa990a0cb92f650, type: 3}
+  m_PrefabInstance: {fileID: 331023171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3b9c55a1c2fe544b848fbfdcb1649d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestManager
 --- !u!1001 &1741575456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1452,6 +1471,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849462211}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1860630172 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3442802065119588940, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
+  m_PrefabInstance: {fileID: 1118946925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75157045300bc9048b827558904b1054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
 --- !u!4 &1871193148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6373232112086582899, guid: 1983c9d0b6af348419121308e140aa7d, type: 3}
@@ -1627,6 +1657,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90757a516df02fa4f807fc6e3bbaa369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  requiresKey: 1
+--- !u!1 &2054462981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1187012261814255041, guid: 1f3ee5d365186ac4186f89b022cdfd6b, type: 3}
+  m_PrefabInstance: {fileID: 2701187001606724782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2054462988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054462981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90757a516df02fa4f807fc6e3bbaa369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnlockDoor
+  requiresKey: 0
 --- !u!114 &2115834920 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4623443493189301731, guid: 1786e80202381c0459fe9bf5c4bc10c1, type: 3}
@@ -1955,6 +2004,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1187012261814255041, guid: 1f3ee5d365186ac4186f89b022cdfd6b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2054462988}
     - targetCorrespondingSourceObject: {fileID: 4344841814772752285, guid: 1f3ee5d365186ac4186f89b022cdfd6b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -2044,6 +2096,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1976284602}
     m_Modifications:
+    - target: {fileID: 1314119351284602113, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
+      propertyPath: m_PanelSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 38c9c4a9cfddeb24686c261b7ef793eb, type: 2}
     - target: {fileID: 3565354491909057733, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.507
@@ -2084,6 +2140,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5443686256570502997, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1860630172}
+    - target: {fileID: 5443686256570502997, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 1316908291}
+    - target: {fileID: 5443686256570502997, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
+      propertyPath: playerLook
+      value: 
+      objectReference: {fileID: 2115834920}
+    - target: {fileID: 5443686256570502997, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
+      propertyPath: questManager
+      value: 
+      objectReference: {fileID: 1611380065}
+    - target: {fileID: 5443686256570502997, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
+      propertyPath: playerUIDocument
+      value: 
+      objectReference: {fileID: 269312514}
     - target: {fileID: 5572627501144748541, guid: d65d9dd43ee0a194d89913a8c2d541d5, type: 3}
       propertyPath: m_Name
       value: Radio room
@@ -2360,7 +2436,8 @@ PrefabInstance:
       value: RadioConnector
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4748441621889055646, guid: 1983c9d0b6af348419121308e140aa7d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6265126350767289438, guid: 1983c9d0b6af348419121308e140aa7d, type: 3}

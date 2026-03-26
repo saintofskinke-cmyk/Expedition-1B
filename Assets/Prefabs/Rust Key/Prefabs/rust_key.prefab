@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2093443782267337543}
   - component: {fileID: 4097195505043946274}
   - component: {fileID: 6502729908431388351}
+  - component: {fileID: 5516171817869817244}
   m_Layer: 0
   m_Name: rust_key
   m_TagString: ImportantItem
@@ -111,7 +112,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1215533875317036940, guid: 0669f3d8f4b119f418a4bbe061cc198f, type: 3}
 --- !u!54 &6502729908431388351
@@ -141,3 +142,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5516171817869817244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374289202576707483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca52170df1b2224aaa45e0c81e2d729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickupEvent
+  questManager: {fileID: 0}
+  progressAmount: 1
+  objectiveEventID: 6

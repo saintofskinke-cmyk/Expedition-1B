@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9074289471268464306}
   - component: {fileID: 5216789414814217338}
   - component: {fileID: 4629600860864337259}
+  - component: {fileID: 6946673789608194447}
   m_Layer: 0
   m_Name: ScienceBottleTable
   m_TagString: Untagged
@@ -78,6 +79,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.518445, y: 0.037882924, z: 2.0819244}
   m_Center: {x: 0, y: 0.7989574, z: 3.9294337e-15}
+--- !u!114 &6946673789608194447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5653956060735274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
+  questManager: {fileID: 0}
+  objectiveEventID: 5
 --- !u!1 &378104993153867153
 GameObject:
   m_ObjectHideFlags: 0

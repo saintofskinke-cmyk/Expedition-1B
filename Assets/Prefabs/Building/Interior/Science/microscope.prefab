@@ -89,6 +89,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4b04c051cf43d5f43926b5727b282af3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5314638579150266491}
+    - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 4b04c051cf43d5f43926b5727b282af3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7035693526758136042}
   m_SourcePrefab: {fileID: 100100000, guid: 4b04c051cf43d5f43926b5727b282af3, type: 3}
 --- !u!1 &2673554489792231587 stripped
 GameObject:
@@ -173,6 +176,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2673554489792231587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotoTargetOfInterest
+  questManager: {fileID: 0}
+  objectiveEventID: 5
+--- !u!1 &6383734020799463546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 4b04c051cf43d5f43926b5727b282af3, type: 3}
+  m_PrefabInstance: {fileID: 3016064253065577970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7035693526758136042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6383734020799463546}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c769ae618f4fbfe43a21a5f31ed56611, type: 3}

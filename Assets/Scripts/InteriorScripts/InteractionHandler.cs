@@ -74,15 +74,13 @@ public class InteractionHandler : MonoBehaviour
 
             case "Keypad": GetComponent<DoorKeypad>().OpenUI(); break;
 
-            case "Radio_Code": 
+            case "Radio_Code":
                 GetComponent<UIDocument>().rootVisualElement.Q("RadioUI").style.display = DisplayStyle.Flex;
                 UnityEngine.Cursor.lockState = CursorLockMode.None;
                 UnityEngine.Cursor.visible = true;
                 GameManager.Instance.pauseAction.action.Disable();
-                
-                StartCoroutine(GetComponent<RadioCode>().PlayCode(isRadioPlaying));
 
-                if(questManager.currentObjectiveIndex == objectiveEventID)
+                if (questManager.currentObjectiveIndex == objectiveEventID)
                 {
                     questManager.Progress(progressAmount);
                 }
