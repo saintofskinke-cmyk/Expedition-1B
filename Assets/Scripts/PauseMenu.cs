@@ -28,6 +28,7 @@ public class PauseMenu : MonoBehaviour
         continueButton.RegisterCallback<ClickEvent>(OnContinueClicked);
         menuButton.RegisterCallback<ClickEvent>(OnMenuClicked);
 
+        menuButton.style.display = DisplayStyle.None; // Skjuler menu knappen indtil videre, da den ikke er implementeret endnu
         root.style.display = DisplayStyle.None;
         UpdateSettings();
     }
