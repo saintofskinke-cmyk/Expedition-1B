@@ -113,15 +113,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "ExitUI",
-                    "type": "Button",
-                    "id": "39f18c40-1e35-4189-9712-4b02734b917b",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -463,28 +454,6 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f2b6d4dc-b869-4d8c-be5f-a0872ad14764",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "afaf9997-9aae-4f79-8fcb-001d14406618",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ExitUI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

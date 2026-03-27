@@ -21,7 +21,7 @@ public class TypewriterUI : MonoBehaviour
         "We don't know that either...\r\n\r\n" +
         "WHO\r\n" +
         "We found an underground cave system under\r\n" +
-        "the ice and i found a door that led to an \r\n" +
+        "the ice and I found a door that led to an \r\n" +
         "underground USSR research facility.\r\n\r\n\r\n" +
         "OBJECTIVE\r\n" +
         "Discover and document...\r\n" +
