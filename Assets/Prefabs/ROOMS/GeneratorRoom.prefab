@@ -1158,7 +1158,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 24.058634, y: 13.490883, z: 41.059414}
   m_Center: {x: 0, y: 3.895172, z: -4.709486}
@@ -1174,6 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9becf6c1889064e84cba37f1958db0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AreaSounds
+  ActivateOnEvent: 0
 --- !u!1 &7485926784953245584
 GameObject:
   m_ObjectHideFlags: 0
