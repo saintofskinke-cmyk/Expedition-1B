@@ -64,7 +64,6 @@ public class RadioCode : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
             isRadioPlaying = false;
-            Debug.Log(isRadioPlaying);
         }
     }
 }

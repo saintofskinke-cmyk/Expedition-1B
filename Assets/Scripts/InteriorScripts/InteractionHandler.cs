@@ -22,7 +22,6 @@ public class InteractionHandler : MonoBehaviour
     private Quaternion rotAngle;
     [SerializeField] private string valveSide;
     [SerializeField] private int valveNumber;
-    private bool isRadioPlaying = false;
 
     private void Start()
     {

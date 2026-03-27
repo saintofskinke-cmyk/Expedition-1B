@@ -9,6 +9,8 @@ public class QuestManager : MonoBehaviour
     public List<ObjectiveClass> objectiveOrder = new List<ObjectiveClass>();
     public int currentObjectiveIndex = 0;
 
+    private bool allObjectiveComplete;
+
     private Label objectiveDisplay;
     [SerializeField] private UIDocument playerUIDocument;
     [SerializeField] private PlayerController playerController;
@@ -26,8 +28,10 @@ public class QuestManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        objectiveDisplay = playerUIDocument.rootVisualElement.Q<Label>("ObjectiveDisplayText");
-        objectiveDisplay.text = objectiveOrder[currentObjectiveIndex].GetDescription();
+        if (!allObjectiveComplete) {
+            objectiveDisplay = playerUIDocument.rootVisualElement.Q<Label>("ObjectiveDisplayText");
+            objectiveDisplay.text = objectiveOrder[currentObjectiveIndex].GetDescription();
+        }
     }
 
     public void Progress(int progressAmount)
@@ -63,6 +67,7 @@ public class QuestManager : MonoBehaviour
         {
             //You completed the game
             objectiveDisplay.text = "Go Trough The Door";
+            allObjectiveComplete = true;
             return;
         }
 

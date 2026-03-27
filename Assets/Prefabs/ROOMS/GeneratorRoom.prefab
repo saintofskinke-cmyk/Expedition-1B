@@ -1002,6 +1002,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8867851642834176964}
   - component: {fileID: 4582823593186833779}
+  - component: {fileID: 4297016155989657785}
+  - component: {fileID: 4545254512869692564}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -1044,9 +1046,9 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1.5
+  DopplerLevel: 0
   MinDistance: 5.76
-  MaxDistance: 41.5
+  MaxDistance: 28.3
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -1139,6 +1141,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &4297016155989657785
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7021603657081148285}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 24.058634, y: 13.490883, z: 41.059414}
+  m_Center: {x: 0, y: 3.895172, z: -4.709486}
+--- !u!114 &4545254512869692564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7021603657081148285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9becf6c1889064e84cba37f1958db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AreaSounds
 --- !u!1 &7485926784953245584
 GameObject:
   m_ObjectHideFlags: 0
