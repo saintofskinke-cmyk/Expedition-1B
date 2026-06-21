@@ -10,4 +10,8 @@ public class EventManager : MonoBehaviour
 
     public static event Action StartPlayer;
     public static void StartPlayerEvent() { StartPlayer?.Invoke(); }
+
+
+    public static event Action Worm;
+    public static void StartWorm() { Worm?.Invoke(); }
 }
