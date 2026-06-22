@@ -101,7 +101,10 @@ public class GiantMetalDoor : MonoBehaviour
     {
         yield return new WaitForSeconds(19.57f);
         EventManager.StartWorm();
+
+        yield return new WaitForSeconds(0.1957f);
         GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().PlayOneShot(AudioManager.Instance.wormScream);
+        
         yield return new WaitForSeconds(1.957f);
         GetComponent<UIDocument>().enabled = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().PlayOneShot(AudioManager.Instance.endScreenSound);
