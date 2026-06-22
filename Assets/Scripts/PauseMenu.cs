@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 
     private VisualElement root;
     private VisualElement playerHudRoot;
-    private Button continueButton, menuButton;
+    private Button continueButton, quitButton;
     private Slider mouseSensSlider;
     [SerializeField] private GameObject mainCameraParent;
     [HideInInspector] public bool isGamePaused;
@@ -22,13 +22,12 @@ public class PauseMenu : MonoBehaviour
         playerHudRoot = mainCameraParent.GetComponent<UIDocument>().rootVisualElement;
 
         continueButton = root.Q<Button>("btnContinue");
-        menuButton = root.Q<Button>("btnMainMenu");
+        quitButton = root.Q<Button>("btnQuit");
         mouseSensSlider = root.Q<Slider>("MouseSensitivity");
 
         continueButton.RegisterCallback<ClickEvent>(OnContinueClicked);
-        menuButton.RegisterCallback<ClickEvent>(OnMenuClicked);
+        quitButton.RegisterCallback<ClickEvent>(OnQuitClicked);
 
-        menuButton.style.display = DisplayStyle.None; // Skjuler menu knappen indtil videre, da den ikke er implementeret endnu
         root.style.display = DisplayStyle.None;
         UpdateSettings();
     }
@@ -78,10 +77,10 @@ public class PauseMenu : MonoBehaviour
         UnityEngine.Cursor.visible = false;
     }
 
-    private void OnMenuClicked(ClickEvent evt)
+    private void OnQuitClicked(ClickEvent evt)
     {
-        Debug.Log("Go back to Main Menu");
         UpdateSettings();
+        Application.Quit();
     }
 
     public void UpdateSettings()

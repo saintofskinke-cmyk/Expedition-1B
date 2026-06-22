@@ -6,7 +6,7 @@
             <ui:GroupBox style="justify-content: space-between; align-self: stretch; flex-direction: column;">
                 <ui:Button text="Continue" name="btnContinue" class="stylePauseButtons"/>
                 <ui:Slider label="Mouse Sensitivity" value="20" high-value="100" name="MouseSensitivity" class="styleSlider"/>
-                <ui:Button text="Menu" name="btnMainMenu" class="stylePauseButtons"/>
+                <ui:Button text="Quit" name="btnQuit" class="stylePauseButtons"/>
             </ui:GroupBox>
         </ui:VisualElement>
     </ui:VisualElement>
