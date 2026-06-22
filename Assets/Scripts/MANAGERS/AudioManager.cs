@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX")]
     public AudioClip endScreenSound;
+    public AudioClip wormScream;
 
     [Header("Doors")]
     public AudioClip metalDoorUnlock;
