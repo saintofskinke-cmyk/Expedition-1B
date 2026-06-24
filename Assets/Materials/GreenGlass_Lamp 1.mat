@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EggWater
+  m_Name: GreenGlass_Lamp 1
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -137,9 +137,9 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.4399999, g: 0.5188677, b: 0, a: 0.12941177}
-    - _Color: {r: 0.43999988, g: 0.5188676, b: 0, a: 0.12941177}
-    - _EmissionColor: {r: 0.0270077, g: 0.035478167, b: 0.0042301216, a: 1}
+    - _BaseColor: {r: 0.15076543, g: 0.49056602, b: 0.011569952, a: 0.22745098}
+    - _Color: {r: 0.15076539, g: 0.49056596, b: 0.011569952, a: 0.22745098}
+    - _EmissionColor: {r: 0, g: 0.8773585, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

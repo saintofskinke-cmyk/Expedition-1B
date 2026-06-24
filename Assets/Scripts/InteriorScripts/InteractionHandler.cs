@@ -98,7 +98,7 @@ public class InteractionHandler : MonoBehaviour
                 if (valveTurn == GetComponent<RedValve>().correctValveTurn) {
                     GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, true, valveSide);
                 } else {
-                    GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, true, valveSide);
+                    GetComponentInParent<GiantMetalDoor>().UnlockGiantMetalDoor(gameObject, false, valveSide);
                 }
                 break;
 
