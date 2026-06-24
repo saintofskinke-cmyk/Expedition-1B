@@ -1789,8 +1789,8 @@ MonoBehaviour:
   sort: 0
   sortMode: 0
   revertSorting: 0
-  indirectDraw: 0
-  computeCulling: 0
+  indirectDraw: 1
+  computeCulling: 1
   frustumCulling: 0
   castShadows: 0
   useExposureWeight: 0
@@ -1818,7 +1818,7 @@ MonoBehaviour:
         materialSettings:
           m_PropertyNames: []
           m_PropertyValues: []
-          renderQueue: -1
+          renderQueue: 2000
 --- !u!114 &114350483966675351
 MonoBehaviour:
   m_ObjectHideFlags: 0

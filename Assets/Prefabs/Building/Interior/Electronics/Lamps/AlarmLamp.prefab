@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5076742347551811121}
   - component: {fileID: 2894629680036197277}
   - component: {fileID: 7925757636957266612}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Roundcube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6513605266262832224}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AlarmLamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 8564998294265025623}
   - component: {fileID: 3610620044654943878}
   - component: {fileID: 7906436320995074301}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 512
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 1318947985643629832}
   - component: {fileID: 2069791906463434624}
   - component: {fileID: 3732263887816910951}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spot Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 512
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 2600509329930750126}
   - component: {fileID: 8933193951533683425}
   - component: {fileID: 783488202822564793}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Circle.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1288774745218604423}
   - component: {fileID: 2068551221194612032}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 530120063282769756}
   - component: {fileID: 2117757782756011130}
   - component: {fileID: 8399297363177857458}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
