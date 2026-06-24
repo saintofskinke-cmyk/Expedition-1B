@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 16
+  m_StaticEditorFlags: 20
   m_IsActive: 1
 --- !u!4 &9213740874601853525
 Transform:
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
+  m_MeshLodSelectionBias: 0.99
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

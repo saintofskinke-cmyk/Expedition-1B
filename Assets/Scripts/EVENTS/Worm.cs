@@ -12,4 +12,5 @@ public class Worm : MonoBehaviour
 
     public void MoveWorm() => anim.SetTrigger("SWIM");
     public void BONK() => anim.SetTrigger("BONK");
+    public void SoundBONK() => GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().PlayOneShot(AudioManager.Instance.windowBonk);
 }
