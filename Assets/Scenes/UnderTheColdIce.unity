@@ -2876,14 +2876,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2701187001606724783}
     m_Modifications:
-    - target: {fileID: 6937663475371498254, guid: 03349afde3796d04a911b1640143c3de, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6937663475371498254, guid: 03349afde3796d04a911b1640143c3de, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 448781456637150279, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -2893,14 +2885,6 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2435582496600997410, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3489946934783756734, guid: 03349afde3796d04a911b1640143c3de, type: 3}
-      propertyPath: m_Name
-      value: FluorescentLamp_Lit
-      objectReference: {fileID: 0}
-    - target: {fileID: 3489946934783756734, guid: 03349afde3796d04a911b1640143c3de, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
@@ -2924,6 +2908,54 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6578831930485604319, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730458471427556221, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568888663303743083, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568888663303743083, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581667516686307105, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254150887408246835, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
+      propertyPath: maxOffTime
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254150887408246835, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
+      propertyPath: minOffTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600184857031669184, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059155932108837627, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
+      propertyPath: maxOffTime
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059155932108837627, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
+      propertyPath: minOffTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489946934783756734, guid: 03349afde3796d04a911b1640143c3de, type: 3}
+      propertyPath: m_Name
+      value: FluorescentLamp_Lit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489946934783756734, guid: 03349afde3796d04a911b1640143c3de, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5373027868617984845, guid: 03349afde3796d04a911b1640143c3de, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -2933,14 +2965,6 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5954968937385833733, guid: 03349afde3796d04a911b1640143c3de, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6578831930485604319, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6730458471427556221, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
@@ -2984,41 +3008,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7568888663303743083, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
+    - target: {fileID: 6937663475371498254, guid: 03349afde3796d04a911b1640143c3de, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 7568888663303743083, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
+    - target: {fileID: 6937663475371498254, guid: 03349afde3796d04a911b1640143c3de, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7581667516686307105, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8254150887408246835, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
-      propertyPath: maxOffTime
-      value: 5.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8254150887408246835, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
-      propertyPath: minOffTime
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8600184857031669184, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9014144218786338722, guid: 03349afde3796d04a911b1640143c3de, type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 9059155932108837627, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
-      propertyPath: maxOffTime
-      value: 5.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9059155932108837627, guid: 21c16879b182eac45a0adc49bcfd8871, type: 3}
-      propertyPath: minOffTime
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
